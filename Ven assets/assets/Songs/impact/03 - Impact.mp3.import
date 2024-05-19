@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ye8pn2a2552d"
+path="res://.godot/imported/03 - Impact.mp3-9858d887910240bd1e4d964157b439d7.mp3str"
+
+[deps]
+
+source_file="res://Ven assets/assets/Songs/impact/03 - Impact.mp3"
+dest_files=["res://.godot/imported/03 - Impact.mp3-9858d887910240bd1e4d964157b439d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

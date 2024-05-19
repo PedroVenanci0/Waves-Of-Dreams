@@ -1,12 +1,12 @@
 [gd_scene load_steps=37 format=3 uid="uid://cyrgwagto13q2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1p06b"]
-[ext_resource type="Texture2D" uid="uid://dqwltv6d6tp6c" path="res://assets/Entites/Untitled.png" id="2_07wrt"]
-[ext_resource type="Texture2D" uid="uid://uprg4cr6j5b0" path="res://assets/mystic_woods_free_2.2/sprites/characters/player.png" id="2_kswsl"]
-[ext_resource type="Animation" uid="uid://cdoenwa5065b6" path="res://assets/Entites/player_attacks/attack_down.res" id="3_m2ogu"]
-[ext_resource type="Animation" uid="uid://b05tsurx3s4da" path="res://assets/Entites/player_attacks/attack_left.res" id="4_sogby"]
-[ext_resource type="Animation" uid="uid://c5fnastrt01pj" path="res://assets/Entites/player_attacks/attack_right.res" id="5_7l5oh"]
-[ext_resource type="Animation" uid="uid://bqnylfyljau41" path="res://assets/Entites/player_attacks/attack_up.res" id="6_5tsxv"]
+[ext_resource type="Texture2D" uid="uid://dqwltv6d6tp6c" path="res://Ven assets/assets/Entites/Untitled.png" id="2_07wrt"]
+[ext_resource type="Texture2D" uid="uid://uprg4cr6j5b0" path="res://Ven assets/assets/mystic_woods_free_2.2/sprites/characters/player.png" id="2_kswsl"]
+[ext_resource type="Animation" uid="uid://cdoenwa5065b6" path="res://Ven assets/assets/Entites/player_attacks/attack_down.res" id="3_m2ogu"]
+[ext_resource type="Animation" uid="uid://b05tsurx3s4da" path="res://Ven assets/assets/Entites/player_attacks/attack_left.res" id="4_sogby"]
+[ext_resource type="Animation" uid="uid://c5fnastrt01pj" path="res://Ven assets/assets/Entites/player_attacks/attack_right.res" id="5_7l5oh"]
+[ext_resource type="Animation" uid="uid://bqnylfyljau41" path="res://Ven assets/assets/Entites/player_attacks/attack_up.res" id="6_5tsxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1e3f"]
 size = Vector2(12.125, 4)
@@ -716,7 +716,7 @@ animation = &"attack_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_rbyxs"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_hqsm3")
-blend_point_0/pos = Vector2(0, 0.9)
+blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_ngcoa")
 blend_point_1/pos = Vector2(0, -1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_spi8l")
@@ -817,10 +817,11 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 tree_root = SubResource("AnimationNodeStateMachine_3qp02")
 anim_player = NodePath("../Animator")
 parameters/attack/blend_position = Vector2(0, 0)
-parameters/idle/blend_position = Vector2(0, -0.028777)
+parameters/idle/blend_position = Vector2(0.00275481, 0.96)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="AttackTimer" type="Timer" parent="."]
@@ -834,6 +835,8 @@ collision_mask = 5
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_5va3e")
 disabled = true
+
+[node name="Remote" type="RemoteTransform2D" parent="."]
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

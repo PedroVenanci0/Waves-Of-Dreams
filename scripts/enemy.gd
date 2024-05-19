@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+@export_category("Variables")
 @export var speed = 32
 @export var enemy_life = 3
 @export var damage_enemy = 1
+@export var knockback_cooldown = 0.5
+
 
 var direction := Vector2.ZERO
 var player_chese = false
@@ -24,10 +27,14 @@ func _on_detection_body_exited(_body):
 func take_damage(damage_player) -> void:
 	enemy_life -= damage_player
 	if enemy_life <= 0:
+		Global.enemies_killed += 1
 		queue_free()
 
 func _on_damage_enemy_body_entered(body):
 	if body.is_in_group("player"):
-		body.take_damage(damage_enemy)
+		body.take_damage(damage_enemy, velocity)
+		set_physics_process(false)
+		await get_tree().create_timer(knockback_cooldown).timeout
+		set_physics_process(true)
 		
-	
+

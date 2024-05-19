@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://daen02rnfeed1"]
 
-[ext_resource type="Texture2D" uid="uid://dpaagj2mwvp22" path="res://assets/Title Screen/wallpaperflare.com_wallpaper.jpg" id="1_gvgoj"]
+[ext_resource type="Texture2D" uid="uid://dpaagj2mwvp22" path="res://Ven assets/assets/Title Screen/wallpaperflare.com_wallpaper.jpg" id="1_gvgoj"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_y6klu"]
-[ext_resource type="Theme" uid="uid://cfxocfekwsruw" path="res://assets/Butons/new_theme.tres" id="2_wfxqr"]
-[ext_resource type="FontFile" uid="uid://bb4f61tpbhck0" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="3_4vd7n"]
-[ext_resource type="AudioStream" uid="uid://io854vm475m8" path="res://assets/Songs/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3" id="4_xu6v4"]
-[ext_resource type="AudioStream" uid="uid://ye8pn2a2552d" path="res://assets/Songs/impact/03 - Impact.mp3" id="5_t0qa4"]
+[ext_resource type="Theme" uid="uid://cfxocfekwsruw" path="res://Ven assets/assets/Butons/new_theme.tres" id="2_wfxqr"]
+[ext_resource type="FontFile" uid="uid://bb4f61tpbhck0" path="res://Ven assets/assets/Fonts/PixelOperator8-Bold.ttf" id="3_4vd7n"]
+[ext_resource type="AudioStream" uid="uid://io854vm475m8" path="res://Ven assets/assets/Songs/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3" id="4_xu6v4"]
+[ext_resource type="AudioStream" uid="uid://ye8pn2a2552d" path="res://Ven assets/assets/Songs/impact/03 - Impact.mp3" id="5_t0qa4"]
 [ext_resource type="Script" path="res://scripts/Start_Buton.gd" id="5_vvekp"]
-[ext_resource type="Texture2D" uid="uid://ppnpygtgqp6" path="res://assets/Title Screen/Swords.png" id="8_35idr"]
+[ext_resource type="Texture2D" uid="uid://ppnpygtgqp6" path="res://Ven assets/assets/Title Screen/Swords.png" id="8_35idr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uw4t"]
 

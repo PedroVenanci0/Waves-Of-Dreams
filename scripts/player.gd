@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
 @onready var player = $"."
-#@onready var ray_right = $ray_right
-#@onready var ray_left = $ray_left
 @onready var _attack_collider = $AttackArea/CollisionShape2D
-@export var _attack_scale = Vector2(1,1)
-
+@onready var enemy:CharacterBody2D = null
+@onready var remote = $Remote as RemoteTransform2D
 
 var _state_machine
 var _is_attacking = false
@@ -17,7 +15,8 @@ var _is_attacking = false
 @export var _acceleration: float = 0.2
 @export var damage_player = 1
 @export var life_player = 3
-#var knockback_vector : Vector2 = Vector2.ZERO
+@export var _attack_scale = Vector2(1,1)
+@export var knockbackPower : int = 2000
 
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
@@ -86,38 +85,19 @@ func _on_attack_area_body_entered(_body) -> void:
 		_body.take_damage(damage_player)
 
 
-func take_damage(damage_enemy) -> void:
+func take_damage(damage_enemy,enemyVelocity) -> void:
 	print("dmg")
 	life_player -= damage_enemy
 	if life_player <= 0:
 		queue_free()
-	
-#func knockback (knockback_force := Vector2.ZERO, duration := 0.25):
-		#if knockback_force != Vector2.ZERO:
-			#knockback_vector = knockback_force
-			#var knocknack_tween := get_tree().create_tween()
-			#knocknack_tween.tween_property(self, "knockback_vector", Vector2.ZERO, duration)
-			#animation.modulate = Color(1,0,0,1)
-			#knocknack_tween.tween_property(animation, "modulate", Color(1,1,1,1), duration)
+	else:
+		knockback(enemyVelocity)
 
-
-#func _on_hurtbox_body_entered(body):
-	#if body.is_in_group("enemies"):
-		#queue_free()
-	#if life_player == 0:
-		#puff = true
-		#$CollisionShape2D.queue_free()
-		#await get_tree().create_timer(0.5).timeout
-		#queue_free()
-	#else:
+func knockback (enemyVelocity: Vector2):
+		var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
+		velocity = knockbackDirection
+		move_and_slide()
 	
-	##KBdir é a direção do knockback, onde ira subtrair o ray cast do que foi detectado pelo outro que foi ou não
-	#var kbDir = sign(int(ray_left.is_colliding()) - int(ray_right.is_colliding()))
-	
-	#if kbDir != 0:
-		##Colocar valor padrão para manuseio
-		#var kbAmount = 200;
-		##Verificar se o valor sera positivo, negativo ou zero
-		#var kbValue = kbAmount * kbDir;
-		##Chama a função take_damage colocando os vetores nescessarios para a função
-		#dknockback(Vector2(kbValue, -kbAmount))
+func follow_camera(camera):
+	var cam_path = camera.get_path()
+	remote.remote_path = cam_path

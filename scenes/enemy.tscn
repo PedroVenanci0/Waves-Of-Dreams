@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_ikupq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
-size = Vector2(14, 12)
+size = Vector2(16, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35uo7"]
 atlas = ExtResource("1_ih5ug")
@@ -96,7 +96,7 @@ position = Vector2(15, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_enemy"]
 show_behind_parent = true
-position = Vector2(-14, -24)
+position = Vector2(-14, -25)
 shape = SubResource("RectangleShape2D_4yh1n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

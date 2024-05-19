@@ -2,8 +2,6 @@ extends Node2D
 
 var enemy_scene := preload("res://scenes/enemy.tscn")
 var spawn_points := []
-@export var max_enemies = 20
-var enemies_spawn = 0
 
 func _ready():
 	# verificando filhos 
@@ -12,7 +10,7 @@ func _ready():
 			spawn_points.append(child)
 
 func _on_timer_timeout():
-	if enemies_spawn < max_enemies: 
+	if Global.enemies_spawn < Global.max_enemies: 
 		# spawn em posição aleatoria dentre as posições possiveis 
 		var spawn  = spawn_points[randi() % spawn_points.size()]
 		# spawn de inimigos 
@@ -20,5 +18,5 @@ func _on_timer_timeout():
 		enemy.position = spawn.position
 		get_parent().get_node("Enemies_group").add_child(enemy)
 		enemy.add_to_group("Enemies")
-		enemies_spawn += 1
+		Global.enemies_spawn += 1
 
