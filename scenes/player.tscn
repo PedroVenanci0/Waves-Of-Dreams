@@ -1,16 +1,16 @@
 [gd_scene load_steps=86 format=3 uid="uid://cyrgwagto13q2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1p06b"]
-[ext_resource type="Texture2D" uid="uid://dqwltv6d6tp6c" path="res://Ven assets/assets/Entites/Untitled.png" id="2_07wrt"]
-[ext_resource type="Texture2D" uid="uid://uprg4cr6j5b0" path="res://Ven assets/assets/mystic_woods_free_2.2/sprites/characters/player.png" id="2_kswsl"]
+[ext_resource type="Texture2D" uid="uid://dqwltv6d6tp6c" path="res://assets/Entites/Untitled.png" id="2_07wrt"]
+[ext_resource type="Texture2D" uid="uid://uprg4cr6j5b0" path="res://assets/mystic_woods_free_2.2/sprites/characters/player.png" id="2_kswsl"]
 [ext_resource type="Texture2D" uid="uid://bc11pnpchloye" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/18.png" id="2_w3b3d"]
-[ext_resource type="Animation" uid="uid://cdoenwa5065b6" path="res://Ven assets/assets/Entites/player_attacks/attack_down.res" id="3_m2ogu"]
+[ext_resource type="Animation" uid="uid://cdoenwa5065b6" path="res://assets/Entites/player_attacks/attack_down.res" id="3_m2ogu"]
 [ext_resource type="Texture2D" uid="uid://bhp3up50m138k" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/10.png" id="3_u1cbr"]
 [ext_resource type="Texture2D" uid="uid://co35fsmbry3ay" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/03.png" id="4_flptk"]
-[ext_resource type="Animation" uid="uid://b05tsurx3s4da" path="res://Ven assets/assets/Entites/player_attacks/attack_left.res" id="4_sogby"]
+[ext_resource type="Animation" uid="uid://b05tsurx3s4da" path="res://assets/Entites/player_attacks/attack_left.res" id="4_sogby"]
 [ext_resource type="Texture2D" uid="uid://beyo1yxxpm6x7" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/04.png" id="5_01b23"]
-[ext_resource type="Animation" uid="uid://c5fnastrt01pj" path="res://Ven assets/assets/Entites/player_attacks/attack_right.res" id="5_7l5oh"]
-[ext_resource type="Animation" uid="uid://bqnylfyljau41" path="res://Ven assets/assets/Entites/player_attacks/attack_up.res" id="6_5tsxv"]
+[ext_resource type="Animation" uid="uid://c5fnastrt01pj" path="res://assets/Entites/player_attacks/attack_right.res" id="5_7l5oh"]
+[ext_resource type="Animation" uid="uid://bqnylfyljau41" path="res://assets/Entites/player_attacks/attack_up.res" id="6_5tsxv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgson"]
 atlas = ExtResource("2_w3b3d")
@@ -333,6 +333,71 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1e3f"]
 size = Vector2(12.125, 4)
+
+[sub_resource type="Animation" id="Animation_63rhv"]
+resource_name = "Healing"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -19)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Texture:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Attack_texture:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_5xaby"]
 length = 0.001
@@ -1000,71 +1065,6 @@ tracks/4/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_63rhv"]
-resource_name = "Healing"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Texture:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.5, -19)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Texture:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Texture:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Attack_texture:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3wrqu"]
 _data = {
 "Healing": SubResource("Animation_63rhv"),
@@ -1178,7 +1178,6 @@ script = ExtResource("1_1p06b")
 _attack_timer = NodePath("AttackTimer")
 _friction = 0.5
 _acceleration = 1.0
-knockbackPower = 100
 _animation_tree = NodePath("AnimationTree")
 
 [node name="FX" type="AnimatedSprite2D" parent="."]
