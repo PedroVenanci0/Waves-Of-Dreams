@@ -23,6 +23,7 @@ class_name portal
 func _on_body_entered(_body) -> void:
 	if _body is CharacterBody2D:
 		# Teleporta para a cena destino
+		Global.total_xp += 1
 		Global.transitionToScene(destiny)
 
 	## Fazer o portal desaparecer

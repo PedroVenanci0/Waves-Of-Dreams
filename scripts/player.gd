@@ -11,12 +11,12 @@ var _is_attacking = false
 var knockbackPower : int = 100
 
 @export_category("Variables")
-@export var _move_speed: float = 128
+var damage_player: int = Global.damage_player
+var life_player: int = Global.life_player
+var move_speed: float = Global.move_speed
 @export var _attack_timer: Timer = null
 @export var _friction: float = 0.2
 @export var _acceleration: float = 0.2
-@export var damage_player = 1
-@export var life_player = 3
 @export var _attack_scale = Vector2(1,1)
 
 
@@ -48,15 +48,15 @@ func _move() -> void:
 		_animation_tree["parameters/attack/blend_position"] =  _direction
 		
 		
-		velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed, _acceleration)
-		velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _acceleration)
+		velocity.x = lerp(velocity.x, _direction.normalized().x * move_speed, _acceleration)
+		velocity.y = lerp(velocity.y, _direction.normalized().y * move_speed, _acceleration)
 		return
 		
 		
-	velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed,_friction)
-	velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _friction)
+	velocity.x = lerp(velocity.x, _direction.normalized().x * move_speed,_friction)
+	velocity.y = lerp(velocity.y, _direction.normalized().y * move_speed, _friction)
 	
-	velocity = _direction.normalized() * _move_speed + knockbackVelo
+	velocity = _direction.normalized() * move_speed + knockbackVelo
 	var _sp = knockbackVelo.length()/5
 	knockbackVelo = knockbackVelo.move_toward(Vector2.ZERO,_sp) 
 

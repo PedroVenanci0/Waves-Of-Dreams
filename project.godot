@@ -23,6 +23,10 @@ Global="*res://scenes/global.tscn"
 
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="Waves of Dreams"
+
 [input]
 
 ui_up={
