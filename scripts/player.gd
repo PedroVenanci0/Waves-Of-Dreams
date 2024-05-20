@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var _attack_collider = $AttackArea/CollisionShape2D
 @onready var enemy:CharacterBody2D = null
 @onready var remote = $Remote as RemoteTransform2D
+@onready var fx = $FX
 
 var knockbackVelo = Vector2.ZERO
 var _state_machine
@@ -36,18 +37,20 @@ func _physics_process(_delta: float) -> void:
 	_animate()
 	move_and_slide()
 	
+	
 func _move() -> void:
 	var _direction : Vector2 = Vector2(
 		Input.get_axis("move_left", "move_right"),
 		Input.get_axis("move_up","move_down")
 	)
+		
 	
-	if _direction != Vector2.ZERO and knockbackVelo.length() <= 0:
+	if _direction != Vector2.ZERO  and knockbackVelo.length() <= 0:
+
 		_animation_tree["parameters/idle/blend_position"] =  _direction
 		_animation_tree["parameters/walk/blend_position"] =  _direction
 		_animation_tree["parameters/attack/blend_position"] =  _direction
-		
-		
+
 		velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed, _acceleration)
 		velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _acceleration)
 		return
@@ -67,7 +70,9 @@ func _attack() -> void:
 		set_physics_process(false) 
 		_attack_timer.start()
 		_is_attacking = true
+		
 func _animate() -> void:
+	
 	if _is_attacking:
 		_state_machine.travel("attack")
 		return
@@ -77,6 +82,10 @@ func _animate() -> void:
 		return
 	
 	_state_machine.travel("idle")
+
+func play_FX(effect):
+	fx.play(effect.name)
+	
 
 
 func _on_attack_timer_timeout() -> void:
