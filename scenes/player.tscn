@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://cyrgwagto13q2"]
+[gd_scene load_steps=92 format=3 uid="uid://cyrgwagto13q2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1p06b"]
 [ext_resource type="Texture2D" uid="uid://dqwltv6d6tp6c" path="res://assets/Entites/Untitled.png" id="2_07wrt"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://beyo1yxxpm6x7" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/04.png" id="5_01b23"]
 [ext_resource type="Animation" uid="uid://c5fnastrt01pj" path="res://assets/Entites/player_attacks/attack_right.res" id="5_7l5oh"]
 [ext_resource type="Animation" uid="uid://bqnylfyljau41" path="res://assets/Entites/player_attacks/attack_up.res" id="6_5tsxv"]
+[ext_resource type="Script" path="res://scripts/Hotbar.gd" id="12_k54nm"]
+[ext_resource type="PackedScene" uid="uid://b6rn66mqs5a0t" path="res://scenes/hot_bar_slot.tscn" id="12_td42t"]
+[ext_resource type="Resource" uid="uid://dnjpk0dowgy3b" path="res://scripts/Resources/items/sword.tres" id="13_16ht1"]
+[ext_resource type="Resource" uid="uid://76klwu0k1tw2" path="res://scripts/Resources/items/potion_healing.tres" id="14_xfcjp"]
+[ext_resource type="Resource" uid="uid://c0ed0new6fmpg" path="res://scripts/Resources/items/potion_speed.tres" id="16_2fqqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgson"]
 atlas = ExtResource("2_w3b3d")
@@ -55,6 +60,10 @@ region = Rect2(96, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rhdm"]
 atlas = ExtResource("2_w3b3d")
 region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joy5j"]
+atlas = ExtResource("3_u1cbr")
+region = Rect2(160, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ns12"]
 atlas = ExtResource("3_u1cbr")
@@ -184,6 +193,10 @@ region = Rect2(128, 32, 32, 32)
 atlas = ExtResource("5_01b23")
 region = Rect2(160, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n06bo"]
+atlas = ExtResource("3_u1cbr")
+region = Rect2(160, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hbhva"]
 animations = [{
 "frames": [{
@@ -220,11 +233,14 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7rhdm")
 }],
-"loop": true,
-"name": &"Healing",
+"loop": false,
+"name": &"Health Potion",
 "speed": 20.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joy5j")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6ns12")
 }, {
@@ -258,8 +274,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wrui")
 }],
-"loop": true,
-"name": &"Speed",
+"loop": false,
+"name": &"Potion of Speed",
 "speed": 15.0
 }, {
 "frames": [{
@@ -325,79 +341,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aclqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n06bo")
 }],
-"loop": true,
-"name": &"Strengh",
+"loop": false,
+"name": &"Potion of Strength",
 "speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1e3f"]
 size = Vector2(12.125, 4)
-
-[sub_resource type="Animation" id="Animation_63rhv"]
-resource_name = "Healing"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Texture:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-0.5, -19)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Texture:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Texture:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Attack_texture:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_5xaby"]
 length = 0.001
@@ -1067,7 +1021,6 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3wrqu"]
 _data = {
-"Healing": SubResource("Animation_63rhv"),
 "RESET": SubResource("Animation_5xaby"),
 "attack_down": ExtResource("3_m2ogu"),
 "attack_left": ExtResource("4_sogby"),
@@ -1172,6 +1125,7 @@ graph_offset = Vector2(-126.295, 57)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5va3e"]
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("_attack_timer", "_animation_tree")]
+position = Vector2(3, 3.8147e-06)
 scale = Vector2(1.3, 1.3)
 collision_mask = 7
 script = ExtResource("1_1p06b")
@@ -1181,12 +1135,11 @@ _acceleration = 1.0
 _animation_tree = NodePath("AnimationTree")
 
 [node name="FX" type="AnimatedSprite2D" parent="."]
-visible = false
+z_index = 5
 position = Vector2(0, -12)
 scale = Vector2(0.79, 0.79)
 sprite_frames = SubResource("SpriteFrames_hbhva")
-animation = &"Speed"
-frame_progress = 0.529171
+animation = &"Potion of Speed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
@@ -1234,6 +1187,33 @@ texture = ExtResource("2_kswsl")
 hframes = 6
 vframes = 10
 region_rect = Rect2(1.85451, 398.51, 286.318, 55.6148)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" type="HBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -60.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("12_k54nm")
+
+[node name="HotBarSlot" parent="UI/Hotbar" instance=ExtResource("12_td42t")]
+layout_mode = 2
+stats = ExtResource("14_xfcjp")
+
+[node name="HotBarSlot2" parent="UI/Hotbar" instance=ExtResource("12_td42t")]
+layout_mode = 2
+stats = ExtResource("13_16ht1")
+
+[node name="HotBarSlot3" parent="UI/Hotbar" instance=ExtResource("12_td42t")]
+layout_mode = 2
+stats = ExtResource("16_2fqqw")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
