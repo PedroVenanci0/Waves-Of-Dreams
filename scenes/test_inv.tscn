@@ -8,10 +8,10 @@
 position = Vector2(703, 349)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -177.0
-offset_top = -56.0
-offset_right = 342.0
-offset_bottom = 201.0
+offset_left = -172.0
+offset_top = -45.0
+offset_right = 347.0
+offset_bottom = 212.0
 color = Color(0.314316, 0.314316, 0.314316, 1)
 
 [node name="UI" type="Control" parent="."]
