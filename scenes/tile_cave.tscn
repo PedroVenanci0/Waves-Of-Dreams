@@ -29419,6 +29419,7 @@ pattern_1 = SubResource("TileMapPattern_eqyy0")
 pattern_2 = SubResource("TileMapPattern_rk7ps")
 
 [node name="TileCave" type="TileMap"]
+scale = Vector2(1.67, 1.67)
 tile_set = SubResource("TileSet_p1dxg")
 format = 2
 layer_0/name = "mid"

@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0cmotyeynw6w"]
+
+[ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="1_4kht4"]
+[ext_resource type="Script" path="res://scripts/stats_player.gd" id="1_k24nr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqgi5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nc6xn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_310vg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k24nr")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="stats" type="HBoxContainer" parent="UI"]
+offset_left = 458.0
+offset_top = 242.0
+offset_right = 660.0
+offset_bottom = 372.0
+
+[node name="attribute" type="VBoxContainer" parent="UI/stats"]
+layout_mode = 2
+
+[node name="TotaXP" type="Label" parent="UI/stats/attribute"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.627451, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4kht4")
+text = "TotalXP - "
+
+[node name="HSeparator2" type="HSeparator" parent="UI/stats/attribute"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nqgi5")
+
+[node name="HP" type="Label" parent="UI/stats/attribute"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.623529, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4kht4")
+text = "HP - "
+
+[node name="HSeparator" type="HSeparator" parent="UI/stats/attribute"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nc6xn")
+
+[node name="move_speed" type="Label" parent="UI/stats/attribute"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.588235, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4kht4")
+text = "Move speed - 
+"
+
+[node name="HSeparator3" type="HSeparator" parent="UI/stats/attribute"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_310vg")
+
+[node name="Strenght" type="Label" parent="UI/stats/attribute"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.6, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4kht4")
+text = "Strenght - "
+
+[node name="volue" type="VBoxContainer" parent="UI/stats"]
+layout_mode = 2
+
+[node name="TotalXP" type="Label" parent="UI/stats/volue"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+horizontal_alignment = 2
+
+[node name="HP" type="Label" parent="UI/stats/volue"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="hp_button" type="Button" parent="UI/stats/volue/HP"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = -1.0
+offset_right = 117.0
+offset_bottom = 7.0
+
+[node name="MoveSpeed" type="Label" parent="UI/stats/volue"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="speed_button" type="Button" parent="UI/stats/volue/MoveSpeed"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 4.0
+offset_right = 117.0
+offset_bottom = 12.0
+
+[node name="Strenght" type="Label" parent="UI/stats/volue"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="strenght_button" type="Button" parent="UI/stats/volue/Strenght"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 11.0
+offset_right = 117.0
+offset_bottom = 19.0
+
+[connection signal="pressed" from="UI/stats/volue/HP/hp_button" to="." method="_on_hp_button_pressed"]
+[connection signal="pressed" from="UI/stats/volue/MoveSpeed/speed_button" to="." method="_on_speed_button_pressed"]
+[connection signal="pressed" from="UI/stats/volue/MoveSpeed/speed_button" to="UI/stats/volue/HP/hp_button" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/stats/volue/Strenght/strenght_button" to="." method="_on_strenght_button_pressed"]
