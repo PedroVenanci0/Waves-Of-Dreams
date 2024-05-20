@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0ed0new6fmpg"]
+
+[ext_resource type="Texture2D" uid="uid://c3dt0skh1h783" path="res://assets/Icons/potion-icons/PNG/background/30.png" id="1_vii55"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_7ghvl"]
+
+[resource]
+script = ExtResource("2_7ghvl")
+icon = ExtResource("1_vii55")
+name = "Potion of Speed"
+type = "Consumable"
+descripition = "Increases your speed for a while (in every sense, unfortunately)"

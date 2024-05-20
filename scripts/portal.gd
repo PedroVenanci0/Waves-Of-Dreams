@@ -6,29 +6,28 @@ class_name portal
 
 @export_category("Variables")
 @export var _position_teleported: Vector2 
+@export var destiny: String
 
 @export_category("objects")
 @export var _animator: AnimatedSprite2D = null
 
-func _process(delta):
-	if Global.enemies_killed == Global.max_enemies:
-		portal_collider.set_deferred("disabled",false)
-		_animator.play("spawn")
-		await  _animator.animation_finished
-		_animator.play("idle")
-		Global.enemies_killed = 0
+#func _process(delta):
+	#if Global.enemies_killed == Global.max_enemies:
+		#portal_collider.set_deferred("disabled",false)
+		#_animator.play("spawn")
+		#await  _animator.animation_finished
+		#_animator.play("idle")
+		#Global.enemies_killed = 0
 
-#Função que verifica se o player entrou no portal
+# Função que verifica se o player entrou no portal
 func _on_body_entered(_body) -> void:
 	if _body is CharacterBody2D:
-		_body.global_position = _position_teleported 
-		#Teleporta para a posição colocada 
+		# Teleporta para a cena destino
+		Global.transitionToScene(destiny)
 
-	##Fazer o portal desaparecer
+	## Fazer o portal desaparecer
 		_animator.play("disappearing")
 		portal_collider.set_deferred("disabled", true)
-		Global.max_enemies = 5
-		Global.enemies_spawn = 0
 
 			
 #func _on_animator_animation_finished():
