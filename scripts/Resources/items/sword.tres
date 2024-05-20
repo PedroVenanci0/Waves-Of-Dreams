@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dnjpk0dowgy3b"]
+
+[ext_resource type="Texture2D" uid="uid://bwfb3dich5bmq" path="res://assets/Icons/different-weapon-rpg-icons/25.png" id="1_nyajc"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_c0i21"]
+
+[resource]
+script = ExtResource("2_c0i21")
+icon = ExtResource("1_nyajc")
+name = "Sword"
+type = "Weapon"
+descripition = "A sharp sword for your adventures"

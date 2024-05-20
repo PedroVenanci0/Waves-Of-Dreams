@@ -4,8 +4,7 @@ class_name portal
 
 @onready var portal_collider = $CollisionShape2D
 
-@export_category("Variables")
-@export var _position_teleported: Vector2 
+@export_category("Variables") 
 @export var destiny: String
 
 @export_category("objects")

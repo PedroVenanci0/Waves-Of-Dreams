@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_hycll")
 icon = ExtResource("1_5m5sn")
-name = "Potion of strength"
+name = "Potion of Strength"
 type = "Consumable"
 descripition = "The milk of power (A bit familiar, should I know that?)"
