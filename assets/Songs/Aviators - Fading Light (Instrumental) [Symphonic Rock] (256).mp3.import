@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://io854vm475m8"
+path="res://.godot/imported/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3-15c2a14516767fe93964fcb61ad6b759.mp3str"
+
+[deps]
+
+source_file="res://assets/Songs/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3"
+dest_files=["res://.godot/imported/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3-15c2a14516767fe93964fcb61ad6b759.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

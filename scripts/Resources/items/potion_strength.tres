@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c6dkh6grpmtvg"]
+
+[ext_resource type="Texture2D" uid="uid://cqn4jnnyjoimp" path="res://assets/Icons/potion-icons/PNG/background/5.png" id="1_5m5sn"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_hycll"]
+
+[resource]
+script = ExtResource("2_hycll")
+icon = ExtResource("1_5m5sn")
+name = "Potion of strength"
+type = "Consumable"
+descripition = "The milk of power (A bit familiar, should I know that?)"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://76klwu0k1tw2"]
+
+[ext_resource type="Texture2D" uid="uid://clw4a3g2uba55" path="res://assets/Icons/potion-icons/PNG/background/46.png" id="1_6ha0u"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="2_kds2u"]
+
+[resource]
+script = ExtResource("2_kds2u")
+icon = ExtResource("1_6ha0u")
+name = "Health Potion"
+type = "Consumable"
+descripition = "Heal your life(It doesn't taste very good)"

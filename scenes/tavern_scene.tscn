@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5qxa2ct648sv"]
+
+[ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_a7an7"]
+[ext_resource type="PackedScene" uid="uid://cpapqb8jy76x0" path="res://scenes/tile_taverna.tscn" id="1_e4k2r"]
+[ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_colvp"]
+[ext_resource type="PackedScene" uid="uid://ds05jxg1u28dg" path="res://scenes/portal.tscn" id="3_kiwi1"]
+[ext_resource type="PackedScene" uid="uid://drjdfbvtimvtq" path="res://scenes/fade_out_canvas_layer.tscn" id="5_bg7yb"]
+
+[node name="TavernScene" type="Node2D"]
+script = ExtResource("1_a7an7")
+
+[node name="TileTaverna" parent="." instance=ExtResource("1_e4k2r")]
+
+[node name="player" parent="." instance=ExtResource("2_colvp")]
+position = Vector2(-3.99997, 10)
+
+[node name="Portal" parent="." instance=ExtResource("3_kiwi1")]
+position = Vector2(443, -4)
+scale = Vector2(0.205, 0.205)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.7, 2.7)
+position_smoothing_enabled = true
+
+[node name="FadeOutCanvasLayer" parent="." instance=ExtResource("5_bg7yb")]
+visible = false
