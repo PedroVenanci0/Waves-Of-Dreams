@@ -9,17 +9,14 @@ extends CharacterBody2D
 var knockbackVelo = Vector2.ZERO
 var _state_machine
 var _is_attacking = false
-var knockbackPower : int = 100
+var have_potion_cooldown = false
 
 @export_category("Variables")
-var damage_player: int = Global.damage_player
-var life_player: int = Global.life_player
-var move_speed: float = Global.move_speed
 @export var _attack_timer: Timer = null
 @export var _friction: float = 0.2
 @export var _acceleration: float = 0.2
 @export var _attack_scale = Vector2(1,1)
-
+@export var received_knockback_force : int = 100 
 
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
@@ -51,15 +48,15 @@ func _move() -> void:
 		_animation_tree["parameters/walk/blend_position"] =  _direction
 		_animation_tree["parameters/attack/blend_position"] =  _direction
 		
-		velocity.x = lerp(velocity.x, _direction.normalized().x * move_speed, _acceleration)
-		velocity.y = lerp(velocity.y, _direction.normalized().y * move_speed, _acceleration)
+		velocity.x = lerp(velocity.x, _direction.normalized().x * Global.move_speed, _acceleration)
+		velocity.y = lerp(velocity.y, _direction.normalized().y *Global.move_speed, _acceleration)
 		return
 		
 	
-	velocity.x = lerp(velocity.x, _direction.normalized().x * move_speed,_friction)
-	velocity.y = lerp(velocity.y, _direction.normalized().y * move_speed, _friction)
+	velocity.x = lerp(velocity.x, _direction.normalized().x * Global.move_speed,_friction)
+	velocity.y = lerp(velocity.y, _direction.normalized().y * Global.move_speed, _friction)
 	
-	velocity = _direction.normalized() * move_speed + knockbackVelo
+	velocity = _direction.normalized() * Global.move_speed + knockbackVelo
 	var _sp = knockbackVelo.length()/5
 	knockbackVelo = knockbackVelo.move_toward(Vector2.ZERO,_sp) 
 
@@ -83,10 +80,37 @@ func _animate() -> void:
 	
 	_state_machine.travel("idle")
 
-func play_FX(effect):
-	fx.play(effect.name)
+## Função para ativar a animação da poção usada e atribuir seus efeitos 
+func use_potion(effect) -> void:
 	
-
+	## Condições baseadas no nome da poção usada, no limite de cada status e se não esta em cooldown de uso
+	if effect.name == "Health Potion" and Global.life_player < 5 and have_potion_cooldown == false :
+		have_potion_cooldown = true # Ativa o cooldown das poções
+		fx.play(effect.name) # Ativa a animação da poção usada
+		Global.life_player += 1 # Incrementa os status do player 
+		print(Global.life_player)
+		await get_tree().create_timer(10).timeout # Inicia o cooldown da poção espefifica 
+		have_potion_cooldown = false # Depois do tempod e cooldown volta ao estado inicial 
+		
+	elif effect.name == "Potion of Speed" and Global.move_speed < 300 and have_potion_cooldown == false :
+		have_potion_cooldown = true 
+		fx.play(effect.name)
+		Global.move_speed += 100
+		print(Global.move_speed)
+		await get_tree().create_timer(30).timeout
+		have_potion_cooldown = false
+		Global.move_speed -= 100
+		print(Global.move_speed)
+		
+	elif effect.name == "Potion of Strength" and Global.damage_player < 10 and have_potion_cooldown == false : 
+		have_potion_cooldown = true
+		fx.play(effect.name)
+		Global.damage_player += 1
+		print(Global.damage_player)
+		await get_tree().create_timer(15).timeout
+		have_potion_cooldown = false
+		Global.damage_player -= 1
+		print(Global.damage_player)
 
 func _on_attack_timer_timeout() -> void:
 	_is_attacking = false
@@ -95,23 +119,22 @@ func _on_attack_timer_timeout() -> void:
 
 func _on_attack_area_body_entered(_body) -> void:
 	if _body.is_in_group("Enemies"):
-		_body.take_damage(damage_player)
+		_body.take_damage(Global.damage_player)
 
 
 func take_damage(damage_enemy,enemyVelocity) -> void:
 	print("dmg")
-	life_player -= damage_enemy
-	if life_player <= 0:
+	Global.life_player -= damage_enemy
+	if Global.life_player <= 0:
 		queue_free()
 	else:
 		knockback(enemyVelocity)
 
-func knockback (enemyVelocity: Vector2):
-		var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
+func knockback (enemyVelocity: Vector2) -> void:
+		var knockbackDirection = (enemyVelocity - velocity).normalized() * received_knockback_force
 		knockbackVelo = knockbackDirection
 		print("knockbackVelo: ", knockbackVelo)
 		
-	
-func follow_camera(camera):
+func follow_camera(camera) -> void:
 	var cam_path = camera.get_path()
 	remote.remote_path = cam_path

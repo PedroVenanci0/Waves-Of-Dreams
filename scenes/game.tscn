@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bl635nf8tyl18"]
+[gd_scene load_steps=25 format=3 uid="uid://bl635nf8tyl18"]
 
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="1_jq3lj"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_xsc42"]
+[ext_resource type="PackedScene" uid="uid://cth3f1mys7j80" path="res://scenes/global.tscn" id="2_ut0qi"]
 [ext_resource type="Texture2D" uid="uid://8kre8ht3856c" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Cliff.png" id="8_fhn53"]
 [ext_resource type="Texture2D" uid="uid://cw4sq0tct1q8y" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Stairs Bridge.png" id="9_6rqi1"]
 [ext_resource type="Texture2D" uid="uid://c281xk7tl7fg4" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Stone Path Tileset.png" id="10_gbyl6"]
@@ -4219,6 +4220,8 @@ script = ExtResource("1_xsc42")
 metadata/_edit_horizontal_guides_ = [-231.0, -231.0, 227.0]
 metadata/_edit_vertical_guides_ = [-278.0, -279.0, 295.0]
 
+[node name="Global Variables" parent="." instance=ExtResource("2_ut0qi")]
+
 [node name="player" parent="." instance=ExtResource("1_jq3lj")]
 z_index = 1
 position = Vector2(280, 56)
@@ -4251,7 +4254,6 @@ position_smoothing_enabled = true
 [node name="Portal" parent="." instance=ExtResource("23_3idiv")]
 position = Vector2(-1360, -46)
 scale = Vector2(0.18, 0.18)
-_position_teleported = Vector2(-71, 49)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

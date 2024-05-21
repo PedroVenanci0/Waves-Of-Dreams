@@ -25,4 +25,4 @@ func _input(event):
 func use_item():
 	if stats == null:
 		return
-	player.play_FX(stats)
+	player.use_potion(stats)
