@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://scripts/Hotbar.gd" id="12_k54nm"]
 [ext_resource type="PackedScene" uid="uid://b6rn66mqs5a0t" path="res://scenes/hot_bar_slot.tscn" id="12_td42t"]
 [ext_resource type="Resource" uid="uid://dnjpk0dowgy3b" path="res://scripts/Resources/items/sword.tres" id="13_16ht1"]
-[ext_resource type="Resource" uid="uid://76klwu0k1tw2" path="res://scripts/Resources/items/potion_healing.tres" id="14_xfcjp"]
+[ext_resource type="Resource" uid="uid://c6dkh6grpmtvg" path="res://scripts/Resources/items/potion_strength.tres" id="15_sgw0i"]
 [ext_resource type="Resource" uid="uid://c0ed0new6fmpg" path="res://scripts/Resources/items/potion_speed.tres" id="16_2fqqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgson"]
@@ -355,7 +355,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Potion of Strength",
-"speed": 15.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1e3f"]
@@ -1218,7 +1218,7 @@ script = ExtResource("12_k54nm")
 
 [node name="HotBarSlot" parent="UI Hotbar/Hotbar" instance=ExtResource("12_td42t")]
 layout_mode = 2
-stats = ExtResource("14_xfcjp")
+stats = ExtResource("15_sgw0i")
 
 [node name="VSeparator" type="VSeparator" parent="UI Hotbar/Hotbar"]
 visible = false
