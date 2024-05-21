@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://cyrgwagto13q2"]
+[gd_scene load_steps=96 format=3 uid="uid://cyrgwagto13q2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1p06b"]
 [ext_resource type="Texture2D" uid="uid://dqwltv6d6tp6c" path="res://assets/Entites/Untitled.png" id="2_07wrt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Animation" uid="uid://cdoenwa5065b6" path="res://assets/Entites/player_attacks/attack_down.res" id="3_m2ogu"]
 [ext_resource type="Texture2D" uid="uid://bhp3up50m138k" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/10.png" id="3_u1cbr"]
 [ext_resource type="Texture2D" uid="uid://co35fsmbry3ay" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/03.png" id="4_flptk"]
+[ext_resource type="Texture2D" uid="uid://dmjhq46u8p153" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/35.png" id="4_grpge"]
 [ext_resource type="Animation" uid="uid://b05tsurx3s4da" path="res://assets/Entites/player_attacks/attack_left.res" id="4_sogby"]
 [ext_resource type="Texture2D" uid="uid://beyo1yxxpm6x7" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/04.png" id="5_01b23"]
 [ext_resource type="Animation" uid="uid://c5fnastrt01pj" path="res://assets/Entites/player_attacks/attack_right.res" id="5_7l5oh"]
@@ -107,6 +108,10 @@ region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wrui"]
 atlas = ExtResource("3_u1cbr")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e7lq"]
+atlas = ExtResource("4_grpge")
 region = Rect2(128, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6jt0"]
@@ -273,6 +278,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wrui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e7lq")
 }],
 "loop": false,
 "name": &"Potion of Speed",
@@ -1124,6 +1132,10 @@ graph_offset = Vector2(-126.295, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5va3e"]
 
+[sub_resource type="GDScript" id="GDScript_yr4lh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3e37"]
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("_attack_timer", "_animation_tree")]
 position = Vector2(3, 3.8147e-06)
 scale = Vector2(1.3, 1.3)
@@ -1140,6 +1152,8 @@ position = Vector2(0, -12)
 scale = Vector2(0.79, 0.79)
 sprite_frames = SubResource("SpriteFrames_hbhva")
 animation = &"Potion of Speed"
+frame = 12
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
@@ -1188,32 +1202,43 @@ hframes = 6
 vframes = 10
 region_rect = Rect2(1.85451, 398.51, 286.318, 55.6148)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI Hotbar" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_yr4lh")
 
-[node name="Hotbar" type="HBoxContainer" parent="UI"]
-anchors_preset = 7
-anchor_left = 0.5
+[node name="Hotbar" type="HBoxContainer" parent="UI Hotbar"]
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -94.0
-offset_top = -60.0
-offset_right = 94.0
-grow_horizontal = 2
+offset_left = 80.0
+offset_top = -136.0
+offset_right = 328.0
+offset_bottom = -66.0
 grow_vertical = 0
 script = ExtResource("12_k54nm")
 
-[node name="HotBarSlot" parent="UI/Hotbar" instance=ExtResource("12_td42t")]
+[node name="HotBarSlot" parent="UI Hotbar/Hotbar" instance=ExtResource("12_td42t")]
 layout_mode = 2
 stats = ExtResource("14_xfcjp")
 
-[node name="HotBarSlot2" parent="UI/Hotbar" instance=ExtResource("12_td42t")]
+[node name="VSeparator" type="VSeparator" parent="UI Hotbar/Hotbar"]
+visible = false
+custom_minimum_size = Vector2(73.495, 0)
 layout_mode = 2
-stats = ExtResource("13_16ht1")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_n3e37")
 
-[node name="HotBarSlot3" parent="UI/Hotbar" instance=ExtResource("12_td42t")]
+[node name="HotBarSlot2" parent="UI Hotbar/Hotbar" instance=ExtResource("12_td42t")]
 layout_mode = 2
 stats = ExtResource("16_2fqqw")
+
+[node name="SwordSlot" parent="UI Hotbar" instance=ExtResource("12_td42t")]
+offset_left = -452.0
+offset_top = -210.0
+offset_right = -372.0
+offset_bottom = -140.0
+focus_mode = 0
+toggle_mode = true
+button_mask = 0
+stats = ExtResource("13_16ht1")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

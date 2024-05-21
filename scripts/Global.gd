@@ -9,6 +9,7 @@ var spawn_permission: bool = true
 var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
 	"tavern": preload("res://scenes/tavern_scene.tscn"),
+	"cave": preload("res://scenes/cave_scene.tscn"),
 	"transition": null
 }
 @export var damage_player: int = 1

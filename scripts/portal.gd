@@ -18,16 +18,16 @@ class_name portal
 		#_animator.play("idle")
 		#Global.enemies_killed = 0
 
-# Função que verifica se o player entrou no portal
+## Função que verifica se o player entrou no portal
 func _on_body_entered(_body) -> void:
 	if _body is CharacterBody2D:
-		# Teleporta para a cena destino
+		## Teleporta para a cena destino
 		Global.total_xp += 1
 		Global.transitionToScene(destiny)
 
 	## Fazer o portal desaparecer
-		_animator.play("disappearing")
-		portal_collider.set_deferred("disabled", true)
+		#_animator.play("disappearing")
+		#portal_collider.set_deferred("disabled", true)
 
 			
 #func _on_animator_animation_finished():
