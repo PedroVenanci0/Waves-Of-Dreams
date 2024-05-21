@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://daen02rnfeed1"]
 
-[ext_resource type="Texture2D" uid="uid://dpaagj2mwvp22" path="res://assets/Title Screen/wallpaperflare.com_wallpaper.jpg" id="1_gvgoj"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_y6klu"]
+[ext_resource type="Texture2D" uid="uid://2h6c0g2r2x3b" path="res://assets/Title Screen/Default_Create_an_image_featuring_a_group_of_pixel_art_charact_2.jpg" id="2_focfa"]
 [ext_resource type="Theme" uid="uid://cfxocfekwsruw" path="res://assets/Butons/new_theme.tres" id="2_wfxqr"]
-[ext_resource type="FontFile" uid="uid://bb4f61tpbhck0" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="3_4vd7n"]
-[ext_resource type="AudioStream" uid="uid://io854vm475m8" path="res://assets/Songs/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3" id="4_xu6v4"]
-[ext_resource type="AudioStream" uid="uid://ye8pn2a2552d" path="res://assets/Songs/impact/03 - Impact.mp3" id="5_t0qa4"]
+[ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="3_57fj1"]
 [ext_resource type="Script" path="res://scripts/Start_Buton.gd" id="5_vvekp"]
-[ext_resource type="Texture2D" uid="uid://ppnpygtgqp6" path="res://assets/Title Screen/Swords.png" id="8_35idr"]
+[ext_resource type="Texture2D" uid="uid://ppnpygtgqp6" path="res://assets/Title Screen/Swords.png" id="6_djtno"]
+[ext_resource type="AudioStream" uid="uid://ye8pn2a2552d" path="res://assets/Songs/impact/03 - Impact.mp3" id="6_ui7r2"]
+[ext_resource type="AudioStream" uid="uid://io854vm475m8" path="res://assets/Songs/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3" id="7_v7wlx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uw4t"]
 
@@ -37,7 +37,7 @@ offset_right = 1188.0
 offset_bottom = 667.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_gvgoj")
+texture = ExtResource("2_focfa")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="."]
@@ -46,26 +46,27 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -310.0
-offset_top = 96.0
-offset_right = -84.0
-offset_bottom = 119.0
+offset_left = -288.0
+offset_top = 99.0
+offset_right = -62.0
+offset_bottom = 122.0
 grow_horizontal = 2
 scale = Vector2(3, 3)
 size_flags_horizontal = 8
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.0707571, 0.0263823, 0.0230824, 1)
-theme_override_fonts/font = ExtResource("3_4vd7n")
+theme_override_fonts/font = ExtResource("3_57fj1")
 text = "Waves of Dreams"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -49.0
+offset_right = 109.0
+offset_bottom = 49.0
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -97,11 +98,6 @@ layout_mode = 2
 theme = ExtResource("2_wfxqr")
 text = "QUIT GAME"
 
-[node name="Mochi" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 10
-expand_mode = 2
-
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xjx08")
@@ -109,12 +105,12 @@ libraries = {
 
 [node name="StartImpact" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-865, -200)
-stream = ExtResource("5_t0qa4")
+stream = ExtResource("6_ui7r2")
 bus = &"SFX"
 
 [node name="BackMusic" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-865, -200)
-stream = ExtResource("4_xu6v4")
+stream = ExtResource("7_v7wlx")
 pitch_scale = 0.89
 autoplay = true
 bus = &"BackMusic"
@@ -122,7 +118,7 @@ bus = &"BackMusic"
 [node name="Swords" type="Sprite2D" parent="."]
 position = Vector2(582, 117)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("8_35idr")
+texture = ExtResource("6_djtno")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_Buton" to="." method="_on_start_buton_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit_Buton" to="." method="_on_quit_buton_pressed"]
