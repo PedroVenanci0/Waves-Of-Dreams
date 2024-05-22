@@ -1,0 +1,170 @@
+[gd_scene load_steps=31 format=3 uid="uid://c5ki87nyniblw"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_haris"]
+[ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_uc6qj"]
+[ext_resource type="Texture2D" uid="uid://cdf1j5aykni5u" path="res://assets/Entites/Dungeon Master/DungeonMaster_Death_02.png" id="3_403u5"]
+[ext_resource type="Texture2D" uid="uid://onjee740qhsa" path="res://assets/Entites/Dungeon Master/DungeonMaster_Death_03.png" id="4_a4ddr"]
+[ext_resource type="Texture2D" uid="uid://blimgoq0g7j4i" path="res://assets/Entites/Dungeon Master/DungeonMaster_Death_04.png" id="5_gqio2"]
+[ext_resource type="Texture2D" uid="uid://c0i5b868mb51x" path="res://assets/Entites/Dungeon Master/DungeonMaster_Death_06.png" id="6_5x8nw"]
+[ext_resource type="Texture2D" uid="uid://bkr07o5ynev3l" path="res://assets/Entites/Dungeon Master/DungeonMaster_Death_08.png" id="7_ftkoo"]
+[ext_resource type="Texture2D" uid="uid://8w26ve4dofad" path="res://assets/Entites/Dungeon Master/DungeonMaster_Death_09.png" id="8_tiqjq"]
+[ext_resource type="Texture2D" uid="uid://bo8c43tklopfo" path="res://assets/Entites/Dungeon Master/DungeonMaster_Death_11.png" id="9_1uum8"]
+[ext_resource type="Texture2D" uid="uid://57hxcnkpf1bj" path="res://assets/Entites/Dungeon Master/DungeonMaster_Walk_0.png" id="10_dyttf"]
+[ext_resource type="Texture2D" uid="uid://b373gb241la72" path="res://assets/Entites/Dungeon Master/DungeonMaster_Walk_1.png" id="11_wt1mm"]
+[ext_resource type="Texture2D" uid="uid://bywgrl1illhol" path="res://assets/Entites/Dungeon Master/DungeonMaster_Walk_2.png" id="12_h8v02"]
+[ext_resource type="Texture2D" uid="uid://c2k7egxeu222d" path="res://assets/Entites/Dungeon Master/DungeonMaster_Walk_3.png" id="13_8kqte"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
+size = Vector2(39, 74.1914)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdegh"]
+size = Vector2(34, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3378"]
+radius = 409.031
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pt6k"]
+atlas = ExtResource("3_403u5")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etx4w"]
+atlas = ExtResource("4_a4ddr")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcvnk"]
+atlas = ExtResource("4_a4ddr")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cqm4"]
+atlas = ExtResource("5_gqio2")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cltcp"]
+atlas = ExtResource("6_5x8nw")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lji3s"]
+atlas = ExtResource("7_ftkoo")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8gbs"]
+atlas = ExtResource("8_tiqjq")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sh80"]
+atlas = ExtResource("8_tiqjq")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glmli"]
+atlas = ExtResource("9_1uum8")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsrmf"]
+atlas = ExtResource("10_dyttf")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfjgn"]
+atlas = ExtResource("11_wt1mm")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c82rj"]
+atlas = ExtResource("12_h8v02")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dn55"]
+atlas = ExtResource("13_8kqte")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix8nl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pt6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etx4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcvnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cqm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cltcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lji3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8gbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sh80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glmli")
+}],
+"loop": true,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsrmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfjgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c82rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dn55")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[node name="boss" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_haris")
+
+[node name="damage_enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_enemy"]
+show_behind_parent = true
+position = Vector2(-8, -30)
+shape = SubResource("RectangleShape2D_4yh1n")
+
+[node name="hitbox2" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+light_mask = 4
+visibility_layer = 5
+position = Vector2(-8, -29.5)
+shape = SubResource("RectangleShape2D_wdegh")
+
+[node name="detection" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+shape = SubResource("CircleShape2D_s3378")
+debug_color = Color(0.994583, 0, 0.219729, 0.42)
+
+[node name="player" parent="." instance=ExtResource("2_uc6qj")]
+position = Vector2(38, 9.53674e-07)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -81)
+scale = Vector2(0.529688, 0.554687)
+sprite_frames = SubResource("SpriteFrames_ix8nl")
+animation = &"walk"
+frame_progress = 0.992079
+
+[connection signal="body_entered" from="damage_enemy" to="." method="_on_damage_enemy_body_entered"]
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]

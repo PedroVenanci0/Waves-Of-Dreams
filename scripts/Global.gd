@@ -21,7 +21,7 @@ var spawn_permission: bool = true
 @export var damage_player: int = 1
 @export var life_player: int = 3
 @export var move_speed: float = 128
-@export var total_xp: int = 00
+@export var total_xp: int = 100
 
 func transitionToScene(destiny_scene: String) -> void:
 	var trans = transition_scene.instantiate()
