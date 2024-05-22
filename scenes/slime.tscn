@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bq21do815miur" path="res://assets/Entites/Slime/Variant1/Slime_Walk_3.png" id="8_818jj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
-size = Vector2(10.375, 12.5156)
+size = Vector2(14, 13.3828)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtgqu"]
 atlas = ExtResource("2_4ca4e")
@@ -75,7 +75,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdegh"]
-size = Vector2(14, 16.0618)
+size = Vector2(12.5, 11.5154)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3378"]
 radius = 409.031
@@ -86,11 +86,10 @@ collision_mask = 4
 script = ExtResource("1_nxvyt")
 
 [node name="damage_enemy" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_enemy"]
 show_behind_parent = true
-position = Vector2(0, 0.125)
+position = Vector2(1, -0.3086)
 shape = SubResource("RectangleShape2D_4yh1n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -104,7 +103,7 @@ frame_progress = 0.00082765
 show_behind_parent = true
 light_mask = 4
 visibility_layer = 5
-position = Vector2(0, -1)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_wdegh")
 
 [node name="detection" type="Area2D" parent="."]

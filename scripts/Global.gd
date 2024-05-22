@@ -12,8 +12,14 @@ var scenes_database: Dictionary = {
 }
 
 @export_category("Spawner Variables")
-@export var max_enemies = 20
+@export var max_enemies = 10
 @export var enemies_spawn = 0
+var enemy_chicken = 0
+var enemy_goblin = 0
+var enemy_slime = 0
+var enemy_skeleton = 0
+var scene_forest = true  #quando for apara cena da caverna portal muda essa variavel para false
+var scene_cave = true
 var spawn_permission: bool = true
 
 

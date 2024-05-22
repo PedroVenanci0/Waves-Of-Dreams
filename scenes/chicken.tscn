@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfcjtsg64hrg6"]
+[gd_scene load_steps=10 format=3 uid="uid://cfcjtsg64hrg6"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_lct55"]
-[ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_h585v"]
 [ext_resource type="Texture2D" uid="uid://cp5i8rr6h1s50" path="res://assets/Entites/chicken.png" id="3_4qhrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
@@ -44,7 +43,7 @@ animations = [{
 
 [node name="chicken" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 5
 script = ExtResource("1_lct55")
 
 [node name="damage_enemy" type="Area2D" parent="."]
@@ -58,6 +57,7 @@ shape = SubResource("RectangleShape2D_4yh1n")
 show_behind_parent = true
 light_mask = 4
 visibility_layer = 5
+z_index = 123
 position = Vector2(2.5, -6.5)
 shape = SubResource("RectangleShape2D_wdegh")
 
@@ -75,10 +75,8 @@ position = Vector2(2, -9)
 scale = Vector2(0.71875, 0.632813)
 sprite_frames = SubResource("SpriteFrames_keftc")
 animation = &"walk_right"
+autoplay = "walk_right"
 frame_progress = 0.340864
-
-[node name="player" parent="." instance=ExtResource("2_h585v")]
-position = Vector2(-84, -51)
 
 [connection signal="body_entered" from="damage_enemy" to="." method="_on_damage_enemy_body_entered"]
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
