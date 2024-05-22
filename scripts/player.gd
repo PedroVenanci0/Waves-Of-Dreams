@@ -9,6 +9,7 @@ extends CharacterBody2D
 var knockbackVelo = Vector2.ZERO
 var _state_machine
 var _is_attacking = false
+var _is_dying = false
 var have_potion_cooldown = false
 
 @export_category("Variables")
@@ -69,6 +70,8 @@ func _attack() -> void:
 		_is_attacking = true
 		
 func _animate() -> void:
+	if _is_dying:
+		_state_machine.travel("dying")
 	
 	if _is_attacking:
 		_state_machine.travel("attack")
@@ -79,38 +82,6 @@ func _animate() -> void:
 		return
 	
 	_state_machine.travel("idle")
-
-## Função para ativar a animação da poção usada e atribuir seus efeitos 
-func use_potion(effect) -> void:
-	
-	## Condições baseadas no nome da poção usada, no limite de cada status e se não esta em cooldown de uso
-	if effect.name == "Health Potion" and Global.life_player < 5 and have_potion_cooldown == false :
-		have_potion_cooldown = true # Ativa o cooldown das poções
-		fx.play(effect.name) # Ativa a animação da poção usada
-		Global.life_player += 1 # Incrementa os status do player 
-		print(Global.life_player)
-		await get_tree().create_timer(10).timeout # Inicia o cooldown da poção espefifica 
-		have_potion_cooldown = false # Depois do tempod e cooldown volta ao estado inicial 
-		
-	elif effect.name == "Potion of Speed" and Global.move_speed < 300 and have_potion_cooldown == false :
-		have_potion_cooldown = true 
-		fx.play(effect.name)
-		Global.move_speed += 100
-		print(Global.move_speed)
-		await get_tree().create_timer(30).timeout
-		have_potion_cooldown = false
-		Global.move_speed -= 100
-		print(Global.move_speed)
-		
-	elif effect.name == "Potion of Strength" and Global.damage_player < 10 and have_potion_cooldown == false : 
-		have_potion_cooldown = true
-		fx.play(effect.name)
-		Global.damage_player += 1
-		print(Global.damage_player)
-		await get_tree().create_timer(15).timeout
-		have_potion_cooldown = false
-		Global.damage_player -= 1
-		print(Global.damage_player)
 
 func _on_attack_timer_timeout() -> void:
 	_is_attacking = false
@@ -126,6 +97,8 @@ func take_damage(damage_enemy,enemyVelocity) -> void:
 	print("dmg")
 	Global.life_player -= damage_enemy
 	if Global.life_player <= 0:
+		_is_dying = true
+		await get_tree().create_timer(2).timeout
 		queue_free()
 	else:
 		knockback(enemyVelocity)

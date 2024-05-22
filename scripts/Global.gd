@@ -3,12 +3,13 @@ extends Node
 var transition_scene: PackedScene = preload("res://scenes/fade_in_canvas_layer.tscn")
 var level_node: level
 var enemies_killed: int = 0
+var next_scene: String = "";
 
 var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
 	"tavern": preload("res://scenes/tavern_scene.tscn"),
 	"cave": preload("res://scenes/cave_scene.tscn"),
-	"transition": null
+	"transition": preload("res://scenes/transition.tscn"),
 }
 
 @export_category("Spawner Variables")
@@ -25,7 +26,11 @@ var spawn_permission: bool = true
 
 func transitionToScene(destiny_scene: String) -> void:
 	var trans = transition_scene.instantiate()
-	trans.destiny_scene = scenes_database.get(destiny_scene) 
+	var _thisDestiny = "transition" if Global.next_scene == "" else Global.next_scene
+	trans.destiny_scene = scenes_database.get(_thisDestiny) 
+	Global.next_scene = destiny_scene
+	if _thisDestiny == Global.next_scene:
+		Global.next_scene = ""
 	add_child(trans)
 
 func _process(delta):

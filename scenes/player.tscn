@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://cyrgwagto13q2"]
+[gd_scene load_steps=90 format=3 uid="uid://cyrgwagto13q2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1p06b"]
 [ext_resource type="Texture2D" uid="uid://dqwltv6d6tp6c" path="res://assets/Entites/Untitled.png" id="2_07wrt"]
@@ -501,6 +501,70 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_uxevd"]
+resource_name = "dying"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -19)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attack_texture:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Texture:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [54, 55, 56]
 }
 
 [sub_resource type="Animation" id="Animation_8hcwh"]
@@ -1029,6 +1093,7 @@ _data = {
 "attack_left": ExtResource("4_sogby"),
 "attack_right": ExtResource("5_7l5oh"),
 "attack_up": ExtResource("6_5tsxv"),
+"dying": SubResource("Animation_uxevd"),
 "idle_down": SubResource("Animation_8hcwh"),
 "idle_left": SubResource("Animation_nb3aj"),
 "idle_right": SubResource("Animation_vr2lp"),
