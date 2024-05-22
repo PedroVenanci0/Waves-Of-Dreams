@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5qxa2ct648sv"]
+[gd_scene load_steps=9 format=3 uid="uid://b5qxa2ct648sv"]
 
 [ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_a7an7"]
 [ext_resource type="PackedScene" uid="uid://cpapqb8jy76x0" path="res://scenes/tile_taverna.tscn" id="1_e4k2r"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_colvp"]
 [ext_resource type="PackedScene" uid="uid://ds05jxg1u28dg" path="res://scenes/portal.tscn" id="3_kiwi1"]
 [ext_resource type="PackedScene" uid="uid://drjdfbvtimvtq" path="res://scenes/fade_out_canvas_layer.tscn" id="5_bg7yb"]
+[ext_resource type="Script" path="res://scripts/Inventory_Stats.gd" id="6_btedt"]
+[ext_resource type="PackedScene" uid="uid://crfi1gl7ds84c" path="res://scenes/inventory_gui.tscn" id="7_6i4wa"]
+[ext_resource type="PackedScene" uid="uid://c0cmotyeynw6w" path="res://scenes/stats_player.tscn" id="7_bysvv"]
 
 [node name="TavernScene" type="Node2D"]
 script = ExtResource("1_a7an7")
@@ -25,3 +28,33 @@ position_smoothing_enabled = true
 
 [node name="FadeOutCanvasLayer" parent="." instance=ExtResource("5_bg7yb")]
 visible = false
+
+[node name="Inventory_Stats" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("6_btedt")
+
+[node name="InventoryUI" parent="Inventory_Stats" instance=ExtResource("7_6i4wa")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Control" parent="Inventory_Stats" instance=ExtResource("7_bysvv")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="closed" from="Inventory_Stats/InventoryUI" to="." method="_on_inventory_ui_closed"]
+[connection signal="opened" from="Inventory_Stats/InventoryUI" to="." method="_on_inventory_ui_opened"]
