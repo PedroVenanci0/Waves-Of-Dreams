@@ -20,7 +20,7 @@ position = Vector2(-3.99997, 10)
 [node name="Portal" parent="." instance=ExtResource("3_kiwi1")]
 position = Vector2(443, -4)
 scale = Vector2(0.205, 0.205)
-destiny = "cave"
+destiny = "florest"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.7, 2.7)

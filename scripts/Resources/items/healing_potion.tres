@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b3qxfrpxclx04"]
+
+[ext_resource type="Script" path="res://item_inventory.gd" id="1_udtcd"]
+[ext_resource type="Texture2D" uid="uid://dmxmb0uw11w82" path="res://assets/Icons/Pixel Potion Pack/Pixel Potion Pack - FINISHED/ALL Potions - First Frame/Big Vial - RED - 0000.png" id="2_gfqup"]
+
+[resource]
+script = ExtResource("1_udtcd")
+name = "Healing Potion"
+texture = ExtResource("2_gfqup")

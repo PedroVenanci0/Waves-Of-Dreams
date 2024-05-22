@@ -1,7 +1,8 @@
+
 [gd_scene load_steps=29 format=3 uid="uid://bl635nf8tyl18"]
 
+
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_06gyy"]
-[ext_resource type="PackedScene" uid="uid://cth3f1mys7j80" path="res://scenes/global.tscn" id="2_sm81s"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="3_q013d"]
 [ext_resource type="Texture2D" uid="uid://8kre8ht3856c" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Cliff.png" id="4_3cawk"]
 [ext_resource type="Texture2D" uid="uid://cw4sq0tct1q8y" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Stairs Bridge.png" id="5_reldd"]
@@ -4646,8 +4647,6 @@ size = Vector2(40.375, 672.888)
 script = ExtResource("1_06gyy")
 metadata/_edit_horizontal_guides_ = [-231.0, -231.0, 227.0]
 metadata/_edit_vertical_guides_ = [-278.0, -279.0, 295.0]
-
-[node name="Global Variables" parent="." instance=ExtResource("2_sm81s")]
 
 [node name="player" parent="." instance=ExtResource("3_q013d")]
 z_index = 1
