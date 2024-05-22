@@ -6,3 +6,9 @@ extends Node2D
 
 func _ready():
 	player.follow_camera(camera)
+
+func _on_inventory_ui_closed():
+	get_tree().paused = false
+	
+func _on_inventory_ui_opened():
+	get_tree().paused = true
