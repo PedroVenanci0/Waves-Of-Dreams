@@ -21,4 +21,3 @@ func _on_timer_timeout():
 			get_parent().get_node("Enemies_group").add_child(enemy)
 			enemy.add_to_group("Enemies")
 			Global.enemies_spawn += 1
-			

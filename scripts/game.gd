@@ -9,3 +9,10 @@ var max_enemies: int
 func _ready():
 	Global.level_node = self
 	player.follow_camera(camera)
+
+
+func _on_ineventory_gui_opened():
+	get_tree().paused = true
+
+func _on_ineventory_gui_closed():
+	get_tree().paused = false
