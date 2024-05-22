@@ -3,6 +3,8 @@ extends Node
 var transition_scene: PackedScene = preload("res://scenes/fade_in_canvas_layer.tscn")
 var level_node: level
 var enemies_killed: int = 0
+var scene_forest = true  
+var scene_cave = false 
 var next_scene: String = "";
 
 var scenes_database: Dictionary = {
@@ -14,7 +16,7 @@ var scenes_database: Dictionary = {
 }
 
 @export_category("Spawner Variables")
-@export var max_enemies = 20
+@export var max_enemies = 10
 @export var enemies_spawn = 0
 var spawn_permission: bool = true
 
@@ -24,6 +26,14 @@ var spawn_permission: bool = true
 @export var life_player: int = 3
 @export var move_speed: float = 128
 @export var total_xp: int = 100
+
+###########################
+var max_chicken = 5
+var max_goblin = 5
+var max_slime = 5
+var max_skeleton = 5
+###########################
+ 
 
 func transitionToScene(destiny_scene: String) -> void:
 	var trans = transition_scene.instantiate()

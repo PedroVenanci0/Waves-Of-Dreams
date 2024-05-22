@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://0f0qylhqtmq1"]
+[gd_scene load_steps=8 format=3 uid="uid://0f0qylhqtmq1"]
 
 [ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_p661t"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_ikkcj"]
@@ -6,9 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://drjdfbvtimvtq" path="res://scenes/fade_out_canvas_layer.tscn" id="4_bpird"]
 [ext_resource type="PackedScene" uid="uid://gqnww56fn2wi" path="res://scenes/tile_cave.tscn" id="5_htu02"]
 [ext_resource type="VideoStream" path="res://assets/Biomes/Acid.ogv" id="6_u53cn"]
+[ext_resource type="PackedScene" uid="uid://dw1cf8xforpci" path="res://scenes/enemy_spawner.tscn" id="7_oq7gl"]
 
 [node name="CaveScene" type="Node2D"]
 script = ExtResource("1_p661t")
+
+[node name="Enemies_group" type="Node2D" parent="."]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("7_oq7gl")]
 
 [node name="player" parent="." instance=ExtResource("2_ikkcj")]
 z_index = 5

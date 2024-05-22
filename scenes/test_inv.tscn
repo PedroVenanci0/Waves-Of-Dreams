@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b18njcms7nu2x"]
 
-[ext_resource type="PackedScene" uid="uid://tueudwbdweib" path="res://scenes/inventorySlot.tscn" id="1_a6d0j"]
+[ext_resource type="PackedScene" uid="uid://cmk42csy2f3gm" path="res://scenes/inventorySlot.tscn" id="1_a6d0j"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fojpj"]
 

@@ -40,6 +40,7 @@ size_flags_stretch_ratio = 0.0
 color = Color(0.407843, 0, 0.00784314, 0.521569)
 
 [node name="stats" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 458.0
 offset_top = 242.0
 offset_right = 660.0
