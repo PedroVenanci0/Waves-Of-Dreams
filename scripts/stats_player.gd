@@ -12,13 +12,17 @@ func _process(delta):
 	strenght.text = str(Global.damage_player)
 
 func _on_hp_button_pressed():
-	if total_xp > 0:
+	if Global.total_xp > 0:
 		Global.life_player += 10
+		Global.total_xp -= 1
 	
 func _on_speed_button_pressed():
-	if total_xp > 0:
+	if Global.total_xp > 0:
 		Global.move_speed += 10
+		Global.total_xp -= 1
 	
 func _on_strenght_button_pressed():
-	if total_xp > 0:
+	if Global.total_xp > 0:
 		Global.damage_player += 10
+		Global.total_xp -= 1
+		
