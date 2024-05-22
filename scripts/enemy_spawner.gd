@@ -61,3 +61,4 @@ func _on_timer_timeout():
 			Global.enemies_spawn += 1
 			enemy_goblin += 1
 			print("spawn")
+		

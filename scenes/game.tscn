@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bl635nf8tyl18"]
+[gd_scene load_steps=28 format=3 uid="uid://bl635nf8tyl18"]
 
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="1_jq3lj"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_xsc42"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dwu3esqa6spr2" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Environment.png" id="11_y2mos"]
 [ext_resource type="Texture2D" uid="uid://dcu0xftwvf0df" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Trees.png" id="12_0fj3u"]
 [ext_resource type="Texture2D" uid="uid://cnkjd1ihetgtb" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Rocks.png" id="13_3op2w"]
+[ext_resource type="Script" path="res://scripts/CanvasLayer.gd" id="13_4v6m8"]
 [ext_resource type="PackedScene" uid="uid://c0cmotyeynw6w" path="res://scenes/stats_player.tscn" id="13_ennre"]
 [ext_resource type="PackedScene" uid="uid://crfi1gl7ds84c" path="res://scenes/ineventory_gui.tscn" id="13_wm2fq"]
 [ext_resource type="Texture2D" uid="uid://31gjgwe4iidg" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Ground Tileset.png" id="14_3ikyj"]
@@ -4268,11 +4269,19 @@ position = Vector2(749, 192)
 shape = SubResource("RectangleShape2D_mlknb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("13_4v6m8")
 
 [node name="IneventoryGUI" parent="CanvasLayer" instance=ExtResource("13_wm2fq")]
-offset_top = 88.0
-offset_right = 135.0
-offset_bottom = 175.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
@@ -4280,12 +4289,14 @@ size_flags_vertical = 6
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -234.0
-offset_top = -145.0
-offset_right = -234.0
-offset_bottom = -145.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [connection signal="closed" from="CanvasLayer/IneventoryGUI" to="." method="_on_ineventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/IneventoryGUI" to="." method="_on_ineventory_gui_opened"]
