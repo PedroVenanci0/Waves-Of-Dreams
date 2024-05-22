@@ -6,40 +6,40 @@
 script = ExtResource("1_1cs27")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-58, -208)
+position = Vector2(-21, -210)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(1, -210)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(51, -210)
+position = Vector2(23, -210)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
 position = Vector2(-245, 1)
 
 [node name="Marker2D5" type="Marker2D" parent="."]
-position = Vector2(-248, 55)
+position = Vector2(-245, -18)
 
 [node name="Marker2D6" type="Marker2D" parent="."]
-position = Vector2(-245, -59)
+position = Vector2(-245, -34)
 
 [node name="Marker2D7" type="Marker2D" parent="."]
-position = Vector2(246, 40)
+position = Vector2(245, 0)
 
 [node name="Marker2D8" type="Marker2D" parent="."]
-position = Vector2(245, -6)
+position = Vector2(245, -17)
 
 [node name="Marker2D9" type="Marker2D" parent="."]
-position = Vector2(245, -45)
+position = Vector2(245, -30)
 
 [node name="Marker2D10" type="Marker2D" parent="."]
-position = Vector2(53, 178)
+position = Vector2(24, 180)
 
 [node name="Marker2D11" type="Marker2D" parent="."]
 position = Vector2(0, 180)
 
 [node name="Marker2D12" type="Marker2D" parent="."]
-position = Vector2(-55, 182)
+position = Vector2(-24, 180)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

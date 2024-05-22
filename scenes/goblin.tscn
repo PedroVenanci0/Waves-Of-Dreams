@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cscpck4l2cod3"]
+[gd_scene load_steps=11 format=3 uid="uid://cscpck4l2cod3"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_prjg1"]
+[ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_fduc2"]
 [ext_resource type="Texture2D" uid="uid://b3c7e4iot8epp" path="res://assets/Entites/enemys.png" id="3_d0pxp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
-size = Vector2(15, 25.1289)
+size = Vector2(10.375, 12.5156)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdegh"]
-size = Vector2(10.5, 5.01545)
+size = Vector2(14, 16.0618)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3378"]
 radius = 409.031
@@ -35,9 +36,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gapfm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3p1a3")
 }],
 "loop": true,
 "name": &"walk",
@@ -46,22 +44,21 @@ animations = [{
 
 [node name="goblin" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_prjg1")
 
 [node name="damage_enemy" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_enemy"]
 show_behind_parent = true
-position = Vector2(20.5, -3.43555)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_4yh1n")
 
 [node name="hitbox2" type="CollisionShape2D" parent="."]
 show_behind_parent = true
 light_mask = 4
 visibility_layer = 5
-position = Vector2(20.25, 7.50772)
+position = Vector2(-1, -0.701171)
 shape = SubResource("RectangleShape2D_wdegh")
 
 [node name="detection" type="Area2D" parent="."]
@@ -73,13 +70,15 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_s3378")
 debug_color = Color(0.994583, 0, 0.219729, 0.42)
 
+[node name="player" parent="." instance=ExtResource("2_fduc2")]
+position = Vector2(38, 9.53674e-07)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, -15)
-scale = Vector2(1.8125, 1.57813)
+position = Vector2(-1, -8)
+scale = Vector2(1, 0.96875)
 sprite_frames = SubResource("SpriteFrames_e8jqy")
 animation = &"walk"
-autoplay = "walk"
-frame_progress = 0.951696
+frame_progress = 0.189556
 
 [connection signal="body_entered" from="damage_enemy" to="." method="_on_damage_enemy_body_entered"]
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
