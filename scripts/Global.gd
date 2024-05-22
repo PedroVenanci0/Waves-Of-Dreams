@@ -9,6 +9,7 @@ var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
 	"tavern": preload("res://scenes/tavern_scene.tscn"),
 	"cave": preload("res://scenes/cave_scene.tscn"),
+	"florest": preload("res://scenes/forest_scene.tscn"),
 	"transition": preload("res://scenes/transition.tscn"),
 }
 

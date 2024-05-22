@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var enemy:CharacterBody2D = null
 @onready var remote = $Remote as RemoteTransform2D
 @onready var fx = $FX
+@export var inventory: Inventory
 
 var knockbackVelo = Vector2.ZERO
 var _state_machine
