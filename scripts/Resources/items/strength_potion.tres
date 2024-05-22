@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://ctmt0tjtowtw"]
+
+[ext_resource type="Script" path="res://item_inventory.gd" id="1_mgahs"]
+[ext_resource type="Texture2D" uid="uid://bwqwgmlwlatku" path="res://assets/Icons/Pixel Potion Pack/Pixel Potion Pack - FINISHED/ALL Potions - First Frame/Small Vial - BROWN - 0000.png" id="2_gxg8k"]
+
+[resource]
+script = ExtResource("1_mgahs")
+name = "Strength Potion"
+texture = ExtResource("2_gxg8k")
