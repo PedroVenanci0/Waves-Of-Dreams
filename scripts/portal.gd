@@ -21,6 +21,8 @@ class_name portal
 ## Função que verifica se o player entrou no portal
 func _on_body_entered(_body) -> void:
 	if _body is CharacterBody2D:
+		Global.scene_forest = false
+		Global.scene_cave = true       # pergunta para nicolas
 		## Teleporta para a cena destino
 		Global.total_xp += 1
 		Global.transitionToScene(destiny)

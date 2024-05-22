@@ -13,8 +13,12 @@ var player = null
 
 func _physics_process(_delta):
 	if player_chese:
-		velocity = position.direction_to(player.position - Vector2(0,-20)) * speed
-		move_and_slide()
+		velocity = global_position.direction_to(player.global_position - Vector2(0,-20)) * speed
+	if direction.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	elif direction.x > 0:
+		$AnimatedSprite2D.flip_h = false
+	move_and_slide()
 
 func _on_detection_body_entered(body):
 	player = body

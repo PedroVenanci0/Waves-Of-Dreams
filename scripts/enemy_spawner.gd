@@ -10,8 +10,7 @@ var enemy_chicken = 0
 var enemy_goblin = 0
 var enemy_slime = 0
 var enemy_skeleton = 0
-var scene_forest = true  #quando for apara cena da caverna portal muda essa variavel para false
-var scene_cave = false
+
 
 func _ready():
 	# verificando filhos 
@@ -24,7 +23,7 @@ func _on_timer_timeout():
 		# spawn em posição aleatoria dentre as posições possiveis 
 		var spawn  = spawn_points[randi() % spawn_points.size()]
 		# spawn de inimigos 
-		if enemy_chicken <= 5 and scene_forest == true:
+		if enemy_chicken <= 5 and Global.scene_forest == true:
 			var enemy = ckicken_scene.instantiate()
 			enemy.global_position = spawn.global_position
 			get_parent().get_node("Enemies_group").add_child(enemy)
@@ -33,7 +32,7 @@ func _on_timer_timeout():
 			enemy_chicken += 1
 			print("spawn")
 		
-		if enemy_goblin <= 5 and scene_forest == true:
+		if enemy_goblin <= 5 and Global.scene_forest == true:
 			var enemy = goblin_scene.instantiate()
 			enemy.global_position = spawn.global_position + Vector2(40,40)
 			get_parent().get_node("Enemies_group").add_child(enemy)
@@ -42,7 +41,7 @@ func _on_timer_timeout():
 			enemy_goblin += 1
 			print("spawn")
 			
-		if enemy_skeleton <= 5 and scene_cave == true:
+		if enemy_skeleton <= 5 and Global.scene_cave == true:
 			var enemy = skeleton_scene.instantiate()
 			enemy.global_position = spawn.global_position
 			get_parent().get_node("Enemies_group").add_child(enemy)
@@ -52,7 +51,7 @@ func _on_timer_timeout():
 			enemy_goblin += 1
 			print("spawn")
 		
-		if enemy_slime <= 5 and scene_cave == true:
+		if enemy_slime <= 5 and Global.scene_cave == true:
 			var enemy = slime_scene.instantiate()
 			enemy.global_position = spawn.global_position 
 			get_parent().get_node("Enemies_group").add_child(enemy)
