@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ds05jxg1u28dg"]
+[gd_scene load_steps=31 format=3 uid="uid://ds05jxg1u28dg"]
 
 [ext_resource type="Script" path="res://scripts/portal.gd" id="1_nui32"]
 [ext_resource type="Texture2D" uid="uid://fe6ixpxag2qg" path="res://assets/Biomes/Portal/Green Portal Sprite Sheet.png" id="2_1guyr"]
@@ -192,12 +192,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7is1p"]
 size = Vector2(147.5, 344)
 
+[sub_resource type="Curve" id="Curve_psch1"]
+_data = [Vector2(0, 0.747253), 0.0, 0.0, 0, 0, Vector2(1, 0.241758), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jahph"]
+offsets = PackedFloat32Array(0, 0.806667, 1)
+colors = PackedColorArray(0.0313726, 0.47451, 0, 0, 0, 0.65098, 0.0823529, 0.521569, 1, 1, 1, 0)
+
 [node name="Portal" type="Area2D" node_paths=PackedStringArray("_animator")]
 z_index = 5
 script = ExtResource("1_nui32")
 _animator = NodePath("Animator")
 
 [node name="Animator" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(18, -138)
 scale = Vector2(9.40625, 8.8125)
 sprite_frames = SubResource("SpriteFrames_nejgc")
@@ -208,6 +217,22 @@ frame_progress = 0.785208
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-56.25, -94)
 shape = SubResource("RectangleShape2D_7is1p")
+disabled = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-112, -88)
+amount = 16
+lifetime = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(4, 120)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 48.0
+scale_amount_min = 12.0
+scale_amount_max = 16.0
+scale_amount_curve = SubResource("Curve_psch1")
+color_ramp = SubResource("Gradient_jahph")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]

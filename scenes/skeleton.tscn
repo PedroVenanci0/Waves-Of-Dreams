@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtrhpqwobw7sk"]
+[gd_scene load_steps=10 format=3 uid="uid://dtrhpqwobw7sk"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_pj8pq"]
-[ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_rln7y"]
 [ext_resource type="Texture2D" uid="uid://cn7kdo5dcb6aa" path="res://assets/Entites/skeleton-NESW.png" id="3_7ova2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
@@ -70,9 +69,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
 shape = SubResource("CircleShape2D_s3378")
 debug_color = Color(0.994583, 0, 0.219729, 0.42)
-
-[node name="player" parent="." instance=ExtResource("2_rln7y")]
-position = Vector2(38, 9.53674e-07)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)

@@ -6,12 +6,15 @@ var enemies_killed: int = 0
 var scene_forest = true  
 var scene_cave = false 
 var next_scene: String = "";
+var onTavern: bool = true;
+var actualSceneKey: String = "";
+var num_wave: int = 9;
 
 var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
 	"tavern": preload("res://scenes/tavern_scene.tscn"),
 	"cave": preload("res://scenes/cave_scene.tscn"),
-	"florest": preload("res://scenes/forest_scene.tscn"),
+	"forest": preload("res://scenes/forest_scene.tscn"), #TODO: Trocar para a cena da floresta correta.
 	"transition": preload("res://scenes/transition.tscn"),
 }
 
@@ -40,10 +43,7 @@ func transitionToScene(destiny_scene: String) -> void:
 	var _thisDestiny = "transition" if Global.next_scene == "" else Global.next_scene
 	trans.destiny_scene = scenes_database.get(_thisDestiny) 
 	Global.next_scene = destiny_scene
+	trans.nextSceneString = destiny_scene;
 	if _thisDestiny == Global.next_scene:
 		Global.next_scene = ""
 	add_child(trans)
-
-func _process(delta):
-	if life_player > 5:
-		life_player = 5

@@ -5,42 +5,30 @@
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_1cs27")
 
-[node name="Marker2D5" type="Marker2D" parent="."]
-position = Vector2(-139, 177)
-
 [node name="Marker2D6" type="Marker2D" parent="."]
-position = Vector2(-73, 175)
-
-[node name="Marker2D7" type="Marker2D" parent="."]
-position = Vector2(248, 2)
+position = Vector2(-78, 365)
 
 [node name="Marker2D8" type="Marker2D" parent="."]
-position = Vector2(103, 180)
+position = Vector2(103, 371)
 
 [node name="Marker2D9" type="Marker2D" parent="."]
-position = Vector2(41, 177)
+position = Vector2(33, 360)
 
 [node name="Marker2D10" type="Marker2D" parent="."]
-position = Vector2(-3, 180)
+position = Vector2(-13, 363)
 
 [node name="Marker2D11" type="Marker2D" parent="."]
-position = Vector2(0, -169)
+position = Vector2(-2, -293)
 
 [node name="Marker2D12" type="Marker2D" parent="."]
-position = Vector2(-145, -174)
-
-[node name="Marker2D13" type="Marker2D" parent="."]
-position = Vector2(113, -171)
+position = Vector2(-145, -298)
 
 [node name="Marker2D14" type="Marker2D" parent="."]
-position = Vector2(63, -170)
+position = Vector2(65, -297)
 
 [node name="Marker2D15" type="Marker2D" parent="."]
-position = Vector2(-61.9999, -171)
+position = Vector2(-64, -295)
 rotation = -1.53224
-
-[node name="Marker2D16" type="Marker2D" parent="."]
-position = Vector2(-264, -1)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

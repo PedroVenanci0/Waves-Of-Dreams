@@ -43,10 +43,10 @@ animations = [{
 
 [node name="chicken" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 5
 script = ExtResource("1_lct55")
 
 [node name="damage_enemy" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_enemy"]
 show_behind_parent = true
@@ -63,8 +63,7 @@ shape = SubResource("RectangleShape2D_wdegh")
 
 [node name="detection" type="Area2D" parent="."]
 visible = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
 shape = SubResource("CircleShape2D_s3378")
