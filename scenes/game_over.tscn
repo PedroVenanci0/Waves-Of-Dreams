@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bccc7iin7ejqr"]
+[gd_scene load_steps=9 format=3 uid="uid://bccc7iin7ejqr"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_7adpo"]
 [ext_resource type="Texture2D" uid="uid://b0adrv0sqmuyb" path="res://assets/Magic Buttons/ab67616d0000b2734101eb394f1596d84f89cc4b-removebg-preview.png" id="1_078ws"]
 [ext_resource type="Theme" uid="uid://ba0jbhrp1purd" path="res://assets/Butons/pause_menu.tres" id="2_6406g"]
 [ext_resource type="AudioStream" uid="uid://cje1kgcrcyc86" path="res://assets/Songs/dramatic-atmosphere-with-piano-and-violin-short-version-199232.mp3" id="3_fpuvx"]
+[ext_resource type="Script" path="res://scripts/resert_bt.gd" id="4_cxr46"]
 
 [sub_resource type="Animation" id="Animation_wbjq8"]
 length = 0.001
@@ -107,6 +108,7 @@ layout_mode = 2
 theme = ExtResource("2_6406g")
 text = "Resert
 "
+script = ExtResource("4_cxr46")
 
 [node name="quit_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2

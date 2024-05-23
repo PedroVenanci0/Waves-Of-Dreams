@@ -13,3 +13,5 @@ func _on_inventory_ui_closed():
 	
 func _on_inventory_ui_opened():
 	get_tree().paused = true
+	
+

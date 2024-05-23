@@ -88,7 +88,7 @@ func _animate() -> void:
 func _on_attack_timer_timeout() -> void:
 	_is_attacking = false
 	set_physics_process(true)
-
+"floor_stop_on_slope"
 
 func _on_attack_area_body_entered(_body) -> void:
 	if _body.is_in_group("Enemies"):
@@ -96,12 +96,10 @@ func _on_attack_area_body_entered(_body) -> void:
 
 
 func take_damage(damage_enemy,enemyVelocity) -> void:
-	print("dmg")
 	Global.life_player -= damage_enemy
 	if Global.life_player <= 0:
-		_is_dying = true
-		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://game_over.tscn")
+		#await get_tree().create_timer(2).timeout
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	else:
 		knockback(enemyVelocity)
 

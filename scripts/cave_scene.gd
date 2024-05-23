@@ -1,5 +1,5 @@
 extends Node2D
-class_name level
+
 var max_enemies: int 
 
 @onready var player = $player as CharacterBody2D
@@ -8,7 +8,6 @@ var max_enemies: int
 
 func _ready():
 	player.follow_camera(camera)
-	Global.level_node = self
 	Global.onTavern = false
 	
 func _on_ineventory_gui_closed():

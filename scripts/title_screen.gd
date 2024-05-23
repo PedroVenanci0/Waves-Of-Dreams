@@ -3,24 +3,25 @@ extends Control
 
 func _ready():
 	
-	var max_enemies = 10
-	var enemies_spawn = 0
-	var spawn_permission: bool = true
+	Global.max_enemies = 10
+	Global.enemies_spawn = 0
+	Global.spawn_permission = true
 
-	var enemies_killed: int = 0
-	var scene_forest = true  
-	var scene_cave = false 
+	Global.enemies_killed = 0
+	Global.scene_forest = true  
+	Global.scene_cave = false 
 
-	var damage_player: int = 1
-	var life_player: int = 3
-	var move_speed: float = 128
-	var total_xp: int = 100
+	Global.damage_player = 1
+	Global.life_player = 3
+	Global.move_speed = 128
+	Global.total_xp = 100
+	Global.onTavern = true 
 
 	###########################
-	var max_chicken = 5
-	var max_goblin = 5
-	var max_slime = 5
-	var max_skeleton = 5
+	Global.max_chicken = 5
+	Global.max_goblin = 5
+	Global.max_slime = 5
+	Global.max_skeleton = 5
 	###########################
 
 

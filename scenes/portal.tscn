@@ -206,6 +206,7 @@ script = ExtResource("1_nui32")
 _animator = NodePath("Animator")
 
 [node name="Animator" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(18, -138)
 scale = Vector2(9.40625, 8.8125)
 sprite_frames = SubResource("SpriteFrames_nejgc")
@@ -216,6 +217,7 @@ frame_progress = 0.785208
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-56.25, -94)
 shape = SubResource("RectangleShape2D_7is1p")
+disabled = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(-112, -88)

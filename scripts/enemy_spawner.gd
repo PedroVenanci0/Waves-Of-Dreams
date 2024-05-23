@@ -35,11 +35,10 @@ func _ready():
 	createdEnemiesNumberArray.resize(len(_enemies))
 	createdEnemiesNumberArray.fill(0)
 
-
 ## Acionado ao esgotar o tempo de spawn. Spawnará um inimigo em um posição aleatória do array spawn_points.
 func _on_timer_timeout():
 	# Valor maximo de cada inimigo: #TODO: Atualizar com algum valor da Global.
-	var _maxEnemies = 5;
+	var _maxEnemies = 1;
 	# Inimigos desse level
 	var _enemies = levelsEnemies.get(Global.actualSceneKey)
 	# Se a quantidade de inimigos for menor que o máximp
@@ -56,6 +55,8 @@ func _on_timer_timeout():
 		# Incrementar a quantidade de inimigos criados deste tipo.
 		createdEnemiesNumberArray[_randomEnemyInd] += 1
 		createdEnemiesNumber += 1
+		Global.max_enemies = createdEnemiesNumber
+		print(Global.max_enemies)
 		# Instanciar
 		spawnEnemy(_enemyToCreate, spawn)
 
