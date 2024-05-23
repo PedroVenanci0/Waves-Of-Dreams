@@ -1,63 +1,68 @@
 extends Node2D
 
-var ckicken_scene := preload("res://scenes/chicken.tscn")
-var goblin_scene := preload("res://scenes/goblin.tscn")
-var skeleton_scene := preload("res://scenes/skeleton.tscn")
-var slime_scene := preload("res://scenes/slime.tscn")
+## Array que guarda posições dos pontos de spawn, alimentados na _ready.
 var spawn_points := []
 
-var enemy_chicken = 0
-var enemy_goblin = 0
-var enemy_slime = 0
-var enemy_skeleton = 0
+## Dicionário com inimigos determinados para cada level.
+var levelsEnemies: Dictionary = {
+	"forest": [
+		preload("res://scenes/chicken.tscn"),
+		preload("res://scenes/goblin.tscn")
+	],
+	"cave": [
+		preload("res://scenes/skeleton.tscn"),
+		preload("res://scenes/slime.tscn")
+	]
+}
 
+## Total de Inimigos criados:
+var createdEnemiesNumber: int = 0;
+var createdEnemiesNumberArray: Array[int] = [];
 
+## Ao entrar em cena
 func _ready():
-	# verificando filhos 
+	# Adicionar pontos de spawn ao array spawn_points.
 	for child in get_children():
 		if child is Marker2D:
 			spawn_points.append(child)
+	
+	# Inimigos:
+	# Inimigos desse level
+	var _enemies = levelsEnemies.get(Global.actualSceneKey)
+	
+	# Criar um array que guarda quantos inimigos de cada tipo foram criados.
+	createdEnemiesNumberArray = []
+	createdEnemiesNumberArray.resize(len(_enemies))
+	createdEnemiesNumberArray.fill(0)
 
+
+## Acionado ao esgotar o tempo de spawn. Spawnará um inimigo em um posição aleatória do array spawn_points.
 func _on_timer_timeout():
-	if Global.enemies_spawn < Global.max_enemies and Global.spawn_permission: 
-		# spawn em posição aleatoria dentre as posições possiveis 
-		var spawn  = spawn_points[randi() % spawn_points.size()]
-		# spawn de inimigos 
-		if enemy_chicken <= 5 and Global.scene_forest == true:
-			var enemy = ckicken_scene.instantiate()
-			enemy.global_position = spawn.global_position
-			get_parent().get_node("Enemies_group").add_child(enemy)
-			enemy.add_to_group("Enemies")
-			Global.enemies_spawn += 1
-			enemy_chicken += 1
-			print("spawn")
-		
-		if enemy_goblin <= 5 and Global.scene_forest == true:
-			var enemy = goblin_scene.instantiate()
-			enemy.global_position = spawn.global_position + Vector2(40,40)
-			get_parent().get_node("Enemies_group").add_child(enemy)
-			enemy.add_to_group("Enemies")
-			Global.enemies_spawn += 1
-			enemy_goblin += 1
-			print("spawn")
-			
-		if enemy_skeleton <= 5 and Global.scene_cave == true:
-			var enemy = skeleton_scene.instantiate()
-			enemy.global_position = spawn.global_position
-			get_parent().get_node("Enemies_group").add_child(enemy)
-			enemy.add_to_group("Enemies")
-			get_tree().create_timer(1).timeout
-			Global.enemies_spawn += 1
-			enemy_goblin += 1
-			print("spawn")
-		
-		if enemy_slime <= 5 and Global.scene_cave == true:
-			var enemy = slime_scene.instantiate()
-			enemy.global_position = spawn.global_position 
-			get_parent().get_node("Enemies_group").add_child(enemy)
-			enemy.add_to_group("Enemies")
-			get_tree().create_timer(1).timeout
-			Global.enemies_spawn += 1
-			enemy_goblin += 1
-			print("spawn")
-		
+	# Valor maximo de cada inimigo: #TODO: Atualizar com algum valor da Global.
+	var _maxEnemies = 5;
+	# Inimigos desse level
+	var _enemies = levelsEnemies.get(Global.actualSceneKey)
+	# Se a quantidade de inimigos for menor que o máximp
+	if createdEnemiesNumber < _maxEnemies * len(_enemies):
+		# Obter ponto de spawn aleatório.
+		var spawn = spawn_points[randi() % spawn_points.size()]
+		# Escolhe um inimigo aleatório
+		var _randomEnemyInd = randi() % len(_enemies)
+		# Ficar sorteando enquanto o inimigo escolhido já tiver alcançado o máximo
+		while (createdEnemiesNumberArray[_randomEnemyInd] >= _maxEnemies):
+			_randomEnemyInd = randi() % len(_enemies)
+		# Nesse momento, já temos o inimigo que deverá ser criado:
+		var _enemyToCreate = _enemies[_randomEnemyInd]
+		# Incrementar a quantidade de inimigos criados deste tipo.
+		createdEnemiesNumberArray[_randomEnemyInd] += 1
+		createdEnemiesNumber += 1
+		# Instanciar
+		spawnEnemy(_enemyToCreate, spawn)
+
+
+## Instancia um inimigo num ponto de spawn determinado.
+func spawnEnemy(_enemyToCreate, _spawnPoint):
+	var enemy = _enemyToCreate.instantiate();
+	enemy.global_position = _spawnPoint.global_position;
+	get_parent().get_node("Enemies_group").add_child(enemy)
+	enemy.add_to_group("Enemies")

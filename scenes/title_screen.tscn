@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://daen02rnfeed1"]
+[gd_scene load_steps=15 format=3 uid="uid://daen02rnfeed1"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_y6klu"]
 [ext_resource type="VideoStream" path="res://assets/Title Screen/Title.ogv" id="2_t5k1q"]
@@ -20,6 +20,14 @@ _data = {
 "Game Name": SubResource("Animation_c3kp8")
 }
 
+[sub_resource type="Curve" id="Curve_4l3me"]
+_data = [Vector2(0.129213, 0.89011), 0.0, 0.0, 0, 0, Vector2(0.910112, 0.307692), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_mnbuj"]
+offsets = PackedFloat32Array(0, 0.0866667, 0.48, 0.8, 1)
+colors = PackedColorArray(1, 0, 0, 0, 1, 0, 0, 1, 0.909062, 0.369245, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0)
+
 [node name="Title screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -40,7 +48,6 @@ scale = Vector2(0.97353, 1)
 stream = ExtResource("2_t5k1q")
 autoplay = true
 expand = true
-loop = true
 
 [node name="Bg" type="TextureRect" parent="."]
 z_index = -1
@@ -135,6 +142,23 @@ bus = &"BackMusic"
 position = Vector2(582, 117)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("9_du5p0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(576, 424)
+amount = 24
+lifetime = 4.0
+randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector2(0, -1)
+spread = 4.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 18.0
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_4l3me")
+color_ramp = SubResource("Gradient_mnbuj")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_Buton" to="." method="_on_start_buton_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit_Buton" to="." method="_on_quit_buton_pressed"]

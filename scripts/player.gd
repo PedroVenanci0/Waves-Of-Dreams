@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var player = $"."
 @onready var _attack_collider = $AttackArea/CollisionShape2D
@@ -18,7 +19,7 @@ var have_potion_cooldown = false
 @export var _friction: float = 0.2
 @export var _acceleration: float = 0.2
 @export var _attack_scale = Vector2(1,1)
-@export var received_knockback_force : int = 100 
+@export var received_knockback_force : int = 500
 
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
@@ -100,7 +101,7 @@ func take_damage(damage_enemy,enemyVelocity) -> void:
 	if Global.life_player <= 0:
 		_is_dying = true
 		await get_tree().create_timer(2).timeout
-		queue_free()
+		get_tree().change_scene_to_file("res://game_over.tscn")
 	else:
 		knockback(enemyVelocity)
 

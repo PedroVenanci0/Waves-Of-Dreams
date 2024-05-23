@@ -1227,6 +1227,10 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
+libraries = {
+"": SubResource("AnimationLibrary_3wrqu"),
+"attack_moves": SubResource("AnimationLibrary_idorn")
+}
 tree_root = SubResource("AnimationNodeStateMachine_3qp02")
 anim_player = NodePath("../Animator")
 parameters/attack/blend_position = Vector2(0, 0)
