@@ -4,30 +4,33 @@ extends Control
 @onready var hp = $stats/volue/HP
 @onready var move_speed = $stats/volue/MoveSpeed
 @onready var strenght = $stats/volue/Strenght
-
+var points_hp = 0
+var points_speed = 0
+var points_stg = 0
 
 func _process(delta):
 	
 	total_xp.text = str(Global.total_xp)
-	hp.text = str(Global.life_player)
-	move_speed.text = str(Global.move_speed)
-	strenght.text = str(Global.damage_player)
+	hp.text = str(points_hp)
+	move_speed.text = str( points_speed )
+	strenght.text = str(points_stg )
 	
 	if Input.is_action_just_pressed("toggle_inventory"):
 		visible = !visible
+		
 	
 func _on_hp_button_pressed():
 	if Global.total_xp > 0:
-		Global.life_player += 10
+		Global.life_player += 0.5
 		Global.total_xp -= 1
 	
 func _on_speed_button_pressed():
 	if Global.total_xp > 0:
-		Global.move_speed += 10
+		Global.move_speed += Global.move_speed * 10/100
 		Global.total_xp -= 1
 	
 func _on_strenght_button_pressed():
 	if Global.total_xp > 0:
-		Global.damage_player += 10
+		Global.damage_player += 0.5
 		Global.total_xp -= 1
 		
