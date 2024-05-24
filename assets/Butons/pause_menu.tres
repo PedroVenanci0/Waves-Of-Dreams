@@ -11,10 +11,10 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpnn0"]
 
 [resource]
-Button/colors/font_color = Color(0.796078, 0, 0, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_focus_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.866667, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0.878431, 0, 0.141176, 0.956863)
 Button/fonts/font = ExtResource("1_h4grg")
 Button/styles/focus = SubResource("StyleBoxEmpty_4iivv")

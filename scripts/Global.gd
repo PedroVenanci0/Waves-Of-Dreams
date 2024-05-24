@@ -8,14 +8,15 @@ var scene_cave = false
 var next_scene: String = "";
 var onTavern: bool = true;
 var actualSceneKey: String = "";
-var num_wave: int = 9;
+var num_wave: int = 0;
 
 var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
 	"tavern": preload("res://scenes/tavern_scene.tscn"),
 	"cave": preload("res://scenes/cave_scene.tscn"),
-	"forest": preload("res://scenes/forest_scene.tscn"), #TODO: Trocar para a cena da floresta correta.
+	"forest": preload("res://scenes/forest_scene.tscn"), 
 	"transition": preload("res://scenes/transition.tscn"),
+	"win": preload("res://scenes/win.tscn"),
 }
 
 @export_category("Spawner Variables")
@@ -27,6 +28,7 @@ var spawn_permission: bool = true
 @export_category("Player Variables")
 @export var damage_player: int = 1
 @export var life_player: int = 3
+@onready var current_life_player: int = life_player
 @export var move_speed: float = 128
 @export var total_xp: int = 100
 

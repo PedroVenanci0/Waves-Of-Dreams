@@ -20,6 +20,8 @@ var have_potion_cooldown = false
 @export var _acceleration: float = 0.2
 @export var _attack_scale = Vector2(1,1)
 @export var received_knockback_force : int = 500
+@export var life_player: int = 3
+@onready var current_life_player: int = life_player
 
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
@@ -98,7 +100,6 @@ func _on_attack_area_body_entered(_body) -> void:
 func take_damage(damage_enemy,enemyVelocity) -> void:
 	Global.life_player -= damage_enemy
 	if Global.life_player <= 0:
-		#await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	else:
 		knockback(enemyVelocity)

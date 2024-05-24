@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bl635nf8tyl18"]
+[gd_scene load_steps=25 format=3 uid="uid://bl635nf8tyl18"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_06gyy"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="3_q013d"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cnkjd1ihetgtb" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Rocks.png" id="9_wyt5h"]
 [ext_resource type="Texture2D" uid="uid://31gjgwe4iidg" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Ground Tileset.png" id="10_mg4jt"]
 [ext_resource type="PackedScene" uid="uid://dw1cf8xforpci" path="res://scenes/enemy_spawner.tscn" id="11_oipvq"]
+[ext_resource type="AudioStream" uid="uid://bjyvkqstnwx5a" path="res://assets/Songs/Battle-Grief.mp3" id="12_i46e0"]
 [ext_resource type="PackedScene" uid="uid://ds05jxg1u28dg" path="res://scenes/portal.tscn" id="12_lct7m"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ox7cs"]
@@ -4256,6 +4257,10 @@ shape = SubResource("RectangleShape2D_mlknb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(86, -80)
-scale = Vector2(1, 1)
 zoom = Vector2(2.7, 2.7)
 position_smoothing_enabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_i46e0")
+volume_db = -18.175
+autoplay = true
