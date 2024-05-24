@@ -7,6 +7,7 @@ class_name Player
 @onready var remote = $Remote as RemoteTransform2D
 @onready var fx = $FX
 @export var inventory: Inventory
+@onready var audio_attack = $AudioStreamPlayer2D
 
 var knockbackVelo = Vector2.ZERO
 var _state_machine
@@ -91,6 +92,7 @@ func _on_attack_timer_timeout() -> void:
 "floor_stop_on_slope"
 
 func _on_attack_area_body_entered(_body) -> void:
+	audio_attack.playing = true
 	if _body.is_in_group("Enemies"):
 		_body.take_damage(Global.damage_player)
 

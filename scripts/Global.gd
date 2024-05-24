@@ -8,8 +8,8 @@ var spawn_permission: bool = true
 
 @export_category("Player Variables")
 @export var damage_player: float = 1.0
-@export var life_player: float = 3.0
-@export var move_speed: float = 128
+@export var life_player: float = 5.0
+@export var move_speed: float = 130
 @export var total_xp: float = 0
 
 var transition_scene: PackedScene = preload("res://scenes/fade_in_canvas_layer.tscn")
@@ -29,6 +29,7 @@ var scenes_database: Dictionary = {
 	"cave": preload("res://scenes/cave_scene.tscn"),
 	"forest": preload("res://scenes/forest_scene.tscn"), 
 	"transition": preload("res://scenes/transition.tscn"),
+	"win": preload("res://scenes/WIN.tscn")
 }
 
 

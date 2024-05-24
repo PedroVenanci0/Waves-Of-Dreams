@@ -34,8 +34,9 @@ func getDestinyByWaveNumber() -> String:
 	if Global.num_wave < 10:
 		return "forest";
 	if Global.num_wave < 20:
-		return "forest";
-	# TODO: Valor padrão. Foi uma solução para evitar crash.
+		return "win";
+	if Global.num_wave == 10:
+		return "win"
 	
 	return "forest"
 	

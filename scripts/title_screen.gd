@@ -13,8 +13,8 @@ func _ready():
 	Global.num_wave = 1
 
 	Global.damage_player = 1.0
-	Global.life_player =  3.0
-	Global.move_speed = 128
+	Global.life_player =  5.0
+	Global.move_speed = 130
 	Global.total_xp = 0
 	Global.onTavern = true 
 
