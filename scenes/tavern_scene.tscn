@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=13 format=3 uid="uid://b5qxa2ct648sv"]
 
 [ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_a7an7"]
@@ -5,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_colvp"]
 [ext_resource type="PackedScene" uid="uid://ds05jxg1u28dg" path="res://scenes/portal.tscn" id="3_kiwi1"]
 [ext_resource type="PackedScene" uid="uid://drjdfbvtimvtq" path="res://scenes/fade_out_canvas_layer.tscn" id="5_bg7yb"]
-[ext_resource type="Script" path="res://scripts/Inventory_Stats.gd" id="6_btedt"]
-[ext_resource type="PackedScene" uid="uid://crfi1gl7ds84c" path="res://scenes/inventory_gui.tscn" id="7_6i4wa"]
+[ext_resource type="PackedScene" uid="uid://dls04wdcieeim" path="res://scenes/pause_menu.tscn" id="6_luu8j"]
 [ext_resource type="PackedScene" uid="uid://c0cmotyeynw6w" path="res://scenes/stats_player.tscn" id="7_bysvv"]
+
 [ext_resource type="AudioStream" uid="uid://b16vj1qp5q5x0" path="res://assets/Songs/Calcinha Preta - Agora Estou Sofrendo #AoVivoEmSalvador DVD Vol.1 (320).mp3" id="9_y4qar"]
 [ext_resource type="Texture2D" uid="uid://qag04636pijw" path="res://assets/Icons/images-removebg-preview.png" id="10_2dxyi"]
 [ext_resource type="Texture2D" uid="uid://chnv22fmuqbiv" path="res://assets/Icons/791e5e6cc049aba2dc30329ba82402d9-removebg-preview.png" id="11_rr21a"]
 [ext_resource type="Texture2D" uid="uid://wwiplv1ub0b7" path="res://assets/Icons/DzmIma-removebg-preview.png" id="12_mhh5l"]
+
 
 [node name="TavernScene" type="Node2D"]
 script = ExtResource("1_a7an7")
@@ -34,23 +36,30 @@ position_smoothing_enabled = true
 [node name="FadeOutCanvasLayer" parent="." instance=ExtResource("5_bg7yb")]
 visible = false
 
+[node name="pause_menu" parent="." instance=ExtResource("6_luu8j")]
+visible = false
+
 [node name="Inventory_Stats" type="CanvasLayer" parent="."]
 process_mode = 3
-script = ExtResource("6_btedt")
+script = SubResource("GDScript_1d800")
 
-[node name="InventoryUI" parent="Inventory_Stats" instance=ExtResource("7_6i4wa")]
+[node name="ColorRect2" type="ColorRect" parent="Inventory_Stats"]
 visible = false
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -2.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
+color = Color(0, 0, 0, 0.321569)
+script = ExtResource("8_kdn8p")
+metadata/_edit_group_ = true
 
 [node name="Control" parent="Inventory_Stats" instance=ExtResource("7_bysvv")]
 visible = false
+
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -85,3 +94,4 @@ texture = ExtResource("12_mhh5l")
 
 [connection signal="closed" from="Inventory_Stats/InventoryUI" to="." method="_on_inventory_ui_closed"]
 [connection signal="opened" from="Inventory_Stats/InventoryUI" to="." method="_on_inventory_ui_opened"]
+

@@ -3,18 +3,19 @@ extends Control
 
 func _ready():
 	
-	Global.max_enemies = 10
+	Global.max_enemies = 2
 	Global.enemies_spawn = 0
 	Global.spawn_permission = true
-
+	Global.damage_enemy = 1
 	Global.enemies_killed = 0
 	Global.scene_forest = true  
 	Global.scene_cave = false 
+	Global.num_wave = 1
 
-	Global.damage_player = 1
-	Global.life_player = 3
+	Global.damage_player = 1.0
+	Global.life_player =  3.0
 	Global.move_speed = 128
-	Global.total_xp = 100
+	Global.total_xp = 0
 	Global.onTavern = true 
 
 	###########################

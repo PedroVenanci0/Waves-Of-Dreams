@@ -20,7 +20,7 @@ func _ready():
 	
 
 func _process(delta):
-	if Global.enemies_killed >= Global.max_enemies:
+	if Global.enemies_killed >= Global.max_enemies * 2: #TODO trocar magic number pelo comprimento do vetor de inimigos
 		portal_collider.set_deferred("disabled",false)
 		_animator.play("spawn")
 		_animator.visible = true
@@ -34,16 +34,26 @@ func getDestinyByWaveNumber() -> String:
 	if Global.num_wave < 10:
 		return "forest";
 	if Global.num_wave < 20:
+
 		return "cave";
 	if Global.num_wave == 10:
 		return "win"
+
 	# TODO: Valor padrão. Foi uma solução para evitar crash.
-	return "tavern"
+	
+	return "forest"
 	
 
 ## Função que verifica se o player entrou no portal
 func _on_body_entered(_body) -> void:
 	if _body is CharacterBody2D:
+		
+		if not Global.onTavern:
+			Global.num_wave += 1
+			Global.total_xp += 1 # Experiência do jogador
+			Global.max_enemies += 1
+			Global.damage_enemy += 0.25
+		
 		# Se entrou a partir do bar:
 		if Global.onTavern:
 			destiny = getDestinyByWaveNumber();
@@ -58,17 +68,7 @@ func _on_body_entered(_body) -> void:
 			else:
 				destiny = getDestinyByWaveNumber()
 				print("Taverna: ", Global.onTavern);
-		
-		# Experiência do jogador
-		Global.total_xp += 1
-		
-		if not Global.onTavern:
-			Global.num_wave += 1
-		
+
 		# Transiciona finalmente para a cena destino.
 		Global.transitionToScene(destiny)
 		print("Wave: ", Global.num_wave)
-
-	## Fazer o portal desaparecer
-		#_animator.play("disappearing")
-		#portal_collider.set_deferred("disabled", true)

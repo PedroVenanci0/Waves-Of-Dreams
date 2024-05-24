@@ -1,5 +1,17 @@
 extends Node
 
+
+@export_category("Spawner Variables")
+@export var max_enemies = 2
+@export var enemies_spawn = 0
+var spawn_permission: bool = true
+
+@export_category("Player Variables")
+@export var damage_player: float = 1.0
+@export var life_player: float = 3.0
+@export var move_speed: float = 128
+@export var total_xp: float = 0
+
 var transition_scene: PackedScene = preload("res://scenes/fade_in_canvas_layer.tscn")
 var level_node: level
 var enemies_killed: int = 0
@@ -8,7 +20,10 @@ var scene_cave = false
 var next_scene: String = "";
 var onTavern: bool = true;
 var actualSceneKey: String = "";
-var num_wave: int = 0;
+
+var num_wave: int = 1;
+var damage_enemy = 1
+
 
 var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
@@ -19,11 +34,6 @@ var scenes_database: Dictionary = {
 	"win": preload("res://scenes/win.tscn"),
 }
 
-@export_category("Spawner Variables")
-@export var max_enemies = 10
-@export var enemies_spawn = 0
-var spawn_permission: bool = true
-
 
 @export_category("Player Variables")
 @export var damage_player: int = 1
@@ -31,6 +41,7 @@ var spawn_permission: bool = true
 @onready var current_life_player: int = life_player
 @export var move_speed: float = 128
 @export var total_xp: int = 100
+
 
 ###########################
 var max_chicken = 5
