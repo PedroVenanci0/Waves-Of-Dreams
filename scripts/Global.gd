@@ -20,8 +20,10 @@ var scene_cave = false
 var next_scene: String = "";
 var onTavern: bool = true;
 var actualSceneKey: String = "";
+
 var num_wave: int = 1;
 var damage_enemy = 1
+
 
 var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
@@ -29,7 +31,16 @@ var scenes_database: Dictionary = {
 	"cave": preload("res://scenes/cave_scene.tscn"),
 	"forest": preload("res://scenes/forest_scene.tscn"), 
 	"transition": preload("res://scenes/transition.tscn"),
+	"win": preload("res://scenes/win.tscn"),
 }
+
+
+@export_category("Player Variables")
+@export var damage_player: int = 1
+@export var life_player: int = 3
+@onready var current_life_player: int = life_player
+@export var move_speed: float = 128
+@export var total_xp: int = 100
 
 
 ###########################

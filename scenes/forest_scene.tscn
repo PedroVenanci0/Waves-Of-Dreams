@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=28 format=3 uid="uid://bl635nf8tyl18"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_06gyy"]
@@ -4264,7 +4265,9 @@ position = Vector2(113, 668)
 shape = SubResource("RectangleShape2D_mlknb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
 position = Vector2(4, -12)
+
 zoom = Vector2(2.7, 2.7)
 limit_top = -330
 limit_right = 10000030
@@ -4286,3 +4289,4 @@ offset_bottom = 23.0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("14_s47bs")
 script = ExtResource("14_cgkoc")
+

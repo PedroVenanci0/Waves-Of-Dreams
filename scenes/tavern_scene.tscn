@@ -1,4 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5qxa2ct648sv"]
+
+[gd_scene load_steps=13 format=3 uid="uid://b5qxa2ct648sv"]
 
 [ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_a7an7"]
 [ext_resource type="PackedScene" uid="uid://cpapqb8jy76x0" path="res://scenes/tile_taverna.tscn" id="1_e4k2r"]
@@ -7,17 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://drjdfbvtimvtq" path="res://scenes/fade_out_canvas_layer.tscn" id="5_bg7yb"]
 [ext_resource type="PackedScene" uid="uid://dls04wdcieeim" path="res://scenes/pause_menu.tscn" id="6_luu8j"]
 [ext_resource type="PackedScene" uid="uid://c0cmotyeynw6w" path="res://scenes/stats_player.tscn" id="7_bysvv"]
-[ext_resource type="Script" path="res://scripts/ColorRect2.gd" id="8_kdn8p"]
 
-[sub_resource type="GDScript" id="GDScript_1d800"]
-script/source = "extends CanvasLayer
+[ext_resource type="AudioStream" uid="uid://b16vj1qp5q5x0" path="res://assets/Songs/Calcinha Preta - Agora Estou Sofrendo #AoVivoEmSalvador DVD Vol.1 (320).mp3" id="9_y4qar"]
+[ext_resource type="Texture2D" uid="uid://qag04636pijw" path="res://assets/Icons/images-removebg-preview.png" id="10_2dxyi"]
+[ext_resource type="Texture2D" uid="uid://chnv22fmuqbiv" path="res://assets/Icons/791e5e6cc049aba2dc30329ba82402d9-removebg-preview.png" id="11_rr21a"]
+[ext_resource type="Texture2D" uid="uid://wwiplv1ub0b7" path="res://assets/Icons/DzmIma-removebg-preview.png" id="12_mhh5l"]
 
-
-
-func _ready():
-	pass
-	
-"
 
 [node name="TavernScene" type="Node2D"]
 script = ExtResource("1_a7an7")
@@ -25,7 +21,7 @@ script = ExtResource("1_a7an7")
 [node name="TileTaverna" parent="." instance=ExtResource("1_e4k2r")]
 
 [node name="player" parent="." instance=ExtResource("2_colvp")]
-position = Vector2(-3.99997, 10)
+position = Vector2(-46, 30)
 
 [node name="Portal" parent="." instance=ExtResource("3_kiwi1")]
 position = Vector2(443, -4)
@@ -33,6 +29,7 @@ scale = Vector2(0.205, 0.205)
 destiny = "florest"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-6, -1)
 zoom = Vector2(2.7, 2.7)
 position_smoothing_enabled = true
 
@@ -62,8 +59,39 @@ metadata/_edit_group_ = true
 
 [node name="Control" parent="Inventory_Stats" instance=ExtResource("7_bysvv")]
 visible = false
-offset_left = -283.0
-offset_top = -112.0
-offset_right = -283.0
-offset_bottom = -112.0
-scale = Vector2(1.5, 1.5)
+
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_y4qar")
+volume_db = -15.146
+autoplay = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Images-removebg-preview" type="Sprite2D" parent="Node2D"]
+position = Vector2(242.438, -47.5313)
+scale = Vector2(0.138531, 0.111728)
+texture = ExtResource("10_2dxyi")
+
+[node name="791e5e6Cc049Aba2Dc30329Ba82402d9-removebg-preview" type="Sprite2D" parent="Node2D"]
+position = Vector2(-211, 71)
+scale = Vector2(0.10375, 0.123333)
+texture = ExtResource("11_rr21a")
+
+[node name="DzmIma-removebg-preview" type="Sprite2D" parent="Node2D"]
+position = Vector2(-240, -19)
+scale = Vector2(0.22381, 0.224)
+texture = ExtResource("12_mhh5l")
+
+[connection signal="closed" from="Inventory_Stats/InventoryUI" to="." method="_on_inventory_ui_closed"]
+[connection signal="opened" from="Inventory_Stats/InventoryUI" to="." method="_on_inventory_ui_opened"]
+
