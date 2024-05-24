@@ -2,6 +2,7 @@ extends Node2D
 
 ## Array que guarda posições dos pontos de spawn, alimentados na _ready.
 var spawn_points := []
+var max_enemies_this_level : int = 5
 
 ## Dicionário com inimigos determinados para cada level.
 var levelsEnemies: Dictionary = {
@@ -38,7 +39,7 @@ func _ready():
 ## Acionado ao esgotar o tempo de spawn. Spawnará um inimigo em um posição aleatória do array spawn_points.
 func _on_timer_timeout():
 	# Valor maximo de cada inimigo: #TODO: Atualizar com algum valor da Global.
-	var _maxEnemies = 1;
+	var _maxEnemies = Global.max_enemies
 	# Inimigos desse level
 	var _enemies = levelsEnemies.get(Global.actualSceneKey)
 	# Se a quantidade de inimigos for menor que o máximp
@@ -55,8 +56,7 @@ func _on_timer_timeout():
 		# Incrementar a quantidade de inimigos criados deste tipo.
 		createdEnemiesNumberArray[_randomEnemyInd] += 1
 		createdEnemiesNumber += 1
-		Global.max_enemies = createdEnemiesNumber
-		print(Global.max_enemies)
+		print("Inimigos criados: ", createdEnemiesNumberArray)
 		# Instanciar
 		spawnEnemy(_enemyToCreate, spawn)
 

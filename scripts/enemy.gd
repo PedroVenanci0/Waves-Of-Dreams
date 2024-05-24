@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export_category("Variables")
 @export var speed = 32
 @export var enemy_life = 3
-@export var damage_enemy = 1
 @export var knockback_cooldown = 0.5
 
 
@@ -41,7 +40,8 @@ func take_damage(damage_player) -> void:
 
 func _on_damage_enemy_body_entered(body):
 	if body is Player:
-		body.take_damage(damage_enemy, velocity)
+		body.take_damage(Global.damage_enemy, velocity)
+		print("Enemy dmg: ", Global.damage_enemy)
 		#set_physics_process(false)
 		#await get_tree().create_timer(knockback_cooldown).timeout
 		#set_physics_process(true)
