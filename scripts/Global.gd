@@ -7,10 +7,10 @@ extends Node
 var spawn_permission: bool = true
 
 @export_category("Player Variables")
-@export var damage_player: float = 1.0
-@export var life_player: float = 5.0
-@export var move_speed: float = 130
-@export var total_xp: float = 0
+@export var damage_player: int = 1
+@export var life_player: int = 5
+@export var move_speed: int = 130
+@export var total_xp: int = 0
 
 var transition_scene: PackedScene = preload("res://scenes/fade_in_canvas_layer.tscn")
 var level_node: level
@@ -22,6 +22,8 @@ var onTavern: bool = true;
 var actualSceneKey: String = "";
 var num_wave: int = 1;
 var damage_enemy = 1
+var life_cap = 5
+var enemy_speed = 30
 
 var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
@@ -31,15 +33,6 @@ var scenes_database: Dictionary = {
 	"transition": preload("res://scenes/transition.tscn"),
 	"win": preload("res://scenes/WIN.tscn")
 }
-
-
-###########################
-var max_chicken = 5
-var max_goblin = 5
-var max_slime = 5
-var max_skeleton = 5
-###########################
- 
 
 func transitionToScene(destiny_scene: String) -> void:
 	var trans = transition_scene.instantiate()

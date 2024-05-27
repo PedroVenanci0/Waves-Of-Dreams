@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 @export_category("Variables")
-@export var speed = 32
-@export var enemy_life = 3
+@export var enemy_life = 2
 @export var knockback_cooldown = 0.5
 
 
@@ -13,7 +12,7 @@ var facing: int = 1;
 
 func _physics_process(_delta):
 	if player_chese:
-		velocity = global_position.direction_to(player.global_position) * speed
+		velocity = global_position.direction_to(player.global_position) * Global.enemy_speed
 	
 	if velocity.x != 0:
 		facing = sign(velocity.x)

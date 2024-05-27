@@ -1,14 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://daen02rnfeed1"]
+[gd_scene load_steps=14 format=3 uid="uid://daen02rnfeed1"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_y6klu"]
 [ext_resource type="VideoStream" path="res://assets/Title Screen/Title.ogv" id="2_t5k1q"]
 [ext_resource type="Theme" uid="uid://cfxocfekwsruw" path="res://assets/Butons/new_theme.tres" id="2_wfxqr"]
-[ext_resource type="Texture2D" uid="uid://2h6c0g2r2x3b" path="res://assets/Title Screen/Default_Create_an_image_featuring_a_group_of_pixel_art_charact_2.jpg" id="3_j7n0u"]
+[ext_resource type="Texture2D" uid="uid://2h6c0g2r2x3b" path="res://assets/Title Screen/Default_Create_an_image_featuring_a_group_of_pixel_art_charact_2.jpg" id="3_bssmk"]
 [ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="4_j8qvw"]
 [ext_resource type="Script" path="res://scripts/Start_Buton.gd" id="5_vvekp"]
-[ext_resource type="AudioStream" uid="uid://ye8pn2a2552d" path="res://assets/Songs/impact/03 - Impact.mp3" id="7_48m2a"]
+[ext_resource type="AudioStream" uid="uid://be1ywdxwhe43y" path="res://assets/Songs/impact/03 - Impact.mp3" id="7_48m2a"]
 [ext_resource type="AudioStream" uid="uid://io854vm475m8" path="res://assets/Songs/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3" id="8_t4xfd"]
-[ext_resource type="Texture2D" uid="uid://ppnpygtgqp6" path="res://assets/Title Screen/Swords.png" id="9_du5p0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uw4t"]
 
@@ -58,7 +57,7 @@ offset_right = 1157.0
 offset_bottom = 647.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_j7n0u")
+texture = ExtResource("3_bssmk")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="."]
@@ -141,7 +140,6 @@ bus = &"BackMusic"
 [node name="Swords" type="Sprite2D" parent="."]
 position = Vector2(582, 117)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("9_du5p0")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(576, 424)
