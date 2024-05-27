@@ -3,7 +3,7 @@ extends Control
 
 func _ready():
 	
-	Global.max_enemies = 2
+	Global.max_enemies = 10
 	Global.enemies_spawn = 0
 	Global.spawn_permission = true
 	Global.damage_enemy = 1
@@ -11,19 +11,13 @@ func _ready():
 	Global.scene_forest = true  
 	Global.scene_cave = false 
 	Global.num_wave = 1
+	Global.life_cap = 5
 
-	Global.damage_player = 1.0
-	Global.life_player =  5.0
+	Global.damage_player = 1
+	Global.life_player =  5
 	Global.move_speed = 130
 	Global.total_xp = 0
 	Global.onTavern = true 
-
-	###########################
-	Global.max_chicken = 5
-	Global.max_goblin = 5
-	Global.max_slime = 5
-	Global.max_skeleton = 5
-	###########################
 
 
 func _on_start_buton_pressed():

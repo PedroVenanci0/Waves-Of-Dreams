@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cp5i8rr6h1s50" path="res://assets/Entites/chicken.png" id="3_4qhrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
-size = Vector2(21, 17)
+size = Vector2(24, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdegh"]
-size = Vector2(19, 15)
+size = Vector2(22, 17)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3378"]
 radius = 409.031
@@ -43,6 +43,7 @@ animations = [{
 
 [node name="chicken" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_lct55")
 
 [node name="damage_enemy" type="Area2D" parent="."]
@@ -50,7 +51,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_enemy"]
 show_behind_parent = true
-position = Vector2(2.5, -6.5)
+position = Vector2(2, -6.5)
 shape = SubResource("RectangleShape2D_4yh1n")
 
 [node name="hitbox2" type="CollisionShape2D" parent="."]
@@ -58,10 +59,11 @@ show_behind_parent = true
 light_mask = 4
 visibility_layer = 7
 z_index = 10
-position = Vector2(2.5, -6.5)
+position = Vector2(2, -6.5)
 shape = SubResource("RectangleShape2D_wdegh")
 
 [node name="detection" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]

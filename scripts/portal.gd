@@ -34,8 +34,8 @@ func getDestinyByWaveNumber() -> String:
 	if Global.num_wave < 10:
 		return "forest";
 	if Global.num_wave < 20:
-		return "win";
-	if Global.num_wave == 10:
+		return "cave";
+	if Global.num_wave == 30:
 		return "win"
 	
 	return "forest"
@@ -47,9 +47,14 @@ func _on_body_entered(_body) -> void:
 		
 		if not Global.onTavern:
 			Global.num_wave += 1
-			Global.total_xp += 1 # Experiência do jogador
+			
+		
+		if not Global.onTavern and Global.num_wave % 2 == 0:
+			print("Xp+")
+			Global.total_xp += 2 # Experiência do jogador
 			Global.max_enemies += 1
-			Global.damage_enemy += 0.25
+			Global.damage_enemy += 1
+			Global.enemy_speed += 5
 		
 		# Se entrou a partir do bar:
 		if Global.onTavern:

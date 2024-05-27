@@ -21,16 +21,20 @@ func _process(delta):
 	
 func _on_hp_button_pressed():
 	if Global.total_xp > 0:
-		Global.life_player += 0.5
+		points_hp += 1
+		Global.life_cap += 1
 		Global.total_xp -= 1
+		
 	
 func _on_speed_button_pressed():
 	if Global.total_xp > 0:
-		Global.move_speed += Global.move_speed * 10/100
+		points_speed += 1
+		Global.move_speed += Global.move_speed * 5/100
 		Global.total_xp -= 1
 	
 func _on_strenght_button_pressed():
 	if Global.total_xp > 0:
-		Global.damage_player += 0.5
+		points_stg += 1
+		Global.damage_player += 1
 		Global.total_xp -= 1
 		
