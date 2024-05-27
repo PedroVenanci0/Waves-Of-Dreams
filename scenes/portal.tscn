@@ -234,5 +234,8 @@ scale_amount_max = 16.0
 scale_amount_curve = SubResource("Curve_psch1")
 color_ramp = SubResource("Gradient_jahph")
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="portal_open" from="." to="." method="_on_portal_open"]
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]

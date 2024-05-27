@@ -1,14 +1,17 @@
 extends CharacterBody2D
 
 @export_category("Variables")
-@export var enemy_life = 2
 @export var knockback_cooldown = 0.5
 
-
+var enemy_life = Global.enemy_life
 var direction := Vector2.ZERO
 var player_chese = false
 var player = null
 var facing: int = 1;
+
+func _ready(): 
+	enemy_life = Global.enemy_life
+
 
 func _physics_process(_delta):
 	if player_chese:
@@ -41,8 +44,4 @@ func _on_damage_enemy_body_entered(body):
 	if body is Player:
 		body.take_damage(Global.damage_enemy, velocity)
 		print("Enemy dmg: ", Global.damage_enemy)
-		#set_physics_process(false)
-		#await get_tree().create_timer(knockback_cooldown).timeout
-		#set_physics_process(true)
-		
 

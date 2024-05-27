@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://beyo1yxxpm6x7" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/04.png" id="5_01b23"]
 [ext_resource type="Animation" uid="uid://c5fnastrt01pj" path="res://assets/Entites/player_attacks/attack_right.res" id="5_7l5oh"]
 [ext_resource type="Animation" uid="uid://bqnylfyljau41" path="res://assets/Entites/player_attacks/attack_up.res" id="6_5tsxv"]
-[ext_resource type="AudioStream" uid="uid://dnms2nfbqgr44" path="res://assets/Songs/slash-21834.mp3" id="14_o065x"]
+[ext_resource type="AudioStream" uid="uid://h7em2kyevj1o" path="res://assets/Songs/slash-21834.mp3" id="14_o065x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgson"]
 atlas = ExtResource("2_w3b3d")
@@ -1042,8 +1042,6 @@ position = Vector2(0, -12)
 scale = Vector2(0.79, 0.79)
 sprite_frames = SubResource("SpriteFrames_hbhva")
 animation = &"Potion of Speed"
-frame = 12
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
@@ -1058,10 +1056,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
-libraries = {
-"": SubResource("AnimationLibrary_3wrqu"),
-"attack_moves": SubResource("AnimationLibrary_idorn")
-}
 tree_root = SubResource("AnimationNodeStateMachine_3qp02")
 anim_player = NodePath("../Animator")
 parameters/attack/blend_position = Vector2(0, 0)

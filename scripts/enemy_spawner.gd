@@ -56,7 +56,6 @@ func _on_timer_timeout():
 		# Incrementar a quantidade de inimigos criados deste tipo.
 		createdEnemiesNumberArray[_randomEnemyInd] += 1
 		createdEnemiesNumber += 1
-		print("Inimigos criados: ", createdEnemiesNumberArray)
 		# Instanciar
 		spawnEnemy(_enemyToCreate, spawn)
 
