@@ -1,8 +1,7 @@
 extends Node
 
-
 @export_category("Spawner Variables")
-@export var max_enemies = 2
+@export var max_enemies = 5
 @export var enemies_spawn = 0
 var spawn_permission: bool = true
 
@@ -24,6 +23,11 @@ var num_wave: int = 1;
 var damage_enemy = 1
 var life_cap = 5
 var enemy_speed = 30
+var enemy_life = 1
+
+var debugLastLifeEnemy: int = 0;
+var debugLastDamageEnemy: int = 0;
+
 
 var scenes_database: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"),
@@ -43,3 +47,15 @@ func transitionToScene(destiny_scene: String) -> void:
 	if _thisDestiny == Global.next_scene:
 		Global.next_scene = ""
 	add_child(trans)
+
+func _process(delta):
+	if debugLastLifeEnemy != enemy_life:
+		print("Novo valor de enemy_life: ", enemy_life)
+		debugLastLifeEnemy = enemy_life
+		
+	if debugLastDamageEnemy != damage_enemy:
+		print("Novo valor de damage_enemy: ", damage_enemy)
+		debugLastDamageEnemy = damage_enemy
+
+	if Input.is_action_just_pressed("kill"):
+		enemies_killed = 999

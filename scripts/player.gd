@@ -111,5 +111,6 @@ func knockback (enemyVelocity: Vector2) -> void:
 		print("knockbackVelo: ", knockbackVelo)
 		
 func follow_camera(camera) -> void:
+	print("Executando follow_camera do player")
 	var cam_path = camera.get_path()
 	remote.remote_path = cam_path
