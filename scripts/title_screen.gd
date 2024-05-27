@@ -17,7 +17,8 @@ func _ready():
 	Global.damage_player = 1
 	Global.life_player =  5
 	Global.move_speed = 130
-	Global.total_xp = 10
+	Global.total_xp = 100
+
 	Global.onTavern = true 
 
 
