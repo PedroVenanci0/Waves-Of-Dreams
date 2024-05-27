@@ -1042,8 +1042,6 @@ position = Vector2(0, -12)
 scale = Vector2(0.79, 0.79)
 sprite_frames = SubResource("SpriteFrames_hbhva")
 animation = &"Potion of Speed"
-frame = 12
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
@@ -1058,10 +1056,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
-libraries = {
-"": SubResource("AnimationLibrary_3wrqu"),
-"attack_moves": SubResource("AnimationLibrary_idorn")
-}
 tree_root = SubResource("AnimationNodeStateMachine_3qp02")
 anim_player = NodePath("../Animator")
 parameters/attack/blend_position = Vector2(0, 0)

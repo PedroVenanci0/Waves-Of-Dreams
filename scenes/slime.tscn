@@ -57,7 +57,7 @@ scale = Vector2(0.705, 0.705)
 sprite_frames = SubResource("SpriteFrames_xf8du")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0208622
+frame_progress = 0.255317
 
 [node name="hitbox2" type="CollisionShape2D" parent="."]
 show_behind_parent = true

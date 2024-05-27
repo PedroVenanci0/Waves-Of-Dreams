@@ -1,6 +1,9 @@
 extends Area2D
 class_name portal
-
+signal portal_open
+@onready var portal = $"."
+@onready var remote = $RemoteTransform2D
+var portal_spawn = true
 
 @onready var portal_collider = $CollisionShape2D
 
@@ -17,17 +20,17 @@ func _ready():
 			await get_tree().create_timer(0.8).timeout
 			_animator.play("idle")
 			portal_collider.set_deferred("disabled", false)
-	
-
+			
 func _process(delta):
-	if Global.enemies_killed >= Global.max_enemies * 2: #TODO trocar magic number pelo comprimento do vetor de inimigos
+	if Global.enemies_killed >= Global.max_enemies * 2 and portal_spawn: #TODO trocar magic number pelo comprimento do vetor de inimigos
 		portal_collider.set_deferred("disabled",false)
 		_animator.play("spawn")
 		_animator.visible = true
-		await  _animator.animation_finished
+		await _animator.animation_finished
 		_animator.play("idle")
 		Global.enemies_killed = 0
-		
+		portal_spawn = false
+	
 
 ## Retorna a chave da scene correspondente ao numero da wave no momento
 func getDestinyByWaveNumber() -> String:
@@ -45,17 +48,20 @@ func getDestinyByWaveNumber() -> String:
 func _on_body_entered(_body) -> void:
 	if _body is CharacterBody2D:
 		
-		if not Global.onTavern:
-			Global.num_wave += 1
-			
-		
 		if not Global.onTavern and Global.num_wave % 2 == 0:
+			print("Global.num_wave: " + str(Global.num_wave))
+			Global.enemy_life += 1
 			print("Xp+")
-			Global.total_xp += 2 # Experiência do jogador
-			Global.max_enemies += 1
+			Global.total_xp += 3 # Experiência do jogador
+			Global.max_enemies += 2
 			Global.damage_enemy += 1
 			Global.enemy_speed += 5
 		
+		
+		if not Global.onTavern:
+				Global.num_wave += 1
+				print( "Enemy life: "+ str(Global.enemy_life))
+	
 		# Se entrou a partir do bar:
 		if Global.onTavern:
 			destiny = getDestinyByWaveNumber();
@@ -74,3 +80,9 @@ func _on_body_entered(_body) -> void:
 		# Transiciona finalmente para a cena destino.
 		Global.transitionToScene(destiny)
 		print("Wave: ", Global.num_wave)
+		portal_spawn = true
+		
+#func follow_camera(camera) -> void:
+	#print("porta pegou cam")
+	#var cam_path = camera.get_path()
+	#remote.remote_path = cam_path

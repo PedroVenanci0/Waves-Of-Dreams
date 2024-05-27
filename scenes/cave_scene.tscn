@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://0f0qylhqtmq1"]
+[gd_scene load_steps=14 format=3 uid="uid://0f0qylhqtmq1"]
 
 [ext_resource type="Script" path="res://scripts/cave_scene.gd" id="1_cm55i"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_ikkcj"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="10_7up76"]
 [ext_resource type="Script" path="res://scripts/num_waves.gd" id="11_gihcy"]
 [ext_resource type="Script" path="res://scripts/Hea.gd" id="12_oquxi"]
+[ext_resource type="Script" path="res://scripts/enemies.gd" id="13_4coxa"]
 
 [node name="CaveScene" type="Node2D"]
 script = ExtResource("1_cm55i")
@@ -127,10 +128,20 @@ script = ExtResource("11_gihcy")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -55.0
-offset_bottom = 23.0
+offset_left = -81.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 22.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "VIDA: 5"
+theme_override_fonts/font = ExtResource("10_7up76")
 script = ExtResource("12_oquxi")
+
+[node name="enemies" type="Label" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 43.0
+offset_right = 215.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("10_7up76")
+script = ExtResource("13_4coxa")
