@@ -1,8 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bl635nf8tyl18"]
+[gd_scene load_steps=33 format=3 uid="uid://bl635nf8tyl18"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_06gyy"]
+[ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="3_ot5rx"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="3_q013d"]
 [ext_resource type="Texture2D" uid="uid://8kre8ht3856c" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Cliff.png" id="4_3cawk"]
+[ext_resource type="Texture2D" uid="uid://7ofyspxk26km" path="res://assets/Butons/angel-angelov-healthbarwithoutbackground-removebg-preview.png" id="4_fxqj1"]
 [ext_resource type="Texture2D" uid="uid://cw4sq0tct1q8y" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Stairs Bridge.png" id="5_reldd"]
 [ext_resource type="Texture2D" uid="uid://c281xk7tl7fg4" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Stone Path Tileset.png" id="6_j2vcl"]
 [ext_resource type="Texture2D" uid="uid://dwu3esqa6spr2" path="res://assets/Biomes/PixiVan Forest (Beta) (1)/Environment.png" id="7_bh01c"]
@@ -4231,6 +4233,26 @@ metadata/_edit_vertical_guides_ = [-278.0, -279.0, 295.0]
 [node name="player" parent="." instance=ExtResource("3_q013d")]
 position = Vector2(-307, 101)
 
+[node name="healthbar" parent="player" instance=ExtResource("3_ot5rx")]
+offset_left = -14.6154
+offset_top = -33.0769
+offset_right = 18.3846
+offset_bottom = -28.0769
+show_percentage = false
+metadata/_edit_group_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="player/healthbar"]
+z_index = -1
+layout_mode = 0
+offset_right = 33.0
+offset_bottom = 5.0
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="Angel-angelov-healthbarwithoutbackground-removebg-preview" type="Sprite2D" parent="player/healthbar"]
+position = Vector2(15.3846, 12.3077)
+scale = Vector2(0.0653246, 0.178953)
+texture = ExtResource("4_fxqj1")
+
 [node name="TileFlorest" type="TileMap" parent="."]
 z_index = -2
 position = Vector2(240, -146)
@@ -4277,7 +4299,7 @@ limit_bottom = 326
 position_smoothing_enabled = true
 
 [node name="entryPortal" parent="." instance=ExtResource("12_3b088")]
-position = Vector2(-337, 64)
+position = Vector2(-339, 73)
 scale = Vector2(0.18, 0.18)
 
 [node name="pause_menu" parent="." instance=ExtResource("13_gtqcc")]

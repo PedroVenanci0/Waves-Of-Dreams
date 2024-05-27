@@ -14,6 +14,8 @@ func _process(delta):
 	hp.text = str(points_hp)
 	move_speed.text = str( points_speed )
 	strenght.text = str(points_stg )
+	if Global.onTavern:
+		Global.life_player = Global.life_cap
 	
 	if Input.is_action_just_pressed("toggle_inventory"):
 		visible = !visible
