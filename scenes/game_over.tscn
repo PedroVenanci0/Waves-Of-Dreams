@@ -106,7 +106,7 @@ texture = ExtResource("1_078ws")
 [node name="resert_bt" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_6406g")
-text = "Resert
+text = "Reset
 "
 script = ExtResource("4_cxr46")
 

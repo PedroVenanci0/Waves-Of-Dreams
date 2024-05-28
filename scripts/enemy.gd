@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animation = $AnimatedSprite2D
 
 
+
 var enemy_life = Global.enemy_life
 var direction := Vector2.ZERO
 var player_chese = false

@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=64 format=3 uid="uid://b5qxa2ct648sv"]
 
 [ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_a7an7"]
@@ -366,6 +367,9 @@ func _ready():
 	
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p776o"]
+size = Vector2(80, 25)
+
 [node name="TavernScene" type="Node2D"]
 script = ExtResource("1_a7an7")
 
@@ -440,3 +444,9 @@ script = ExtResource("9_pjhcj")
 stream = ExtResource("9_mels0")
 volume_db = -20.799
 autoplay = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-24, 243.5)
+shape = SubResource("RectangleShape2D_p776o")
