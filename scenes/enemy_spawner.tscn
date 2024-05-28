@@ -6,28 +6,28 @@
 script = ExtResource("1_1cs27")
 
 [node name="Marker2D6" type="Marker2D" parent="."]
-position = Vector2(-78, 365)
+position = Vector2(-80, 619)
 
 [node name="Marker2D8" type="Marker2D" parent="."]
-position = Vector2(103, 371)
+position = Vector2(101, 625)
 
 [node name="Marker2D9" type="Marker2D" parent="."]
-position = Vector2(33, 360)
+position = Vector2(31, 614)
 
 [node name="Marker2D10" type="Marker2D" parent="."]
-position = Vector2(-13, 363)
+position = Vector2(-15, 617)
 
 [node name="Marker2D11" type="Marker2D" parent="."]
-position = Vector2(-2, -293)
+position = Vector2(17, -602)
 
 [node name="Marker2D12" type="Marker2D" parent="."]
-position = Vector2(-145, -298)
+position = Vector2(-126, -607)
 
 [node name="Marker2D14" type="Marker2D" parent="."]
-position = Vector2(65, -297)
+position = Vector2(84, -606)
 
 [node name="Marker2D15" type="Marker2D" parent="."]
-position = Vector2(-64, -295)
+position = Vector2(-45, -604)
 rotation = -1.53224
 
 [node name="Timer" type="Timer" parent="."]

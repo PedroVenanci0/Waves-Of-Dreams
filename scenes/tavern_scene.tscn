@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=66 format=3 uid="uid://b5qxa2ct648sv"]
 
 [ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_a7an7"]
@@ -367,6 +368,9 @@ func _ready():
 	pass
 	
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p776o"]
+size = Vector2(80, 25)
 
 [node name="TavernScene" type="Node2D"]
 script = ExtResource("1_a7an7")
