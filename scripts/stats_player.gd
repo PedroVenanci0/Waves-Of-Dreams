@@ -32,7 +32,7 @@ func _on_hp_button_pressed():
 func _on_speed_button_pressed():
 	if Global.total_xp > 0:
 		points_speed += 1
-		Global.move_speed += Global.move_speed * 10/100
+		Global.move_speed += Global.move_speed * 7/100
 		Global.total_xp -= 1
 		fx_2.play("Potion of Speed")
 	

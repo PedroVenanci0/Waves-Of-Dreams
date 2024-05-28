@@ -6,7 +6,10 @@
 script = ExtResource("1_1cs27")
 
 [node name="Marker2D6" type="Marker2D" parent="."]
-position = Vector2(-80, 619)
+position = Vector2(-489, -80)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(-486, 79)
 
 [node name="Marker2D8" type="Marker2D" parent="."]
 position = Vector2(101, 625)
@@ -21,7 +24,10 @@ position = Vector2(-15, 617)
 position = Vector2(17, -602)
 
 [node name="Marker2D12" type="Marker2D" parent="."]
-position = Vector2(-126, -607)
+position = Vector2(327, -69)
+
+[node name="Marker2D13" type="Marker2D" parent="."]
+position = Vector2(343, 130)
 
 [node name="Marker2D14" type="Marker2D" parent="."]
 position = Vector2(84, -606)

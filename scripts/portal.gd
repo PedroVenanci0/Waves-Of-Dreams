@@ -22,9 +22,9 @@ func _ready():
 			portal_collider.set_deferred("disabled", false)
 			
 func _process(delta):
-	if Global.enemies_killed >= Global.max_enemies * 2 and portal_spawn:
-		await get_tree().create_timer(1).timeout #TODO trocar magic number pelo comprimento do vetor de inimigos
+	if Global.enemies_killed >= Global.max_enemies * 2 and portal_spawn:#TODO trocar magic number pelo comprimento do vetor de inimigos
 		portal_collider.set_deferred("disabled",false)
+		await get_tree().create_timer(0.5).timeout 
 		_animator.play("spawn")
 		_animator.visible = true
 		await _animator.animation_finished
