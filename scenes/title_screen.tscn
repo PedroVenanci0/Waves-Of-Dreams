@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://daen02rnfeed1"]
+[gd_scene load_steps=13 format=3 uid="uid://daen02rnfeed1"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_y6klu"]
 [ext_resource type="VideoStream" path="res://assets/Title Screen/Title.ogv" id="2_t5k1q"]
 [ext_resource type="Theme" uid="uid://cfxocfekwsruw" path="res://assets/Butons/new_theme.tres" id="2_wfxqr"]
 [ext_resource type="Texture2D" uid="uid://2h6c0g2r2x3b" path="res://assets/Title Screen/Default_Create_an_image_featuring_a_group_of_pixel_art_charact_2.jpg" id="3_m3hbv"]
+[ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="4_43yaj"]
 [ext_resource type="Script" path="res://scripts/Start_Buton.gd" id="5_vvekp"]
+[ext_resource type="Texture2D" uid="uid://ppnpygtgqp6" path="res://assets/Title Screen/Swords.png" id="7_t1or5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uw4t"]
 
@@ -73,6 +75,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.0707571, 0.0263823, 0.0230824, 1)
+theme_override_fonts/font = ExtResource("4_43yaj")
 text = "Waves of Dreams"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -132,6 +135,7 @@ bus = &"BackMusic"
 [node name="Swords" type="Sprite2D" parent="."]
 position = Vector2(582, 117)
 scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_t1or5")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(576, 424)

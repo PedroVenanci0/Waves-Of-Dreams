@@ -25,6 +25,8 @@ var have_potion_cooldown = false
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
 
+var myPortal: Portal = null;
+
 func _ready() -> void:
 	player.add_to_group("player")
 	_animation_tree.active = true
@@ -40,6 +42,11 @@ func _physics_process(_delta: float) -> void:
 	
 	
 func _move() -> void:
+	if myPortal != null:
+		velocity = Vector2.ZERO;
+		global_position = global_position.lerp(myPortal.global_position, 0.169)
+		return
+	
 	var _direction : Vector2 = Vector2(
 		Input.get_axis("move_left", "move_right"),
 		Input.get_axis("move_up","move_down")

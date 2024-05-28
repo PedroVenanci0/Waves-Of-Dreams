@@ -192,6 +192,7 @@ script = ExtResource("1_nui32")
 _animator = NodePath("Animator")
 
 [node name="Animator" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(18, -138)
 scale = Vector2(9.40625, 8.8125)
 sprite_frames = SubResource("SpriteFrames_nejgc")

@@ -52,7 +52,6 @@ autoplay = true
 loop = true
 
 [node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="AcidVideo"]
-visible = false
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
