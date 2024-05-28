@@ -3,4 +3,4 @@ extends Label
 
 
 func _process(delta):
-	health.text = "VIDA: " +  str(Global.life_player)
+	health.text = str(Global.life_player) + "/" + str(Global.life_cap)

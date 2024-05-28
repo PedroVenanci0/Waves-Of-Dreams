@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export_category("Variables")
 @export var knockback_cooldown = 0.5
+@onready var animation = $AnimatedSprite2D
+
 
 var enemy_life = Global.enemy_life
 var direction := Vector2.ZERO
@@ -11,7 +13,6 @@ var facing: int = 1;
 
 func _ready(): 
 	enemy_life = Global.enemy_life
-
 
 func _physics_process(_delta):
 	if player_chese:
@@ -35,6 +36,13 @@ func _on_detection_body_exited(body):
 
 func take_damage(damage_player) -> void:
 	enemy_life -= damage_player
+	animation.modulate = Color(1,0,0,1)
+	set_physics_process(false)
+	animation.pause()
+	await get_tree().create_timer(0.2).timeout
+	animation.play()
+	set_physics_process(true)
+	animation.modulate = Color(1,1,1,1)
 	if enemy_life <= 0:
 		Global.enemies_killed += 1
 		print("Kills: ",Global.enemies_killed)

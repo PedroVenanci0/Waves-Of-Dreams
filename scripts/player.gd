@@ -99,11 +99,14 @@ func _on_attack_area_body_entered(_body) -> void:
 
 func take_damage(damage_enemy,enemyVelocity) -> void:
 	Global.life_player -= damage_enemy
+	player.modulate = Color(1,0,0,1)
 	if Global.life_player <= 0:
 		#await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	else:
 		knockback(enemyVelocity)
+		await get_tree().create_timer(0.3).timeout
+		player.modulate = Color(1,1,1,1)
 
 func knockback (enemyVelocity: Vector2) -> void:
 		var knockbackDirection = (enemyVelocity - velocity).normalized() * received_knockback_force
