@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cfxocfekwsruw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2awd"]
+bg_color = Color(0.54902, 0, 0, 0)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.994108, 0.994108, 0.994108, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xaw77"]
+bg_color = Color(0.084362, 0.02058, 0.00586594, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v180"]
+bg_color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[resource]
+Button/colors/font_color = Color(1, 0, 0, 1)
+Button/fonts/font = null
+Button/styles/focus = SubResource("StyleBoxFlat_x2awd")
+Button/styles/normal = SubResource("StyleBoxFlat_xaw77")
+Button/styles/pressed = SubResource("StyleBoxFlat_0v180")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5p8sxkhy3wss"]
+
+[ext_resource type="Script" path="res://scripts/transition.gd" id="1_x17d5"]
+[ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="2_npatg"]
+
+[sub_resource type="Gradient" id="Gradient_vp1vr"]
+offsets = PackedFloat32Array(0, 0.508197, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.45098, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d1vv6"]
+gradient = SubResource("Gradient_vp1vr")
+width = 128
+height = 128
+fill_to = Vector2(0, 1)
+
+[node name="Transition" type="Node2D"]
+script = ExtResource("1_x17d5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_d1vv6")
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_npatg")
+theme_override_fonts/bold_font = ExtResource("2_npatg")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center][wave]TELEPORTANDO"
+fit_content = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

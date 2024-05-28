@@ -1,0 +1,37 @@
+
+[gd_scene load_steps=3 format=3 uid="uid://dsy8l07ygpb2c"]
+
+[ext_resource type="Script" path="res://scripts/slot.gd" id="1_5t5f1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_02gia"]
+
+
+[node name="Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("1_5t5f1")
+
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_02gia")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 19.0
+offset_bottom = 19.0
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]

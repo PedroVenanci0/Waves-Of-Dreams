@@ -1,0 +1,350 @@
+[gd_scene load_steps=22 format=3 uid="uid://0f0qylhqtmq1"]
+
+[ext_resource type="Script" path="res://scripts/cave_scene.gd" id="1_cm55i"]
+[ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_ikkcj"]
+[ext_resource type="PackedScene" uid="uid://ds05jxg1u28dg" path="res://scenes/portal.tscn" id="3_j768p"]
+[ext_resource type="PackedScene" uid="uid://drjdfbvtimvtq" path="res://scenes/fade_out_canvas_layer.tscn" id="4_bpird"]
+[ext_resource type="PackedScene" uid="uid://gqnww56fn2wi" path="res://scenes/tile_cave.tscn" id="5_htu02"]
+[ext_resource type="VideoStream" path="res://assets/Biomes/Acid.ogv" id="6_u53cn"]
+[ext_resource type="PackedScene" uid="uid://dls04wdcieeim" path="res://scenes/pause_menu.tscn" id="7_m3jca"]
+[ext_resource type="PackedScene" uid="uid://dw1cf8xforpci" path="res://scenes/enemy_spawner.tscn" id="7_oq7gl"]
+[ext_resource type="PackedScene" uid="uid://bvqsy6am53xks" path="res://scenes/entry_portal.tscn" id="8_io76c"]
+[ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="10_7up76"]
+[ext_resource type="Script" path="res://scripts/num_waves.gd" id="11_gihcy"]
+[ext_resource type="Script" path="res://scripts/enemies.gd" id="13_4coxa"]
+[ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="13_ftd1g"]
+[ext_resource type="Texture2D" uid="uid://7ofyspxk26km" path="res://assets/Butons/angel-angelov-healthbarwithoutbackground-removebg-preview.png" id="14_86t58"]
+[ext_resource type="Script" path="res://scripts/Hea.gd" id="15_o24hj"]
+[ext_resource type="AudioStream" uid="uid://baac1qshdn1ut" path="res://assets/Songs/Grimm (Hollow Knight_ The Grimm Troupe) (256).mp3" id="16_xms2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjdp7"]
+size = Vector2(945, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6acyq"]
+size = Vector2(263, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01wb6"]
+size = Vector2(385, 16.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhe0m"]
+size = Vector2(7.5, 116)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hanoo"]
+radius = 33.0606
+
+[node name="CaveScene" type="Node2D"]
+script = ExtResource("1_cm55i")
+
+[node name="player" parent="." instance=ExtResource("2_ikkcj")]
+z_index = 5
+position = Vector2(-283, -9)
+collision_mask = 3
+
+[node name="Portal" parent="." instance=ExtResource("3_j768p")]
+position = Vector2(347, 9)
+scale = Vector2(0.205, 0.205)
+destiny = "cave"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.2, 2.2)
+position_smoothing_enabled = true
+
+[node name="TileCave" parent="." instance=ExtResource("5_htu02")]
+layer_2/z_index = 10
+layer_2/tile_data = PackedInt32Array(-786448, 131072, 8, -720912, 983040, 8, -655376, 983040, 8, -589840, 983040, 9, -524304, 983040, 8, -458768, 983040, 9, -393232, 983040, 8, -327696, 983040, 9, -262160, 983040, 8, -196624, 983040, 9, -131088, 983040, 9, 131056, 983040, 8, 196592, 983040, 9, 262128, 983040, 8, 327664, 983040, 9, 393200, 196608, 9, 458736, 196608, 9, 524272, 196608, 9, 589808, 983040, 9, 655344, 983040, 9, 720880, 983040, 9, 786416, 1048576, 7, 851952, 1048576, 8, -786447, 131072, 8, -720911, 1310720, 8, -655375, 1310720, 9, -589839, 1048576, 10, -524303, 1048576, 10, -458767, 1048576, 10, -393231, 1048576, 10, -327695, 1048576, 10, -262159, 1048576, 10, -196623, 1048576, 10, -131087, 1048576, 10, 131057, 1048576, 10, 196593, 1048576, 10, 262129, 1048576, 10, 327665, 1048576, 10, 393201, 1048576, 10, 458737, 262144, 9, 524273, 1048576, 10, 589809, 1048576, 10, 655345, 524288, 11, 720881, 524288, 12, 786417, 1048576, 7, 851953, 1048576, 8, -786446, 1376256, 7, -720910, 1376256, 8, -655374, 1376256, 9, -589838, 393219, 17, -524302, 393219, 18, -458766, 393219, 19, -393230, 393219, 20, -262158, 393219, 22, 327666, 11, 8, 393202, 11, 9, 458738, 11, 10, 524274, 11, 11, 589810, 11, 12, 655346, 11, 13, 720882, 589824, 12, 786418, 1048576, 7, 851954, 1048576, 8, -786445, 1441792, 7, -720909, 1441792, 8, -655373, 1441792, 9, -589837, 458755, 17, -524301, 458755, 18, -458765, 458755, 19, -393229, 458755, 20, -327693, 458755, 21, -262157, 458755, 22, -196621, 458755, 23, 327667, 65547, 8, 393203, 65547, 9, 458739, 65547, 10, 524275, 65547, 11, 589811, 65547, 12, 655347, 65547, 13, 720883, 655360, 12, 786419, 1048576, 7, 851955, 1048576, 8, -786444, 1507328, 7, -720908, 1507328, 8, -655372, 1507328, 9, -589836, 524291, 17, -524300, 524291, 18, -458764, 524291, 19, -393228, 524291, 20, -327692, 524291, 21, -262156, 524291, 22, -196620, 524291, 23, 327668, 131083, 8, 393204, 131083, 9, 458740, 131083, 10, 524276, 131083, 11, 589812, 131083, 12, 655348, 131083, 13, 720884, 720896, 12, 786420, 1048576, 7, 851956, 1048576, 8, -786443, 1572864, 7, -720907, 1572864, 8, -655371, 589827, 16, -589835, 589827, 17, -524299, 589827, 18, -458763, 589827, 19, -393227, 589827, 20, -327691, 589827, 21, -262155, 589827, 22, -196619, 589827, 23, 327669, 196619, 8, 393205, 196619, 9, 458741, 196619, 10, 524277, 196619, 11, 589813, 196619, 12, 655349, 196619, 13, 720885, 786432, 12, 786421, 1048576, 7, 851957, 1048576, 8, -786442, 786432, 7, -720906, 786432, 8, -589834, 655363, 17, -524298, 655363, 18, -458762, 655363, 19, -393226, 655363, 20, -327690, 655363, 21, 327670, 262155, 8, 393206, 262155, 9, 458742, 262155, 10, 524278, 262155, 11, 589814, 262155, 12, 655350, 262155, 13, 720886, 851968, 12, 786422, 1048576, 7, 851958, 1048576, 8, -786441, 786432, 7, -720905, 786432, 8, -589833, 1966091, 27, -524297, 720899, 18, -458761, 720899, 19, -393225, 720899, 20, -327689, 720899, 21, 458743, 655371, 20, 524279, 655371, 21, 589815, 655371, 22, 655351, 917504, 11, 720887, 917504, 12, 786423, 1048576, 7, 851959, 1048576, 8, -786440, 786432, 7, -720904, 786432, 8, -589832, 2031627, 27, -524296, 196619, 31, -458760, 196619, 32, 393208, 720907, 19, 458744, 720907, 20, 524280, 720907, 21, 589816, 720907, 22, 655352, 983040, 11, 720888, 983040, 12, 786424, 1048576, 7, 851960, 1048576, 8, -786439, 196608, 10, -720903, 196608, 11, -589831, 2097163, 27, -524295, 262155, 31, -458759, 262155, 32, -393223, 262155, 33, 393209, 786443, 19, 458745, 786443, 20, 524281, 786443, 21, 589817, 786443, 22, 720889, 1048576, 12, 786425, 1048576, 7, 851961, 1048576, 8, -524294, 327691, 31, -458758, 327691, 32, -393222, 327691, 33, 393210, 851979, 19, 458746, 851979, 20, 524282, 851979, 21, 589818, 851979, 22, 720890, 851968, 12, 786426, 1048576, 7, 851962, 1048576, 8, 458747, 917515, 20, 524283, 917515, 21, 589819, 917515, 22, 851963, 65536, 8, 786428, 131072, 7, 851964, 131072, 8, 917500, 131072, 9, 983036, 131072, 10, 786429, 196608, 7, 851965, 196608, 8, 917501, 196608, 9, 983037, 196608, 10, 983038, 262144, 10, 851969, 0, 9, 917505, 0, 10, 720898, 65536, 7, 786434, 65536, 8, 851970, 65536, 9, 917506, 65536, 10, 720899, 131072, 7, 786435, 131072, 8, 720900, 196608, 7, 786436, 196608, 8, 589829, 720896, 11, 655365, 720896, 12, 720901, 1048576, 7, 786437, 1048576, 8, -851962, 65536, 10, -786426, 524288, 8, 589830, 786432, 11, 655366, 786432, 12, 720902, 1048576, 7, 786438, 1048576, 8, -851961, 1376256, 7, -786425, 1376256, 8, -720889, 1376256, 9, 655367, 851968, 12, 720903, 1048576, 7, 786439, 1048576, 8, -851960, 1441792, 7, -786424, 1441792, 8, -720888, 1441792, 9, 327688, 1769483, 5, 393224, 1769483, 6, 458760, 1769483, 7, 589832, 917504, 11, 655368, 917504, 12, 720904, 1048576, 7, 786440, 1048576, 8, -851959, 1507328, 7, -786423, 1507328, 8, -720887, 1507328, 9, -655351, 1376267, 29, -589815, 1376267, 30, 327689, 1835019, 5, 393225, 1835019, 6, 458761, 1835019, 7, 655369, 983040, 12, 720905, 1048576, 7, 786441, 1048576, 8, -851958, 1572864, 7, -786422, 1572864, 8, -720886, 1572864, 9, -655350, 1441803, 29, -589814, 2031627, 29, -524278, 2031627, 30, -458742, 1507339, 39, -393206, 1507339, 40, 327690, 1900555, 5, 393226, 1900555, 6, 458762, 1900555, 7, 524298, 2883595, 27, 589834, 2883595, 28, 655370, 1048576, 12, 720906, 1048576, 7, 786442, 1048576, 8, -851957, 589824, 7, -786421, 589824, 8, -720885, 589824, 9, -655349, 589824, 10, -589813, 2097163, 29, -524277, 2097163, 30, -458741, 1572875, 39, -393205, 1572875, 40, 262155, 2555915, 27, 327691, 2555915, 28, 524299, 2949131, 27, 589835, 2949131, 28, 655371, 851968, 12, 720907, 1048576, 7, 786443, 1048576, 8, -851956, 655360, 7, -786420, 655360, 8, -720884, 655360, 9, -655348, 655360, 10, -589812, 720896, 17, -524276, 2949131, 29, -458740, 2949131, 30, -393204, 917515, 39, 262156, 2621451, 27, 327692, 2621451, 28, 393228, 786436, 1, 458764, 786436, 2, 524300, 786436, 3, 589836, 917504, 11, 655372, 917504, 12, 720908, 1048576, 7, 786444, 1048576, 8, -851955, 720896, 7, -786419, 720896, 8, -720883, 720896, 9, -655347, 720896, 10, -589811, 786432, 17, -524275, 3014667, 29, -458739, 917515, 39, -393203, 917515, 40, -327667, 2424843, 39, -262131, 2424843, 40, 262157, 2686987, 27, 327693, 2686987, 28, 393229, 851972, 1, 458765, 851972, 2, 524301, 851972, 3, 589837, 983040, 11, 655373, 983040, 12, 720909, 1048576, 7, 786445, 1048576, 8, -851954, 786432, 7, -786418, 786432, 8, -720882, 786432, 9, -655346, 786432, 10, -589810, 851968, 17, -524274, 2424843, 39, -458738, 2424843, 40, -393202, 2424843, 39, -327666, 2424843, 40, -262130, 2490379, 40, 327694, 917508, 0, 393230, 917508, 1, 458766, 917508, 2, 524302, 917508, 3, 655374, 1048576, 12, 720910, 1048576, 7, 786446, 1048576, 8, -851953, 851968, 7, -786417, 851968, 8, -720881, 851968, 9, -655345, 851968, 10, -589809, 851968, 10, -524273, 2490379, 39, -458737, 2490379, 40, -393201, 2490379, 39, -327665, 2490379, 40, 65551, 851968, 10, 131087, 851968, 10, 196623, 851968, 10, 262159, 851968, 10, 327695, 851968, 10, 393231, 851968, 10, 458767, 851968, 10, 524303, 851968, 10, 589839, 851968, 10, 655375, 851968, 10, 720911, 1048576, 7, 786447, 1048576, 8, -851952, 917504, 7, -786416, 917504, 8, -720880, 917504, 9, -655344, 917504, 8, -589808, 917504, 8, -524272, 917504, 8, -458736, 917504, 8, -393200, 917504, 8, -327664, 917504, 8, -262128, 917504, 8, -196592, 917504, 8, 65552, 917504, 8, 131088, 917504, 8, 196624, 917504, 8, 262160, 917504, 8, 327696, 917504, 8, 393232, 917504, 8, 458768, 917504, 8, 524304, 917504, 8, 589840, 917504, 9, 655376, 917504, 9, 720912, 1048576, 7, 786448, 1048576, 8, 16, 917504, 8, -65520, 917504, 8, -131056, 917504, 8, -65552, 983040, 9, 65520, 983040, 9, 65521, 1048576, 10, -65551, 1048576, 10, 15, 851968, 10, -16, 983040, 9, -15, 1048576, 10, 589807, 65536, 9, -786449, 65536, 8, -720913, 65536, 9, -655377, 65536, 9, -589841, 65536, 9, -524305, 65536, 9, -458769, 65536, 9, -393233, 65536, 9, -327697, 65536, 9, -262161, 65536, 9, -196625, 65536, 9, -131089, 65536, 9, -65553, 65536, 9, -17, 65536, 9, 65519, 65536, 9, 131055, 65536, 9, 196591, 65536, 9, 262127, 65536, 9, 327663, 65536, 9, 393199, 65536, 9, 458735, 65536, 9, 524271, 65536, 9, 851951, 65536, 11, 917498, 0, 9, 983034, 0, 10, 1048570, 0, 11, 1114106, 0, 12, 917499, 65536, 9, 983035, 65536, 10, 1048571, 65536, 11, 1114107, 65536, 12, 1179643, 65536, 13, 1048572, 131072, 11, 1114108, 131072, 12, 1179644, 131072, 13, 1048573, 196608, 11, 1114109, 196608, 12, 1179645, 196608, 13, 851966, 262144, 8, 917502, 262144, 9, 1048574, 262144, 11, 1114110, 262144, 12, 983041, 0, 11, 1048577, 0, 12, 983042, 65536, 11, 1048578, 65536, 12, 1114114, 65536, 13, 851971, 131072, 9, 917507, 131072, 10, 983043, 131072, 11, 1048579, 131072, 12, 1114115, 131072, 13, 851972, 196608, 9, 917508, 196608, 10, 983044, 196608, 11, 1048580, 196608, 12, 1114116, 196608, 13, 851973, 262144, 9, 917509, 262144, 10, 983045, 262144, 11, 1048581, 262144, 12, 786415, 65536, 10, 720879, 65536, 9, 655343, 65536, 9, 720878, 0, 9, -720914, 0, 9, -655378, 0, 9, -589842, 0, 9, -524306, 0, 9, -458770, 0, 9, -393234, 0, 9, -327698, 0, 9, -262162, 0, 9, -196626, 0, 9, -131090, 0, 9, -65554, 0, 9, -18, 0, 9, 65518, 0, 9, 131054, 0, 9, 196590, 0, 9, 262126, 0, 9, 327662, 0, 9, 393198, 0, 9, 458734, 0, 9, 524270, 0, 9, 589806, 0, 9, 655342, 0, 9, -851984, 65536, 7, -851983, 65536, 7, -851982, 131072, 7, -851981, 131072, 7, -851980, 131072, 7, -851979, 196608, 7, -851978, 131072, 7, -917499, 65536, 7, -917495, 131072, 7, -917494, 196608, 7, -917493, 131072, 7, -917492, 65536, 7, -917491, 131072, 7, -917490, 131072, 7, -917489, 131072, 7, -917488, 196608, 7, 720913, 196608, 10, 786449, 196608, 11, 655377, 196608, 9, -786415, 196608, 9, -720879, 196608, 9, -655343, 196608, 9, -589807, 196608, 9, -524271, 196608, 9, -458735, 196608, 9, -393199, 196608, 9, -327663, 196608, 9, -262127, 196608, 9, -196591, 196608, 9, -131055, 196608, 9, -65519, 196608, 9, 17, 196608, 9, 65553, 196608, 9, 131089, 196608, 9, 196625, 196608, 9, 262161, 196608, 9, 327697, 196608, 9, 393233, 196608, 9, 458769, 196608, 9, 524305, 196608, 9, 589841, 196608, 9, 655378, 262144, 9, 589842, 262144, 9, 524306, 262144, 9, 458770, 262144, 9, 393234, 262144, 9, 327698, 262144, 9, 262162, 262144, 9, -786414, 262144, 9, -720878, 262144, 9, -655342, 262144, 9, -589806, 262144, 9, -524270, 262144, 9, -458734, 262144, 9, -393198, 262144, 9, -327662, 262144, 9, -262126, 262144, 9, -196590, 262144, 9, -131054, 262144, 9, -65518, 262144, 9, 18, 262144, 9, 65554, 262144, 9, 131090, 262144, 9, 196626, 262144, 9, -851951, 196608, 8, -917487, 196608, 7, -983039, 2555915, 23, -917503, 2555915, 24, -851967, 2555915, 25, -786431, 2555915, 26, -983038, 2621451, 23, -917502, 2621451, 24, -851966, 2621451, 25, -786430, 2621451, 26, -983037, 2686987, 23, -917501, 2686987, 24, -851965, 2686987, 25, -786429, 2686987, 26, -917508, 2555915, 23, -851972, 2555915, 24, -786436, 2555915, 25, -720900, 2555915, 26, -917507, 2621451, 23, -851971, 2621451, 24, -786435, 2621451, 25, -720899, 2621451, 26, -917506, 2686987, 23, -851970, 2686987, 24, -786434, 2686987, 25, -720898, 2686987, 26)
+
+[node name="entryPortal" parent="." instance=ExtResource("8_io76c")]
+position = Vector2(-323, -13)
+scale = Vector2(0.205, 0.205)
+
+[node name="pause_menu" parent="." instance=ExtResource("7_m3jca")]
+visible = false
+
+[node name="FadeOutCanvasLayer" parent="." instance=ExtResource("4_bpird")]
+visible = false
+
+[node name="EnemySpawner" parent="." instance=ExtResource("7_oq7gl")]
+
+[node name="Enemies_group" type="Node2D" parent="."]
+
+[node name="CamPortal" type="Camera2D" parent="."]
+position = Vector2(4, -33)
+zoom = Vector2(1.8, 1.8)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3.5, -298.75)
+shape = SubResource("RectangleShape2D_jjdp7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2.5, 405)
+shape = SubResource("RectangleShape2D_6acyq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-300, 299)
+shape = SubResource("RectangleShape2D_01wb6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(283, 302)
+shape = SubResource("RectangleShape2D_01wb6")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-109.75, 350)
+shape = SubResource("RectangleShape2D_yhe0m")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(86, 352)
+shape = SubResource("RectangleShape2D_yhe0m")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(237, -290)
+shape = SubResource("CircleShape2D_hanoo")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(344, -241)
+shape = SubResource("CircleShape2D_hanoo")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(303, -294)
+shape = SubResource("CircleShape2D_hanoo")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-323, -296)
+shape = SubResource("CircleShape2D_hanoo")
+
+[node name="AcidVideo" type="Node" parent="."]
+
+[node name="VideoStreamPlayer4" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -862.0
+offset_top = -396.0
+offset_right = -1314.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer5" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -894.0
+offset_top = 98.0
+offset_right = -1346.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer6" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -297.0
+offset_top = 120.0
+offset_right = -749.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer7" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 336.0
+offset_top = 134.0
+offset_right = -116.0
+offset_bottom = 273.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer8" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 350.0
+offset_top = -470.0
+offset_right = -102.0
+offset_bottom = -331.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer9" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 412.0
+offset_top = -1017.0
+offset_right = -40.0
+offset_bottom = -878.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer10" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -187.0
+offset_top = -1065.0
+offset_right = -639.0
+offset_bottom = -926.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer11" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -744.0
+offset_top = -1070.0
+offset_right = -1196.0
+offset_bottom = -931.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer12" type="VideoStreamPlayer" parent="AcidVideo"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -744.0
+offset_top = -1070.0
+offset_right = -1196.0
+offset_bottom = -931.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_u53cn")
+autoplay = true
+expand = true
+loop = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="waves" type="Label" parent="CanvasLayer"]
+offset_right = 51.0
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_7up76")
+script = ExtResource("11_gihcy")
+
+[node name="enemies" type="Label" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 43.0
+offset_right = 215.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.961518, 4.45209e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("10_7up76")
+script = ExtResource("13_4coxa")
+
+[node name="PortalText" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = 2.0
+offset_right = 312.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, 32)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.739715, 1.92523e-07, 1)
+theme_override_fonts/font = ExtResource("10_7up76")
+theme_override_font_sizes/font_size = 32
+text = "Um novo portal apareceu!"
+horizontal_alignment = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="healthbar2" parent="CanvasLayer2" instance=ExtResource("13_ftd1g")]
+offset_left = 6.0
+offset_top = 85.0
+offset_right = 201.0
+offset_bottom = 115.0
+value = 10.0
+show_percentage = false
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2/healthbar2"]
+z_index = -1
+layout_mode = 0
+offset_right = 196.0
+offset_bottom = 29.0
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="Angel-angelov-healthbarwithoutbackground-removebg-preview" type="Sprite2D" parent="CanvasLayer2/healthbar2"]
+position = Vector2(91.5, 61)
+scale = Vector2(0.389948, 0.912037)
+texture = ExtResource("14_86t58")
+
+[node name="Health" type="Label" parent="CanvasLayer2/healthbar2"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_top = 1.0
+offset_right = -57.0
+offset_bottom = 24.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "5/5"
+script = ExtResource("15_o24hj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_xms2r")
+volume_db = -10.787
+autoplay = true
+stream_paused = true
+bus = &"BackMusic"
+
+[connection signal="portal_open" from="Portal" to="." method="_on_portal_portal_open"]

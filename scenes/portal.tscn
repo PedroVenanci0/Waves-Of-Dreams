@@ -1,0 +1,228 @@
+[gd_scene load_steps=29 format=3 uid="uid://ds05jxg1u28dg"]
+
+[ext_resource type="Script" path="res://scripts/portal.gd" id="1_nui32"]
+[ext_resource type="Texture2D" uid="uid://fe6ixpxag2qg" path="res://assets/Biomes/Portal/Green Portal Sprite Sheet.png" id="2_54htj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4axyv"]
+atlas = ExtResource("2_54htj")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubngo"]
+atlas = ExtResource("2_54htj")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihvwo"]
+atlas = ExtResource("2_54htj")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h26kf"]
+atlas = ExtResource("2_54htj")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjwwc"]
+atlas = ExtResource("2_54htj")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv7fk"]
+atlas = ExtResource("2_54htj")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7nbh"]
+atlas = ExtResource("2_54htj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71dkb"]
+atlas = ExtResource("2_54htj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dadea"]
+atlas = ExtResource("2_54htj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpl7s"]
+atlas = ExtResource("2_54htj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvdny"]
+atlas = ExtResource("2_54htj")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq4kt"]
+atlas = ExtResource("2_54htj")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlfq4"]
+atlas = ExtResource("2_54htj")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i8oi"]
+atlas = ExtResource("2_54htj")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yy3s"]
+atlas = ExtResource("2_54htj")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq5jg"]
+atlas = ExtResource("2_54htj")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmqd8"]
+atlas = ExtResource("2_54htj")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhob0"]
+atlas = ExtResource("2_54htj")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edujn"]
+atlas = ExtResource("2_54htj")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owiaf"]
+atlas = ExtResource("2_54htj")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy64j"]
+atlas = ExtResource("2_54htj")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyvtl"]
+atlas = ExtResource("2_54htj")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nejgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4axyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubngo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihvwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h26kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjwwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv7fk")
+}],
+"loop": false,
+"name": &"disappearing",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7nbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71dkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dadea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpl7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvdny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq4kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlfq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i8oi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yy3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq5jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmqd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhob0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edujn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owiaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy64j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyvtl")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7is1p"]
+size = Vector2(147.5, 344)
+
+[sub_resource type="Curve" id="Curve_psch1"]
+_data = [Vector2(0, 0.747253), 0.0, 0.0, 0, 0, Vector2(1, 0.241758), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jahph"]
+offsets = PackedFloat32Array(0, 0.806667, 1)
+colors = PackedColorArray(0.0313726, 0.47451, 0, 0, 0, 0.65098, 0.0823529, 0.521569, 1, 1, 1, 0)
+
+[node name="Portal" type="Area2D" node_paths=PackedStringArray("_animator")]
+z_index = 5
+script = ExtResource("1_nui32")
+_animator = NodePath("Animator")
+
+[node name="Animator" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(18, -138)
+scale = Vector2(9.40625, 8.8125)
+sprite_frames = SubResource("SpriteFrames_nejgc")
+animation = &"spawn"
+autoplay = "idle"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-56.25, -94)
+shape = SubResource("RectangleShape2D_7is1p")
+disabled = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-112, -88)
+amount = 16
+lifetime = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(4, 120)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 48.0
+scale_amount_min = 12.0
+scale_amount_max = 16.0
+scale_amount_curve = SubResource("Curve_psch1")
+color_ramp = SubResource("Gradient_jahph")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="portal_open" from="." to="." method="_on_portal_open"]
+[connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]

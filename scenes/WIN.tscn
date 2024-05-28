@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvp2hkxj6drkc"]
+
+[ext_resource type="Texture2D" uid="uid://ciodfmblc70yo" path="res://assets/Title Screen/Default_Turn_this_image_into_a_game_victory_screen_write_you_w_2.jpg" id="1_0r5gg"]
+[ext_resource type="Script" path="res://scripts/WIN.gd" id="1_mgxdw"]
+[ext_resource type="Theme" uid="uid://ba0jbhrp1purd" path="res://assets/Butons/pause_menu.tres" id="2_nylsk"]
+[ext_resource type="FontFile" uid="uid://bb4f61tpbhck0" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="3_bu5ft"]
+[ext_resource type="AudioStream" uid="uid://biuteelu0rfbu" path="res://assets/Title Screen/Danza del Osos (256).mp3" id="6_2n6a6"]
+[ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="6_n4k5m"]
+[ext_resource type="Texture2D" uid="uid://ppnpygtgqp6" path="res://assets/Title Screen/Swords.png" id="7_b6rx5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 171.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("1_0r5gg")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.603
+anchor_right = 0.5
+anchor_bottom = 0.603
+offset_left = -65.0
+offset_top = 51.256
+offset_right = 69.0
+offset_bottom = 82.256
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nylsk")
+theme_override_fonts/font = ExtResource("3_bu5ft")
+text = "QUIT GAME
+"
+script = ExtResource("1_mgxdw")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 333.0
+offset_top = 104.0
+offset_right = 425.0
+offset_bottom = 153.0
+scale = Vector2(5, 5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.529412, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_n4k5m")
+text = "YOU WIN"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-6, 6)
+scale = Vector2(0.87, 0.87)
+stream = ExtResource("6_2n6a6")
+volume_db = -4.0
+autoplay = true
+
+[node name="Swords" type="Sprite2D" parent="."]
+position = Vector2(551, 145)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_b6rx5")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

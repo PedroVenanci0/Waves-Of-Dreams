@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmfqsl0vy867k"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_nxvyt"]
+[ext_resource type="Texture2D" uid="uid://dhgafuceeppri" path="res://assets/Entites/daemon.png" id="2_h4efw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
+size = Vector2(20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhtmo"]
+atlas = ExtResource("2_h4efw")
+region = Rect2(104, 0, 52, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buyqe"]
+atlas = ExtResource("2_h4efw")
+region = Rect2(156, 0, 52, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf8du"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhtmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buyqe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdegh"]
+size = Vector2(16, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3378"]
+radius = 409.031
+
+[node name="slime" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_nxvyt")
+
+[node name="damage_enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_enemy"]
+show_behind_parent = true
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_4yh1n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -18)
+scale = Vector2(0.705, 0.705)
+sprite_frames = SubResource("SpriteFrames_xf8du")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.255317
+
+[node name="hitbox2" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+light_mask = 4
+visibility_layer = 5
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_wdegh")
+
+[node name="detection" type="Area2D" parent="."]
+visible = false
+scale = Vector2(5, 5)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+shape = SubResource("CircleShape2D_s3378")
+debug_color = Color(0.994583, 0, 0.219729, 0.42)
+
+[connection signal="body_entered" from="damage_enemy" to="." method="_on_damage_enemy_body_entered"]
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://dls04wdcieeim"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_gabqn"]
+[ext_resource type="Theme" uid="uid://ba0jbhrp1purd" path="res://assets/Butons/pause_menu.tres" id="1_xixoh"]
+[ext_resource type="Texture2D" uid="uid://jvrbxwl2jk23" path="res://assets/Magic Buttons/wooden-buttons-with-gold-and-silver-frames-free-vector-removebg-preview.png" id="3_w1sio"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_u8apk"]
+action = &"pause_button"
+
+[sub_resource type="Shortcut" id="Shortcut_iugx1"]
+events = [SubResource("InputEventAction_u8apk")]
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_gabqn")
+
+[node name="bg_overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.345098)
+
+[node name="menu_holder" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume_btn" type="Button" parent="menu_holder"]
+layout_mode = 2
+theme = ExtResource("1_xixoh")
+shortcut = SubResource("Shortcut_iugx1")
+text = "
+RESUME
+
+"
+
+[node name="quit_btn2" type="Button" parent="menu_holder"]
+layout_mode = 2
+theme = ExtResource("1_xixoh")
+text = "
+QUIT GAME
+
+"
+
+[node name="Wooden-buttons-with-gold-and-silver-frames-free-vector-removebg-preview" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(579, 297)
+texture = ExtResource("3_w1sio")
+region_enabled = true
+region_rect = Rect2(23.5158, 41.683, 177.739, 54.5814)
+
+[node name="Wooden-buttons-with-gold-and-silver-frames-free-vector-removebg-preview2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(580, 349)
+texture = ExtResource("3_w1sio")
+region_enabled = true
+region_rect = Rect2(23.5158, 41.683, 177.739, 54.5814)
+
+[connection signal="pressed" from="menu_holder/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="menu_holder/quit_btn2" to="." method="_on_quit_btn_2_pressed"]
