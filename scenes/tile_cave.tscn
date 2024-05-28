@@ -29419,8 +29419,10 @@ texture = ExtResource("14_upogq")
 22:11/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_p1dxg"]
-physics_layer_0/collision_layer = 1
-physics_layer_1/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 2
 sources/10 = SubResource("TileSetAtlasSource_2xmkr")
 sources/11 = SubResource("TileSetAtlasSource_3vtmq")
 sources/4 = SubResource("TileSetAtlasSource_5mcmf")

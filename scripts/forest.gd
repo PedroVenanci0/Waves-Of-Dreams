@@ -20,7 +20,7 @@ func _process(delta):
 	# Ajustar texto da interface caso haja portal.
 	var _portalText = get_node("CanvasLayer/PortalText") as Label;
 	var _bottom = float(get_viewport().size.y)
-	var _newY = _bottom - _portalText.size.y - 8 if portalOpened else _bottom;
+	var _newY = 615.0 if portalOpened else 650.0;
 	_portalText.position.y = lerp(_portalText.position.y, _newY, 0.169);
 		
 	

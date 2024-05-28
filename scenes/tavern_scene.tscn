@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=64 format=3 uid="uid://b5qxa2ct648sv"]
+[gd_scene load_steps=66 format=3 uid="uid://b5qxa2ct648sv"]
 
 [ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_a7an7"]
 [ext_resource type="PackedScene" uid="uid://cpapqb8jy76x0" path="res://scenes/tile_taverna.tscn" id="1_e4k2r"]
@@ -16,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/Hea.gd" id="9_pjhcj"]
 [ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="9_wq8dw"]
 [ext_resource type="Texture2D" uid="uid://7ofyspxk26km" path="res://assets/Butons/angel-angelov-healthbarwithoutbackground-removebg-preview.png" id="11_iyiwe"]
+[ext_resource type="PackedScene" uid="uid://c0cmotyeynw6w" path="res://scripts/stats_player.tscn" id="15_bm7sr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgson"]
 atlas = ExtResource("4_gq44h")
@@ -440,9 +440,12 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "5/5"
 script = ExtResource("9_pjhcj")
 
+[node name="Control" parent="Inventory_Stats" instance=ExtResource("15_bm7sr")]
+visible = false
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_mels0")
-volume_db = -20.799
+volume_db = -11.466
 autoplay = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

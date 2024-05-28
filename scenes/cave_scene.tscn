@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=19 format=3 uid="uid://0f0qylhqtmq1"]
+[gd_scene load_steps=22 format=3 uid="uid://0f0qylhqtmq1"]
 
 [ext_resource type="Script" path="res://scripts/cave_scene.gd" id="1_cm55i"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_ikkcj"]
@@ -12,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bvqsy6am53xks" path="res://scenes/entry_portal.tscn" id="8_io76c"]
 [ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="10_7up76"]
 [ext_resource type="Script" path="res://scripts/num_waves.gd" id="11_gihcy"]
-[ext_resource type="Script" path="res://scripts/Hea.gd" id="12_oquxi"]
 [ext_resource type="Script" path="res://scripts/enemies.gd" id="13_4coxa"]
-[ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="13_u4p7j"]
-[ext_resource type="Texture2D" uid="uid://7ofyspxk26km" path="res://assets/Butons/angel-angelov-healthbarwithoutbackground-removebg-preview.png" id="14_ufwpq"]
+[ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="13_ftd1g"]
+[ext_resource type="Texture2D" uid="uid://7ofyspxk26km" path="res://assets/Butons/angel-angelov-healthbarwithoutbackground-removebg-preview.png" id="14_86t58"]
+[ext_resource type="Script" path="res://scripts/Hea.gd" id="15_o24hj"]
+[ext_resource type="AudioStream" uid="uid://baac1qshdn1ut" path="res://assets/Songs/Grimm (Hollow Knight_ The Grimm Troupe) (256).mp3" id="16_xms2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjdp7"]
 size = Vector2(945, 5.5)
@@ -301,5 +301,49 @@ theme_override_fonts/font = ExtResource("10_7up76")
 theme_override_font_sizes/font_size = 32
 text = "Um novo portal apareceu!"
 horizontal_alignment = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="healthbar2" parent="CanvasLayer2" instance=ExtResource("13_ftd1g")]
+offset_left = 6.0
+offset_top = 85.0
+offset_right = 201.0
+offset_bottom = 115.0
+value = 10.0
+show_percentage = false
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2/healthbar2"]
+z_index = -1
+layout_mode = 0
+offset_right = 196.0
+offset_bottom = 29.0
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="Angel-angelov-healthbarwithoutbackground-removebg-preview" type="Sprite2D" parent="CanvasLayer2/healthbar2"]
+position = Vector2(91.5, 61)
+scale = Vector2(0.389948, 0.912037)
+texture = ExtResource("14_86t58")
+
+[node name="Health" type="Label" parent="CanvasLayer2/healthbar2"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_top = 1.0
+offset_right = -57.0
+offset_bottom = 24.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "5/5"
+script = ExtResource("15_o24hj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_xms2r")
+volume_db = -6.787
+autoplay = true
+bus = &"BackMusic"
 
 [connection signal="portal_open" from="Portal" to="." method="_on_portal_portal_open"]
