@@ -1,13 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://daen02rnfeed1"]
+[gd_scene load_steps=11 format=3 uid="uid://daen02rnfeed1"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_y6klu"]
 [ext_resource type="VideoStream" path="res://assets/Title Screen/Title.ogv" id="2_t5k1q"]
 [ext_resource type="Theme" uid="uid://cfxocfekwsruw" path="res://assets/Butons/new_theme.tres" id="2_wfxqr"]
-[ext_resource type="Texture2D" uid="uid://2h6c0g2r2x3b" path="res://assets/Title Screen/Default_Create_an_image_featuring_a_group_of_pixel_art_charact_2.jpg" id="3_bssmk"]
-[ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="4_j8qvw"]
+[ext_resource type="Texture2D" uid="uid://2h6c0g2r2x3b" path="res://assets/Title Screen/Default_Create_an_image_featuring_a_group_of_pixel_art_charact_2.jpg" id="3_m3hbv"]
 [ext_resource type="Script" path="res://scripts/Start_Buton.gd" id="5_vvekp"]
-[ext_resource type="AudioStream" uid="uid://be1ywdxwhe43y" path="res://assets/Songs/impact/03 - Impact.mp3" id="7_48m2a"]
-[ext_resource type="AudioStream" uid="uid://io854vm475m8" path="res://assets/Songs/Aviators - Fading Light (Instrumental) [Symphonic Rock] (256).mp3" id="8_t4xfd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uw4t"]
 
@@ -57,7 +54,7 @@ offset_right = 1157.0
 offset_bottom = 647.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_bssmk")
+texture = ExtResource("3_m3hbv")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="."]
@@ -76,7 +73,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.0707571, 0.0263823, 0.0230824, 1)
-theme_override_fonts/font = ExtResource("4_j8qvw")
 text = "Waves of Dreams"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -106,7 +102,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_wfxqr")
-theme_override_fonts/font = ExtResource("4_j8qvw")
 text = "START"
 script = ExtResource("5_vvekp")
 
@@ -117,7 +112,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_5uw4t")
 [node name="Quit_Buton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_wfxqr")
-theme_override_fonts/font = ExtResource("4_j8qvw")
 text = "QUIT GAME"
 
 [node name="Animator" type="AnimationPlayer" parent="."]
@@ -127,12 +121,10 @@ libraries = {
 
 [node name="StartImpact" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-865, -200)
-stream = ExtResource("7_48m2a")
 bus = &"SFX"
 
 [node name="BackMusic" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-865, -200)
-stream = ExtResource("8_t4xfd")
 pitch_scale = 0.89
 autoplay = true
 bus = &"BackMusic"

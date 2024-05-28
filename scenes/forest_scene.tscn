@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=32 format=3 uid="uid://bl635nf8tyl18"]
-
+[gd_scene load_steps=34 format=3 uid="uid://bl635nf8tyl18"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_06gyy"]
 [ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="3_ot5rx"]

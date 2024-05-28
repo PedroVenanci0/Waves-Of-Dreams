@@ -1,14 +1,12 @@
-
-[gd_scene load_steps=14 format=3 uid="uid://b5qxa2ct648sv"]
+[gd_scene load_steps=65 format=3 uid="uid://b5qxa2ct648sv"]
 
 [ext_resource type="Script" path="res://scripts/tavern_scene.gd" id="1_a7an7"]
 [ext_resource type="PackedScene" uid="uid://cpapqb8jy76x0" path="res://scenes/tile_taverna.tscn" id="1_e4k2r"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="2_colvp"]
 [ext_resource type="PackedScene" uid="uid://ds05jxg1u28dg" path="res://scenes/portal.tscn" id="3_kiwi1"]
-[ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="4_d2df1"]
+[ext_resource type="Texture2D" uid="uid://bc11pnpchloye" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/18.png" id="4_gq44h"]
 [ext_resource type="PackedScene" uid="uid://drjdfbvtimvtq" path="res://scenes/fade_out_canvas_layer.tscn" id="5_bg7yb"]
-[ext_resource type="Texture2D" uid="uid://7ofyspxk26km" path="res://assets/Butons/angel-angelov-healthbarwithoutbackground-removebg-preview.png" id="5_wlbyt"]
-
+[ext_resource type="Texture2D" uid="uid://bhp3up50m138k" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/10.png" id="5_yqr27"]
 [ext_resource type="PackedScene" uid="uid://dls04wdcieeim" path="res://scenes/pause_menu.tscn" id="6_luu8j"]
 [ext_resource type="Texture2D" uid="uid://dmjhq46u8p153" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/35.png" id="6_qkrg7"]
 [ext_resource type="Texture2D" uid="uid://co35fsmbry3ay" path="res://assets/Icons/Super Package Retro Pixel Effects 32x32 pack 2 Free/03.png" id="7_85jvi"]
@@ -17,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/ColorRect2.gd" id="8_kdn8p"]
 [ext_resource type="AudioStream" uid="uid://b16vj1qp5q5x0" path="res://assets/Songs/Calcinha Preta - Agora Estou Sofrendo #AoVivoEmSalvador DVD Vol.1 (320).mp3" id="9_mels0"]
 [ext_resource type="Script" path="res://scripts/Hea.gd" id="9_pjhcj"]
+[ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="9_wq8dw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgson"]
 atlas = ExtResource("4_gq44h")
@@ -374,28 +373,7 @@ script = ExtResource("1_a7an7")
 [node name="TileTaverna" parent="." instance=ExtResource("1_e4k2r")]
 
 [node name="player" parent="." instance=ExtResource("2_colvp")]
-position = Vector2(-4, 8)
-metadata/_edit_group_ = true
-
-[node name="healthbar" parent="player" instance=ExtResource("4_d2df1")]
-offset_left = -15.3846
-offset_top = -33.8462
-offset_right = 17.6154
-offset_bottom = -28.8462
-show_percentage = false
-metadata/_edit_group_ = true
-
-[node name="ColorRect2" type="ColorRect" parent="player/healthbar"]
-z_index = -1
-layout_mode = 0
-offset_right = 33.0
-offset_bottom = 5.0
-color = Color(0.262745, 0.262745, 0.262745, 1)
-
-[node name="Angel-angelov-healthbarwithoutbackground-removebg-preview" type="Sprite2D" parent="player"]
-position = Vector2(0.384616, -22.3077)
-scale = Vector2(0.0653246, 0.178953)
-texture = ExtResource("5_wlbyt")
+position = Vector2(-3.99997, 10)
 
 [node name="FX2" type="AnimatedSprite2D" parent="player"]
 z_index = 5
@@ -403,6 +381,13 @@ position = Vector2(3.0769, -16.9231)
 scale = Vector2(0.607692, 0.607692)
 sprite_frames = SubResource("SpriteFrames_w6h1b")
 animation = &"Potion of Speed"
+
+[node name="healthbar" parent="player" instance=ExtResource("9_wq8dw")]
+offset_left = -32.3077
+offset_top = -29.2308
+offset_right = 207.692
+offset_bottom = -2.23077
+scale = Vector2(0.27, 0.265)
 
 [node name="Portal" parent="." instance=ExtResource("3_kiwi1")]
 position = Vector2(443, -4)
