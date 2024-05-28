@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export_category("Variables")
 @export var knockback_cooldown = 0.5
 
+
 var enemy_life = Global.enemy_life
 var direction := Vector2.ZERO
 var player_chese = false

@@ -39,7 +39,7 @@ func getDestinyByWaveNumber() -> String:
 		return "forest";
 	if Global.num_wave < 20:
 		return "cave";
-	if Global.num_wave == 30:
+	if Global.num_wave == 20:
 		return "win"
 	
 	return "forest"
