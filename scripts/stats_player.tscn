@@ -1,0 +1,196 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0cmotyeynw6w"]
+
+[ext_resource type="FontFile" uid="uid://b7pjtcaddfkwk" path="res://assets/Fonts/PixelOperator8.ttf" id="1_4kht4"]
+[ext_resource type="Script" path="res://scripts/stats_player.gd" id="1_k24nr"]
+[ext_resource type="Texture2D" uid="uid://kkft55wclwy7" path="res://assets/Magic Buttons/dgccmnj-5bcd3714-3bf9-4839-a2cd-d263c23f16b4.png" id="3_mmkof"]
+[ext_resource type="Texture2D" uid="uid://c5bs0a6fbeg30" path="res://assets/Magic Buttons/Magic_button_blue.png" id="4_qfxsu"]
+[ext_resource type="Texture2D" uid="uid://ca7rlbjk1n2ys" path="res://assets/Magic Buttons/Magic_button_red.png" id="5_thrpj"]
+[ext_resource type="Texture2D" uid="uid://s3akss6qgjie" path="res://assets/Magic Buttons/Magic_button_purple.png" id="6_ikiyq"]
+[ext_resource type="Texture2D" uid="uid://dquh1wlur57wk" path="res://assets/Magic Buttons/imagem_2024-05-21_165446034-removebg-preview.png" id="7_ootog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqgi5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nc6xn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_310vg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 1.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k24nr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 389.0
+offset_top = 211.0
+offset_right = 721.0
+offset_bottom = 373.0
+size_flags_stretch_ratio = 0.0
+color = Color(0.294387, 1.59734e-06, 0.0039945, 0.854902)
+
+[node name="stats" type="HBoxContainer" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 458.0
+offset_top = 242.0
+offset_right = 660.0
+offset_bottom = 372.0
+
+[node name="attribute" type="VBoxContainer" parent="stats"]
+layout_mode = 2
+
+[node name="TotaXP" type="Label" parent="stats/attribute"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0181764, 0.372664, 4.81308e-08, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4kht4")
+text = "TotalXP - "
+
+[node name="Dgccmnj-5Bcd3714-3Bf9-4839-a2Cd-d263c23f16b7" type="Sprite2D" parent="stats/attribute/TotaXP"]
+position = Vector2(-24, 5.99998)
+scale = Vector2(0.127513, 0.105324)
+texture = ExtResource("3_mmkof")
+region_enabled = true
+region_rect = Rect2(796.865, 186.016, 199.718, 216.837)
+
+[node name="HSeparator2" type="HSeparator" parent="stats/attribute"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nqgi5")
+
+[node name="HP" type="Label" parent="stats/attribute"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.662745, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4kht4")
+text = "Vitalidade"
+
+[node name="Dgccmnj-5Bcd3714-3Bf9-4839-a2Cd-d263c23f16b6" type="Sprite2D" parent="stats/attribute/HP"]
+position = Vector2(-23, 3)
+scale = Vector2(0.119048, 0.12037)
+texture = ExtResource("3_mmkof")
+region_enabled = true
+region_rect = Rect2(17.964, 414.266, 168.334, 162.628)
+
+[node name="HSeparator" type="HSeparator" parent="stats/attribute"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nc6xn")
+
+[node name="move_speed" type="Label" parent="stats/attribute"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435097, 0.843772, 1, 0.470588)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4kht4")
+text = "Move speed - 
+"
+
+[node name="Dgccmnj-5Bcd3714-3Bf9-4839-a2Cd-d263c23f16b5" type="Sprite2D" parent="stats/attribute/move_speed"]
+position = Vector2(-24, 3)
+scale = Vector2(0.0961539, 0.108784)
+texture = ExtResource("3_mmkof")
+region_enabled = true
+region_rect = Rect2(394.575, 0.563538, 208.278, 185.453)
+
+[node name="HSeparator3" type="HSeparator" parent="stats/attribute"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_310vg")
+
+[node name="Strenght" type="Label" parent="stats/attribute"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.321569, 0.133333, 0.458824, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4kht4")
+text = "Strenght - "
+
+[node name="Dgccmnj-5Bcd3714-3Bf9-4839-a2Cd-d263c23f16b4" type="Sprite2D" parent="stats/attribute/Strenght"]
+position = Vector2(-25, 4)
+scale = Vector2(0.132614, 0.1225)
+texture = ExtResource("3_mmkof")
+region_enabled = true
+region_rect = Rect2(0, 0, 197.71, 200.282)
+
+[node name="Background" type="Sprite2D" parent="stats/attribute"]
+position = Vector2(99, 49)
+scale = Vector2(0.605672, 0.600758)
+texture = ExtResource("7_ootog")
+
+[node name="volue" type="VBoxContainer" parent="stats"]
+layout_mode = 2
+
+[node name="TotalXP" type="Label" parent="stats/volue"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 2
+
+[node name="HP" type="Label" parent="stats/volue"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="hp_button" type="Button" parent="stats/volue/HP"]
+z_index = 5
+layout_mode = 0
+offset_left = 51.0
+offset_top = 2.0
+offset_right = 68.0
+offset_bottom = 19.0
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+
+[node name="MagicButtonRed" type="Sprite2D" parent="stats/volue/HP/hp_button"]
+position = Vector2(9, 9)
+scale = Vector2(0.1125, 0.1175)
+texture = ExtResource("5_thrpj")
+
+[node name="MoveSpeed" type="Label" parent="stats/volue"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="speed_button" type="Button" parent="stats/volue/MoveSpeed"]
+z_index = 5
+layout_mode = 0
+offset_left = 52.0
+offset_top = 3.0
+offset_right = 69.0
+offset_bottom = 20.0
+
+[node name="MagicButtonBlue" type="Sprite2D" parent="stats/volue/MoveSpeed/speed_button"]
+position = Vector2(8.00002, 7.99999)
+scale = Vector2(0.1175, 0.11875)
+texture = ExtResource("4_qfxsu")
+
+[node name="Strenght" type="Label" parent="stats/volue"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="strenght_button" type="Button" parent="stats/volue/Strenght"]
+z_index = 5
+layout_mode = 0
+offset_left = 52.0
+offset_top = -2.0
+offset_right = 69.0
+offset_bottom = 15.0
+
+[node name="MagicButtonPurple" type="Sprite2D" parent="stats/volue/Strenght/strenght_button"]
+position = Vector2(8, 9)
+scale = Vector2(0.11375, 0.114375)
+texture = ExtResource("6_ikiyq")
+
+[connection signal="pressed" from="stats/volue/HP/hp_button" to="." method="_on_hp_button_pressed"]
+[connection signal="pressed" from="stats/volue/MoveSpeed/speed_button" to="." method="_on_speed_button_pressed"]
+[connection signal="pressed" from="stats/volue/MoveSpeed/speed_button" to="stats/volue/HP/hp_button" method="_on_button_pressed"]
+[connection signal="pressed" from="stats/volue/Strenght/strenght_button" to="." method="_on_strenght_button_pressed"]

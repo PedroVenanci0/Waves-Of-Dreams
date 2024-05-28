@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://sf6cvswtld7g"]
+
+[ext_resource type="Script" path="res://item_inventory.gd" id="1_jn4to"]
+[ext_resource type="Texture2D" uid="uid://c2motgurp8riv" path="res://assets/Icons/Pixel Potion Pack/Pixel Potion Pack - FINISHED/ALL Potions - First Frame/Large Tonic - BLUE - 0000.png" id="2_de6jq"]
+
+[resource]
+script = ExtResource("1_jn4to")
+name = "Speed Potion"
+texture = ExtResource("2_de6jq")

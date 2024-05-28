@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dti7an6utviik"
+path="res://.godot/imported/07 - Impact.mp3-be6e810ea2bc03b3b3caedce9a49cbdd.mp3str"
+
+[deps]
+
+source_file="res://assets/Songs/impact/07 - Impact.mp3"
+dest_files=["res://.godot/imported/07 - Impact.mp3-be6e810ea2bc03b3b3caedce9a49cbdd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

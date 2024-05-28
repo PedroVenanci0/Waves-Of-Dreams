@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtrhpqwobw7sk"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_pj8pq"]
+[ext_resource type="Texture2D" uid="uid://cn7kdo5dcb6aa" path="res://assets/Entites/skeleton-NESW.png" id="3_7ova2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
+size = Vector2(10.375, 12.5156)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdegh"]
+size = Vector2(8, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3378"]
+radius = 409.031
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dybjy"]
+atlas = ExtResource("3_7ova2")
+region = Rect2(0, 32, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_450np"]
+atlas = ExtResource("3_7ova2")
+region = Rect2(24, 32, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go2xq"]
+atlas = ExtResource("3_7ova2")
+region = Rect2(48, 32, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uqy4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dybjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_450np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go2xq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[node name="skeleton" type="CharacterBody2D"]
+scale = Vector2(1.3, 1.3)
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_pj8pq")
+
+[node name="damage_enemy" type="Area2D" parent="."]
+position = Vector2(-1, -3)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_enemy"]
+show_behind_parent = true
+position = Vector2(1.1875, 1.25781)
+shape = SubResource("RectangleShape2D_4yh1n")
+
+[node name="hitbox2" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+light_mask = 4
+visibility_layer = 5
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_wdegh")
+
+[node name="detection" type="Area2D" parent="."]
+visible = false
+scale = Vector2(5, 5)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+shape = SubResource("CircleShape2D_s3378")
+debug_color = Color(0.994583, 0, 0.219729, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_uqy4w")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.273684
+
+[connection signal="body_entered" from="damage_enemy" to="." method="_on_damage_enemy_body_entered"]
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]

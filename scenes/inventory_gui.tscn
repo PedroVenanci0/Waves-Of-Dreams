@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://crfi1gl7ds84c"]
+
+[sub_resource type="GDScript" id="GDScript_o0uff"]
+script/source = "extends Control
+
+signal opened
+signal closed
+
+var is_open: bool = false
+
+@onready var inventory: Inventory = preload(\"res://scripts/Resources/items/player_inventory.tres\")
+
+func _ready():
+	update()
+	
+func update():
+	for i in range(min(inventory.items.size(), slots.size())):
+		slots[i].update(inventory.items[i])
+
+func open():
+	visible = true 
+	is_open = true
+	opened.emit()
+	
+func close():
+	visible = false
+	is_open = false
+	closed.emit()
+"
+
+[node name="InventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 124.0
+offset_bottom = 124.0
+scale = Vector2(2, 2)
+script = SubResource("GDScript_o0uff")
