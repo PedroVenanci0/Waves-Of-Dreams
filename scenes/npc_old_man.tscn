@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4ki0k8ryvjy3"]
+
+[ext_resource type="Texture2D" uid="uid://dmmmualrerkvh" path="res://assets/NPC pack/Old man/Old man walk-Sheet.png" id="1_xcy02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_741up"]
+atlas = ExtResource("1_xcy02")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue18n"]
+atlas = ExtResource("1_xcy02")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8jbj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_741up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue18n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="npc" type="Node2D"]
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n8jbj")
+autoplay = "default"
+frame_progress = 0.104424
