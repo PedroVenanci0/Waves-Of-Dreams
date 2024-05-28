@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=19 format=3 uid="uid://0f0qylhqtmq1"]
 
 [ext_resource type="Script" path="res://scripts/cave_scene.gd" id="1_cm55i"]
@@ -13,6 +14,8 @@
 [ext_resource type="Script" path="res://scripts/num_waves.gd" id="11_gihcy"]
 [ext_resource type="Script" path="res://scripts/Hea.gd" id="12_oquxi"]
 [ext_resource type="Script" path="res://scripts/enemies.gd" id="13_4coxa"]
+[ext_resource type="PackedScene" uid="uid://c2jd1l8rhi73t" path="res://scenes/healthbar.tscn" id="13_u4p7j"]
+[ext_resource type="Texture2D" uid="uid://7ofyspxk26km" path="res://assets/Butons/angel-angelov-healthbarwithoutbackground-removebg-preview.png" id="14_ufwpq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjdp7"]
 size = Vector2(945, 5.5)
@@ -268,20 +271,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_7up76")
 script = ExtResource("11_gihcy")
-
-[node name="Health" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -81.0
-offset_top = -1.0
-offset_right = 3.0
-offset_bottom = 22.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_7up76")
-script = ExtResource("12_oquxi")
 
 [node name="enemies" type="Label" parent="CanvasLayer"]
 offset_left = 5.0

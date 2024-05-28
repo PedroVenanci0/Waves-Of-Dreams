@@ -1,44 +1,30 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhq4xqal6qltf"]
+[gd_scene load_steps=14 format=3 uid="uid://dhq4xqal6qltf"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_ikupq"]
-[ext_resource type="Texture2D" path="res://assets/Entites/Slime/Variant1/Slime_Death_1.png" id="2_pnp4j"]
-[ext_resource type="Texture2D" path="res://assets/Entites/Slime/Variant1/Slime_Death_2.png" id="3_jd7jp"]
-[ext_resource type="Texture2D" path="res://assets/Entites/Slime/Variant1/Slime_Death_3.png" id="4_fadp5"]
-[ext_resource type="Texture2D" path="res://assets/Entites/Slime/Variant1/Slime_Walk_0.png" id="5_8xnmx"]
-[ext_resource type="Texture2D" path="res://assets/Entites/Slime/Variant1/Slime_Walk_1.png" id="6_jl47o"]
-[ext_resource type="Texture2D" path="res://assets/Entites/Slime/Variant1/Slime_Walk_2.png" id="7_dtvf0"]
-[ext_resource type="Texture2D" path="res://assets/Entites/Slime/Variant1/Slime_Walk_3.png" id="8_6do02"]
 [ext_resource type="PackedScene" uid="uid://cyrgwagto13q2" path="res://scenes/player.tscn" id="9_yty2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yh1n"]
 size = Vector2(16, 10.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtgqu"]
-atlas = ExtResource("2_pnp4j")
 region = Rect2(0, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lff0"]
-atlas = ExtResource("3_jd7jp")
 region = Rect2(0, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1q4xe"]
-atlas = ExtResource("4_fadp5")
 region = Rect2(0, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6blqa"]
-atlas = ExtResource("5_8xnmx")
 region = Rect2(0, 0, 152, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq2ay"]
-atlas = ExtResource("6_jl47o")
 region = Rect2(0, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aix4q"]
-atlas = ExtResource("7_dtvf0")
 region = Rect2(0, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w47nl"]
-atlas = ExtResource("8_6do02")
 region = Rect2(15, 0, 145, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xf8du"]

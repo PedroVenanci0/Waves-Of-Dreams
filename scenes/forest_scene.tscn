@@ -4274,6 +4274,7 @@ z_index = 3
 position = Vector2(-317, 86)
 collision_mask = 3
 
+
 [node name="healthbar" parent="player" instance=ExtResource("3_ot5rx")]
 offset_left = -14.6154
 offset_top = -33.0769
@@ -4429,5 +4430,43 @@ layer_2/tile_data = PackedInt32Array(1114068, 17, 9, 1179604, 17, 10, 1245140, 1
 stream = ExtResource("16_txnfq")
 volume_db = -22.781
 autoplay = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="healthbar2" parent="CanvasLayer2" instance=ExtResource("3_ot5rx")]
+offset_left = 6.0
+offset_top = 85.0
+offset_right = 201.0
+offset_bottom = 115.0
+value = 10.0
+show_percentage = false
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2/healthbar2"]
+z_index = -1
+layout_mode = 0
+offset_right = 196.0
+offset_bottom = 29.0
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="Angel-angelov-healthbarwithoutbackground-removebg-preview" type="Sprite2D" parent="CanvasLayer2/healthbar2"]
+position = Vector2(91.5, 61)
+scale = Vector2(0.389948, 0.912037)
+texture = ExtResource("4_fxqj1")
+
+[node name="Health" type="Label" parent="CanvasLayer2/healthbar2"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_top = 1.0
+offset_right = -57.0
+offset_bottom = 24.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "5/5"
+script = ExtResource("16_1vp87")
 
 [connection signal="portal_open" from="Portal" to="." method="_on_portal_portal_open"]
