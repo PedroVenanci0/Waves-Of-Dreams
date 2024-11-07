@@ -28,10 +28,3 @@ O desenvolvimento de *Waves of Dreams* foi uma experiência enriquecedora, que p
 - **Resolução de Problemas:** Enfrentei e superei desafios técnicos e de design durante o processo.  
 - **Git e GitHub:** Aprofundei meus conhecimentos no uso dessas ferramentas para controle de versão e trabalho colaborativo.  
 
----
-
-## 🧙 Fluxo do Jogo (Resumo)  
-1. O jogador começa em uma taverna, aprende as mecânicas básicas e explora o ambiente.  
-2. Ao atravessar o portal, enfrenta ondas de inimigos em dois biomas distintos (floresta e caverna).  
-3. O progresso é recompensado com experiência, que pode ser usada para melhorar os atributos do personagem.  
-4. O desafio aumenta gradativamente até o nível final, onde o jogador pode alcançar a vitória.  
